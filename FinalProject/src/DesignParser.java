@@ -60,6 +60,10 @@ public class DesignParser {
 
 			// Now we can navigate the classNode and look for things we are
 			// interested in.
+			
+			//UMLClass uClass = new UMLClass();
+			//ClassParser cParser = new ClassParser();
+			//cParser.parse(classNode);
 			printClass(classNode);
 
 			printFields(classNode);
