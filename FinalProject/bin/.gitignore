@@ -2,5 +2,12 @@
 /DesignParser.class
 /Parser.class
 /Class.class
+<<<<<<< HEAD
 /UMLClass.class
 /UMLField.class
+=======
+/Visibility.class
+/HeadType.class
+/LineType.class
+/Category.class
+>>>>>>> 85b9620859cb4026e8e5a099bc4a8effb68329cd
