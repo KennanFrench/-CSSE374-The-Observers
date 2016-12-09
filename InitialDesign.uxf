@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>720</x>
-      <y>568</y>
+      <y>448</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -20,7 +20,7 @@ void parse()
     <id>UMLClass</id>
     <coordinates>
       <x>560</x>
-      <y>680</y>
+      <y>560</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -34,7 +34,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>440</x>
-      <y>792</y>
+      <y>672</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -47,7 +47,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>688</x>
-      <y>800</y>
+      <y>680</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -60,7 +60,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>656</x>
-      <y>632</y>
+      <y>512</y>
       <w>104</w>
       <h>64</h>
     </coordinates>
@@ -71,7 +71,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>784</x>
-      <y>632</y>
+      <y>512</y>
       <w>32</w>
       <h>184</h>
     </coordinates>
@@ -82,7 +82,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>496</x>
-      <y>616</y>
+      <y>496</y>
       <w>240</w>
       <h>192</h>
     </coordinates>
@@ -93,7 +93,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>720</x>
-      <y>712</y>
+      <y>592</y>
       <w>72</w>
       <h>104</h>
     </coordinates>
@@ -104,7 +104,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>528</x>
-      <y>712</y>
+      <y>592</y>
       <w>48</w>
       <h>96</h>
     </coordinates>
@@ -115,7 +115,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>832</x>
-      <y>680</y>
+      <y>560</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -128,7 +128,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>816</x>
-      <y>632</y>
+      <y>512</y>
       <w>120</w>
       <h>64</h>
     </coordinates>
@@ -139,7 +139,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>768</x>
-      <y>176</y>
+      <y>56</y>
       <w>168</w>
       <h>152</h>
     </coordinates>
@@ -161,7 +161,7 @@ runRunner
     <id>Relation</id>
     <coordinates>
       <x>784</x>
-      <y>320</y>
+      <y>200</y>
       <w>88</w>
       <h>264</h>
     </coordinates>
@@ -173,7 +173,7 @@ runRunner
     <id>Relation</id>
     <coordinates>
       <x>280</x>
-      <y>232</y>
+      <y>112</y>
       <w>504</w>
       <h>352</h>
     </coordinates>
@@ -185,7 +185,7 @@ runRunner
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>688</y>
+      <y>568</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -198,7 +198,7 @@ runRunner
     <id>Relation</id>
     <coordinates>
       <x>80</x>
-      <y>624</y>
+      <y>504</y>
       <w>80</w>
       <h>80</h>
     </coordinates>
@@ -209,14 +209,14 @@ runRunner
     <id>UMLClass</id>
     <coordinates>
       <x>1376</x>
-      <y>624</y>
+      <y>504</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 Converter
 --
-void parse()
+void convert()
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -224,7 +224,7 @@ void parse()
     <id>UMLClass</id>
     <coordinates>
       <x>1216</x>
-      <y>736</y>
+      <y>616</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -238,7 +238,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1496</x>
-      <y>736</y>
+      <y>616</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -251,7 +251,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1344</x>
-      <y>856</y>
+      <y>736</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -264,7 +264,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1096</x>
-      <y>848</y>
+      <y>728</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -277,7 +277,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1152</x>
-      <y>672</y>
+      <y>552</y>
       <w>240</w>
       <h>192</h>
     </coordinates>
@@ -288,7 +288,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1312</x>
-      <y>688</y>
+      <y>568</y>
       <w>96</w>
       <h>64</h>
     </coordinates>
@@ -299,7 +299,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1376</x>
-      <y>768</y>
+      <y>648</y>
       <w>72</w>
       <h>104</h>
     </coordinates>
@@ -310,7 +310,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1184</x>
-      <y>768</y>
+      <y>648</y>
       <w>48</w>
       <h>96</h>
     </coordinates>
@@ -321,7 +321,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1440</x>
-      <y>688</y>
+      <y>568</y>
       <w>32</w>
       <h>184</h>
     </coordinates>
@@ -332,7 +332,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1472</x>
-      <y>688</y>
+      <y>568</y>
       <w>128</w>
       <h>64</h>
     </coordinates>
@@ -343,7 +343,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>928</x>
-      <y>240</y>
+      <y>120</y>
       <w>472</w>
       <h>400</h>
     </coordinates>
@@ -354,14 +354,14 @@ List&lt;FieldParser&gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>112</x>
-      <y>352</y>
+      <x>152</x>
+      <y>120</y>
       <w>376</w>
       <h>96</h>
     </coordinates>
     <panel_attributes>Notes:  Start with launcher
 Call (class) Parser which will get analysis and return some sort of internal 
-representaiton (Graph???)
+representaiton (list of classes and arrows)
 Pass this representation to Converter which will return GraphViz code
 (can just print for now?)
 Then Runner will just run the code in GraphViz, or modify it if needed</panel_attributes>
@@ -371,7 +371,7 @@ Then Runner will just run the code in GraphViz, or modify it if needed</panel_at
     <id>UMLClass</id>
     <coordinates>
       <x>120</x>
-      <y>560</y>
+      <y>440</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -385,7 +385,7 @@ GrapuVizRunner
     <id>UMLClass</id>
     <coordinates>
       <x>1352</x>
-      <y>184</y>
+      <y>64</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -400,7 +400,7 @@ UMLElement
     <id>UMLClass</id>
     <coordinates>
       <x>1096</x>
-      <y>304</y>
+      <y>184</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -414,7 +414,7 @@ UMLElement
     <id>UMLClass</id>
     <coordinates>
       <x>1624</x>
-      <y>328</y>
+      <y>208</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -428,7 +428,7 @@ UMLElement
     <id>UMLClass</id>
     <coordinates>
       <x>1256</x>
-      <y>384</y>
+      <y>264</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -442,7 +442,7 @@ UMLElement
     <id>UMLClass</id>
     <coordinates>
       <x>1432</x>
-      <y>344</y>
+      <y>224</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -456,7 +456,7 @@ UMLElement
     <id>Relation</id>
     <coordinates>
       <x>1456</x>
-      <y>248</y>
+      <y>128</y>
       <w>80</w>
       <h>112</h>
     </coordinates>
@@ -467,7 +467,7 @@ UMLElement
     <id>Relation</id>
     <coordinates>
       <x>1208</x>
-      <y>248</y>
+      <y>128</y>
       <w>160</w>
       <h>72</h>
     </coordinates>
@@ -478,7 +478,7 @@ UMLElement
     <id>Relation</id>
     <coordinates>
       <x>1512</x>
-      <y>248</y>
+      <y>128</y>
       <w>136</w>
       <h>96</h>
     </coordinates>
@@ -489,7 +489,7 @@ UMLElement
     <id>Relation</id>
     <coordinates>
       <x>1320</x>
-      <y>248</y>
+      <y>128</y>
       <w>72</w>
       <h>152</h>
     </coordinates>
@@ -500,7 +500,7 @@ UMLElement
     <id>Relation</id>
     <coordinates>
       <x>928</x>
-      <y>208</y>
+      <y>88</y>
       <w>440</w>
       <h>40</h>
     </coordinates>
