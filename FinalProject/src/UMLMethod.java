@@ -1,12 +1,20 @@
 import java.util.ArrayList;
 
-public class UMLMethod {
+public class UMLMethod implements UMLElement {
 	private String name;
 	private Visibility visibility;
 	private boolean isAbstract;
 	private String type; 
-	private ArrayList<UMLField> parameters;
+	private ArrayList<UMLParam> parameters;
 	
+	public UMLMethod(String name, Visibility vis, boolean isAbstract, String methodType,
+			ArrayList<UMLParam> parameters) {
+		this.name = name;
+		this.visibility = vis;
+		this.isAbstract = isAbstract;
+		this.type = methodType;
+		this.parameters = parameters;
+	}
 	public String getName() {
 		return name;
 	}
@@ -31,10 +39,10 @@ public class UMLMethod {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public ArrayList<UMLField> getParameters() {
+	public ArrayList<UMLParam> getParameters() {
 		return parameters;
 	}
-	public void setParameters(ArrayList<UMLField> parameters) {
+	public void setParameters(ArrayList<UMLParam> parameters) {
 		this.parameters = parameters;
 	}
 	

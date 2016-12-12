@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class UMLClass {
+public class UMLClass implements UMLElement {
 	
 	private String name;
 	private Category category;

@@ -1,6 +1,7 @@
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.objectweb.asm.ClassReader;
@@ -26,6 +27,9 @@ public class DesignParser {
 	 * @throws IOException
 	 * @throws ClassNotFoundException
 	 */
+	
+	ArrayList<UMLClass> classList = new ArrayList<UMLClass>();
+
 	public static void main(String[] args) throws IOException,
 			ClassNotFoundException {
 
@@ -40,7 +44,7 @@ public class DesignParser {
 			// Java class.
 			// DONE: verify you have your JavaDocs set up so Eclipse can load
 			// ASM's JavaDocs and tell you what this is.
-			ClassReader reader = new ClassReader(className);
+			//ClassReader reader = new ClassReader(className);
 
 			// There are NO ASM ClassVisitors, MethodVisitors, or FieldVisitors
 			// here.
@@ -51,12 +55,12 @@ public class DesignParser {
 			// Do NOT subclass ClassNode.
 			// Do NOT override any methods starting with the word "visit";
 			// these methods are dead to you.
-			ClassNode classNode = new ClassNode();
-
+			//ClassNode classNode = new ClassNode();
+			
 			// Tell the Reader to parse the specified class and store its data
 			// in our ClassNode.
 			// EXPAND_FRAMES means: I want my code to work. Always pass this.
-			reader.accept(classNode, ClassReader.EXPAND_FRAMES);
+			//reader.accept(classNode, ClassReader.EXPAND_FRAMES);
 
 			// Now we can navigate the classNode and look for things we are
 			// interested in.
@@ -64,14 +68,26 @@ public class DesignParser {
 			//ClassParser cParser = new ClassParser();
 			//cParser.parse(classNode);
 			
-			printClass(classNode);
+			//printClass(classNode);
 
-			printFields(classNode);
+			//printFields(classNode);
 
-			printMethods(classNode);
+			//printMethods(classNode);
 			
 			// TODO: Use GOOD DESIGN to parse the classes of interest and store
 			// them.
+			runParser(args);
+		}
+	}
+	
+	public void runParser(String[] classes) throws IOException {
+		for (String className : classes) {
+			ClassReader reader = new ClassReader(className);
+			ClassNode classNode = new ClassNode();
+			reader.accept(classNode, ClassReader.EXPAND_FRAMES);
+
+			ClassParser parser = new ClassParser(classNode);
+			classList.add(parser.parse());	
 		}
 	}
 
