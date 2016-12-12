@@ -60,16 +60,16 @@ public class DesignParser {
 
 			// Now we can navigate the classNode and look for things we are
 			// interested in.
-			
 			//UMLClass uClass = new UMLClass();
 			//ClassParser cParser = new ClassParser();
 			//cParser.parse(classNode);
+			
 			printClass(classNode);
 
 			printFields(classNode);
 
 			printMethods(classNode);
-
+			
 			// TODO: Use GOOD DESIGN to parse the classes of interest and store
 			// them.
 		}
