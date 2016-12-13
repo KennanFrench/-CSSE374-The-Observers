@@ -7,13 +7,15 @@ import org.objectweb.asm.tree.MethodNode;
 
 public class MethodParser implements Parser {
 
-	MethodNode method;
+	private MethodNode method;
+	private UMLMethod uMethod;
+	
 	public MethodParser(MethodNode method) {
 		this.method = method;
 	}
 
 	@Override
-	public UMLMethod parse() {
+	public void parse() {
 		String[] fullMethodType;
 		String methodType;
 		String name = this.method.name;
@@ -42,7 +44,15 @@ public class MethodParser implements Parser {
 			parameters.add(new UMLParam("arg" + i, types[i].getClassName()));
 		}
 		
-		return new UMLMethod(name, vis, isAbstract, methodType, parameters);
+		this.uMethod = new UMLMethod(name, vis, isAbstract, methodType, parameters);
+	}
+
+	public MethodNode getMethod() {
+		return method;
+	}
+
+	public UMLMethod getuMethod() {
+		return uMethod;
 	}
 
 }

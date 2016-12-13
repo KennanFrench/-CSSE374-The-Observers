@@ -24,6 +24,25 @@ public class DesignParser {
 	
 	public void runParser(String[] args) throws IOException {
 		
+		CommandLineParser clParser = new CommandLineParser(args);
+		clParser.parse();
+		ArrayList<String> classes = clParser.getClassList();
+		
+		//move this to a different method once we figure out how recursive to make it
+		for (String className : classes) {
+			ClassReader reader = new ClassReader(className);
+			ClassNode classNode = new ClassNode();
+			reader.accept(classNode, ClassReader.EXPAND_FRAMES);
+			if (!classes.contains(classNode.superName)) {
+				classes.add(classNode.superName);
+			}
+			for (int i = 0; i < classNode.interfaces.size(); i++) {
+				if (!classes.contains((String) classNode.interfaces.get(i))) {
+					classes.add((String) classNode.interfaces.get(i));
+				}
+			}
+		}
+
 		for (String className : classes) {
 			ClassReader reader = new ClassReader(className);
 			ClassNode classNode = new ClassNode();
@@ -32,7 +51,8 @@ public class DesignParser {
 			System.out.println("Implements: " + classNode.interfaces);
 
 			ClassParser parser = new ClassParser(classNode);
-			classList.add(parser.parse());
+			parser.parse();
+			classList.add(parser.getuClass());
 		}
 	}
 

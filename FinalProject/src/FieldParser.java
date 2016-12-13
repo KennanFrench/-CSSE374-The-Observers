@@ -5,13 +5,14 @@ import org.objectweb.asm.tree.FieldNode;
 
 public class FieldParser implements Parser {
 
-	FieldNode field;
+	private FieldNode field;
+	private UMLField uField;
 	
 	public FieldParser(FieldNode field) {
 		this.field = field;
 	}
 	@Override
-	public UMLField parse() {
+	public void parse() {
 		String[] fullFieldType;
 		String fieldType;
 		Visibility vis;
@@ -25,7 +26,13 @@ public class FieldParser implements Parser {
 		else 
 			 vis = Visibility.PRIVATE;
 
-		return new UMLField(vis, field.name, fieldType);
+		this.uField = new UMLField(vis, field.name, fieldType);
+	}
+	public FieldNode getField() {
+		return field;
+	}
+	public UMLField getuField() {
+		return uField;
 	}
 
 }
