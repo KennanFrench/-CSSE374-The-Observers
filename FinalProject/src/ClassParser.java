@@ -7,7 +7,7 @@ import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
 import org.objectweb.asm.tree.MethodNode;
 
-public class ClassParser implements Parser{
+public class ClassParser implements Parser {
 	
 	ClassNode node;
 	
@@ -30,6 +30,11 @@ public class ClassParser implements Parser{
 		//		+ ((classNode.access & Opcodes.ACC_PUBLIC) > 0));
 		//System.out.println("Extends: " + this.node.superName);
 		//System.out.println("Implements: " + this.node.interfaces);
+		
+		// Create UMLArrows
+		//if (this.node.superName.equals(""))
+		
+		// Get category
 		if ((this.node.access & Opcodes.ACC_INTERFACE) > 0)
 			category = Category.INTERFACE;
 		else if ((this.node.access & Opcodes.ACC_ABSTRACT) > 0)
@@ -49,6 +54,7 @@ public class ClassParser implements Parser{
 			MethodParser parser = new MethodParser(method);
 			methods.add(parser.parse());
 		}
+		
 		
 		return new UMLClass(name, category, fields, methods);
 		

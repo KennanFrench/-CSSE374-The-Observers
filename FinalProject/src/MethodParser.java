@@ -32,12 +32,14 @@ public class MethodParser implements Parser {
 			isAbstract = true;
 		else
 			isAbstract = false;
-		
-		fullMethodType =  (Type.getType(method.desc) + "").split(".");
+		String temp =   (Type.getReturnType(method.desc).getClassName());
+		fullMethodType =  (Type.getReturnType(method.desc).getClassName()).split("/");
 		methodType = fullMethodType[fullMethodType.length - 1];
 		
-		for (Type argType : Type.getArgumentTypes(method.desc)) {
-			parameters.add(new UMLParam("", argType.getClassName())); //TODO: Figure out how to get method variable names
+		Type[] types = Type.getArgumentTypes(method.desc);
+		
+		for (int i = 0; i < types.length; i++) {
+			parameters.add(new UMLParam("arg" + i, types[i].getClassName()));
 		}
 		
 		return new UMLMethod(name, vis, isAbstract, methodType, parameters);
