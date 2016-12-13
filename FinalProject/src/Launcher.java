@@ -21,9 +21,14 @@ public class Launcher {
 
 		// FIXME: this code has POOR DESIGN. If you keep this code as-is for
 		// your main method, you will be sad about your grade.
-		DesignParser design = new DesignParser();
+		DesignParser parser = new DesignParser();
 		
-		design.runParser(args);
+		parser.runParser(args);
+		
+		
+		DesignConverter converter = new DesignConverter();
+		// Give uml elements (in constructor? or in convert? 
+
 			// ASM's ClassReader does the heavy lifting of parsing the compiled
 			// Java class.
 			// DONE: verify you have your JavaDocs set up so Eclipse can load
