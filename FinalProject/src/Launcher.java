@@ -25,10 +25,11 @@ public class Launcher {
 		
 		parser.runParser(args);
 		
-		
-		DesignConverter converter = new DesignConverter(parser.getClassList(), parser.getRunVis(), "thisProjectSucks");
+		ArrayList<UMLElement> design = parser.getClassList();
+		design.addAll(parser.getArrowList());
+		DesignConverter converter = new DesignConverter(design, parser.getRunVis(), "ILoveThisProject");
 		converter.convert();
-		System.out.println(converter.getGraphVizRep());
+		System.out.println(converter.getGraphVizRep().replaceAll("\\$", ""));
 		/*for (UMLClass uClass : parser.classList) {
 			ClassConverter converter = new ClassConverter(uClass, Visibility.PRIVATE);
 			converter.convert();

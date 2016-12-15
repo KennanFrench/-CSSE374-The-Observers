@@ -18,9 +18,9 @@ public class ClassConverter implements Converter {
 		// Label
 		// Give name and type 
 		if (uClass.getCategory().equals(Category.ABSTRACT))
-			this.graphVizRep.append("\"{\\<\\<abstract\\>\\>\\n\n" + uClass.getName());
+			this.graphVizRep.append("\\<\\<abstract\\>\\>\\n\n" + uClass.getName());
 		else if(uClass.getCategory().equals(Category.INTERFACE))
-			this.graphVizRep.append("\"{\\<\\<interface\\>\\>\\n\n" + uClass.getName());
+			this.graphVizRep.append("\\<\\<interface\\>\\>\\n\n" + uClass.getName());
 		else
 			this.graphVizRep.append(uClass.getName());
 		
@@ -51,7 +51,7 @@ public class ClassConverter implements Converter {
 				}
 				this.graphVizRep.append(method.getVisibility().getVisibilityCode() + " " + method.getName() + "(" + paramList + "): "  +  method.getType());
 				if(method.isAbstract())
-					this.graphVizRep.append("{abstract}");
+					this.graphVizRep.append("\\{abstract\\}");
 				this.graphVizRep.append("\\l\n");
 			}
 		}

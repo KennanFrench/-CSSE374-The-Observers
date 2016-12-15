@@ -19,13 +19,13 @@ import org.objectweb.asm.tree.VarInsnNode;
 // If your code even remotely resembles this class, you will be sad.
 public class DesignParser {
 	
-	private ArrayList<UMLClass> classList;
-	private ArrayList<UMLArrow> arrowList;
+	private ArrayList<UMLElement> classList;
+	private ArrayList<UMLElement> arrowList;
 	private Visibility runVis;
 	
 	public DesignParser() {
-		this.classList = new ArrayList<UMLClass>();
-		this.arrowList = new ArrayList<UMLArrow>();
+		this.classList = new ArrayList<UMLElement>();
+		this.arrowList = new ArrayList<UMLElement>();
 	}
 	
 	public void runParser(String[] args) throws IOException {
@@ -36,20 +36,26 @@ public class DesignParser {
 		this.runVis = clParser.getRunVis();
 		
 		//move this to a different method once we figure out how recursive to make it
-		for (String className : classes) {
+		int size = classes.size();
+		int j = 0;
+		while(j < size) {
+			String className = classes.get(j);
+			//System.out.println(className);
 			ClassReader reader = new ClassReader(className);
 			ClassNode classNode = new ClassNode();
 			reader.accept(classNode, ClassReader.EXPAND_FRAMES);
-			/*
-			if (!classes.contains(classNode.superName)) {
+			
+			if (!classes.contains(classNode.superName) && classNode.superName != null) {
 				classes.add(classNode.superName);
+				size++;
 			}
 			for (int i = 0; i < classNode.interfaces.size(); i++) {
 				if (!classes.contains((String) classNode.interfaces.get(i))) {
 					classes.add((String) classNode.interfaces.get(i));
+					size++;
 				}
 			}
-			*/
+			j++;
 		}
 
 		for (String className : classes) {
@@ -62,6 +68,7 @@ public class DesignParser {
 			ClassParser parser = new ClassParser(classNode);
 			parser.parse();
 			classList.add(parser.getuClass());
+			arrowList = parser.getArrows();
 		}
 	}
 
@@ -159,13 +166,11 @@ public class DesignParser {
 	}
 
 	public ArrayList<UMLElement> getClassList() {
-		ArrayList<UMLElement> list = new ArrayList<UMLElement>();
-		list.addAll(this.classList);
-		return list;
+		return this.classList;
 	}
 
-	public ArrayList<UMLArrow> getArrowList() {
-		return arrowList;
+	public ArrayList<UMLElement> getArrowList() {
+		return this.arrowList;
 	}
 
 	public Visibility getRunVis() {

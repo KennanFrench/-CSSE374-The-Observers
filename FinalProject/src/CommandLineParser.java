@@ -17,13 +17,13 @@ public class CommandLineParser implements Parser{
 	@Override
 	public void parse() {
 		String lastArg = args.get(args.size() - 1);
-		if (lastArg.equalsIgnoreCase("public")) {
+		if (lastArg.equalsIgnoreCase("--public")) {
 			this.runVis = Visibility.PUBLIC;
 			args.remove(args.size() - 1);
-		} else if (lastArg.equalsIgnoreCase("protected")) {
+		} else if (lastArg.equalsIgnoreCase("--protected")) {
 			this.runVis = Visibility.PROTECTED;
 			args.remove(args.size() - 1);
-		} else if (lastArg.equalsIgnoreCase("private")) {
+		} else if (lastArg.equalsIgnoreCase("--private")) {
 			this.runVis = Visibility.PRIVATE;
 			args.remove(args.size() - 1);
 		}

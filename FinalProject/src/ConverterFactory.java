@@ -7,6 +7,12 @@ public class ConverterFactory {
 		} else if (element instanceof UMLArrow) {
 			return new ArrowConverter((UMLArrow) element, runViz);
 		}
+		try {
+			throw new Exception();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Invalid UML type");
+		}
 		return null;
 	}
 }

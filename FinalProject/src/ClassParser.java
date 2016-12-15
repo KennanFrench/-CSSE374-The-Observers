@@ -11,9 +11,11 @@ public class ClassParser implements Parser {
 	
 	private ClassNode node;
 	private UMLClass uClass;
+	private ArrayList<UMLElement> arrows;
 	
 	public ClassParser(ClassNode node) {
 		this.node = node;
+		this.arrows = new ArrayList<UMLElement>();
 	}
 
 	@Override
@@ -32,8 +34,6 @@ public class ClassParser implements Parser {
 		//System.out.println("Extends: " + this.node.superName);
 		//System.out.println("Implements: " + this.node.interfaces);
 		
-		// Create UMLArrows
-		//if (this.node.superName.equals(""))
 		
 		// Get category
 		if ((this.node.access & Opcodes.ACC_INTERFACE) > 0)
@@ -60,6 +60,16 @@ public class ClassParser implements Parser {
 		
 		
 		this.uClass = new UMLClass(name, category, fields, methods);
+		
+		// Create UMLArrows
+		if (this.node.superName != null)
+		{
+			arrows.add(new UMLArrow(this.uClass.getName(), this.node.superName, HeadType.CLOSED, LineType.SOLID));
+		}
+		
+		for (int i = 0; i < this.node.interfaces.size(); i++) {
+			arrows.add(new UMLArrow(this.uClass.getName(), this.node.interfaces.get(i) +"",  HeadType.CLOSED, LineType.DASHED));
+		}
 	}
 
 	public ClassNode getNode() {
@@ -68,6 +78,10 @@ public class ClassParser implements Parser {
 
 	public UMLClass getuClass() {
 		return uClass;
+	}
+
+	public ArrayList<UMLElement> getArrows() {
+		return arrows;
 	}
 
 }
