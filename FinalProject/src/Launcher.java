@@ -74,4 +74,13 @@ public class Launcher {
 			// TODO: Use GOOD DESIGN to parse the classes of interest and store
 			// them.
 		}
+	
+	public static String getNiceName(String slashName)
+	{
+		if(slashName == null)
+			return null;
+		String tempArray[] = slashName.split("/"); 
+		return tempArray[tempArray.length -1];
 	}
+	
+}

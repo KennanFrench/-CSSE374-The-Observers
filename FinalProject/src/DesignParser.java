@@ -1,5 +1,3 @@
-
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +66,7 @@ public class DesignParser {
 			ClassParser parser = new ClassParser(classNode);
 			parser.parse();
 			classList.add(parser.getuClass());
-			arrowList = parser.getArrows();
+			arrowList.addAll(parser.getArrows());
 		}
 	}
 

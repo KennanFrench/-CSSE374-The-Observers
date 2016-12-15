@@ -21,13 +21,12 @@ public class ClassParser implements Parser {
 	@Override
 	public void parse() {
 		String name;
-		String[] fullName;
+		//String[] fullName;
 		Category category;
 		ArrayList<UMLField> fields = new ArrayList<UMLField>();
 		ArrayList<UMLMethod> methods = new ArrayList<UMLMethod>();
 
-		fullName = this.node.name.split("/");
-		name = fullName[fullName.length-1];
+		name = Launcher.getNiceName(this.node.name);
 		
 		//System.out.println("public? "
 		//		+ ((classNode.access & Opcodes.ACC_PUBLIC) > 0));
@@ -62,13 +61,15 @@ public class ClassParser implements Parser {
 		this.uClass = new UMLClass(name, category, fields, methods);
 		
 		// Create UMLArrows
-		if (this.node.superName != null)
+		String tempName = Launcher.getNiceName(this.node.superName);
+		if (tempName != null)
 		{
-			arrows.add(new UMLArrow(this.uClass.getName(), this.node.superName, HeadType.CLOSED, LineType.SOLID));
+			arrows.add(new UMLArrow(this.uClass.getName(), tempName, HeadType.CLOSED, LineType.SOLID));
 		}
 		
 		for (int i = 0; i < this.node.interfaces.size(); i++) {
-			arrows.add(new UMLArrow(this.uClass.getName(), this.node.interfaces.get(i) +"",  HeadType.CLOSED, LineType.DASHED));
+			tempName = Launcher.getNiceName(this.node.interfaces.get(i) + "");
+			arrows.add(new UMLArrow(this.uClass.getName(), tempName,  HeadType.CLOSED, LineType.DASHED));
 		}
 	}
 

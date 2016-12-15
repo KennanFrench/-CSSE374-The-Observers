@@ -4,13 +4,13 @@ public enum HeadType {
 
 	public String getGraphVizRep() {
 		if (this.equals(HeadType.OPEN))
-			return "onormal";
+			return "vee";
 		else if (this.equals(HeadType.CLOSED))
-			return "???";
+			return "onormal";
 		else if (this.equals(HeadType.FILLED))
-			return "???";
+			return "normal";
 		else if (this.equals(HeadType.DIAMOND))
-			return "???";
+			return "odiamond";
 		return "error";
 	}
 }
