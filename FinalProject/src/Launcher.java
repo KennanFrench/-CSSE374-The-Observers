@@ -26,7 +26,14 @@ public class Launcher {
 		parser.runParser(args);
 		
 		
-		DesignConverter converter = new DesignConverter();
+		DesignConverter converter = new DesignConverter(parser.getClassList(), parser.getRunVis(), "thisProjectSucks");
+		converter.convert();
+		System.out.println(converter.getGraphVizRep());
+		/*for (UMLClass uClass : parser.classList) {
+			ClassConverter converter = new ClassConverter(uClass, Visibility.PRIVATE);
+			converter.convert();
+		}
+		*/
 		// Give uml elements (in constructor? or in convert? 
 
 			// ASM's ClassReader does the heavy lifting of parsing the compiled

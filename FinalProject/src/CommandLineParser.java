@@ -7,24 +7,24 @@ public class CommandLineParser implements Parser{
 	//private final ArrayList<String> MULTIWORDARGS = new ArrayList<String>();
 	//use the above ArrayList if we switch to an argument-by-argument parsing style
 	private ArrayList<String> classList;
-	private Visibility renderVis;
+	private Visibility runVis;
 	
 	public CommandLineParser(String[] args) {
 		this.args = new ArrayList<String>(Arrays.asList(args));
-		this.renderVis = null;
+		this.runVis = Visibility.PRIVATE;
 	}
 	
 	@Override
 	public void parse() {
 		String lastArg = args.get(args.size() - 1);
 		if (lastArg.equalsIgnoreCase("public")) {
-			this.renderVis = Visibility.PUBLIC;
+			this.runVis = Visibility.PUBLIC;
 			args.remove(args.size() - 1);
 		} else if (lastArg.equalsIgnoreCase("protected")) {
-			this.renderVis = Visibility.PROTECTED;
+			this.runVis = Visibility.PROTECTED;
 			args.remove(args.size() - 1);
 		} else if (lastArg.equalsIgnoreCase("private")) {
-			this.renderVis = Visibility.PRIVATE;
+			this.runVis = Visibility.PRIVATE;
 			args.remove(args.size() - 1);
 		}
 		this.classList = args;
@@ -34,8 +34,8 @@ public class CommandLineParser implements Parser{
 		return classList;
 	}
 
-	public Visibility getRenderVis() {
-		return renderVis;
+	public Visibility getRunVis() {
+		return runVis;
 	}
 
 }

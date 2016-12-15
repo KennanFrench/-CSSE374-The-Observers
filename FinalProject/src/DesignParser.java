@@ -19,20 +19,28 @@ import org.objectweb.asm.tree.VarInsnNode;
 // If your code even remotely resembles this class, you will be sad.
 public class DesignParser {
 	
-	ArrayList<UMLClass> classList = new ArrayList<UMLClass>();
+	private ArrayList<UMLClass> classList;
+	private ArrayList<UMLArrow> arrowList;
+	private Visibility runVis;
 	
+	public DesignParser() {
+		this.classList = new ArrayList<UMLClass>();
+		this.arrowList = new ArrayList<UMLArrow>();
+	}
 	
 	public void runParser(String[] args) throws IOException {
 		
 		CommandLineParser clParser = new CommandLineParser(args);
 		clParser.parse();
 		ArrayList<String> classes = clParser.getClassList();
+		this.runVis = clParser.getRunVis();
 		
 		//move this to a different method once we figure out how recursive to make it
 		for (String className : classes) {
 			ClassReader reader = new ClassReader(className);
 			ClassNode classNode = new ClassNode();
 			reader.accept(classNode, ClassReader.EXPAND_FRAMES);
+			/*
 			if (!classes.contains(classNode.superName)) {
 				classes.add(classNode.superName);
 			}
@@ -41,6 +49,7 @@ public class DesignParser {
 					classes.add((String) classNode.interfaces.get(i));
 				}
 			}
+			*/
 		}
 
 		for (String className : classes) {
@@ -147,5 +156,19 @@ public class DesignParser {
 			// This list of direct known subclasses may be useful:
 			// http://asm.ow2.org/asm50/javadoc/user/org/objectweb/asm/tree/AbstractInsnNode.html
 		}
+	}
+
+	public ArrayList<UMLElement> getClassList() {
+		ArrayList<UMLElement> list = new ArrayList<UMLElement>();
+		list.addAll(this.classList);
+		return list;
+	}
+
+	public ArrayList<UMLArrow> getArrowList() {
+		return arrowList;
+	}
+
+	public Visibility getRunVis() {
+		return runVis;
 	}
 }

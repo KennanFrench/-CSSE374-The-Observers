@@ -2,42 +2,44 @@
 public class ClassConverter implements Converter {
 
 	private UMLClass uClass;
-	private StringBuilder gVizRep; 
+	private StringBuilder graphVizRep; 
 	private Visibility runViz;
 	
 	public ClassConverter(UMLClass uClass, Visibility runViz) {
 		this.uClass = uClass;
-		this.gVizRep = new StringBuilder();
+		this.graphVizRep = new StringBuilder();
 		this.runViz = runViz;
 	}
 	@Override
 	public void convert() {
 		// Create node
-		this.gVizRep.append(uClass.getName() + " [ shape=\"record\", label=");
+		this.graphVizRep.append(uClass.getName() + " [\n shape=\"record\",\n label=\"{");
 		
 		// Label
 		// Give name and type 
 		if (uClass.getCategory().equals(Category.ABSTRACT))
-			this.gVizRep.append("\"{\\<\\<abstract\\>\\>\\n" + uClass.getName());
+			this.graphVizRep.append("\"{\\<\\<abstract\\>\\>\\n\n" + uClass.getName());
 		else if(uClass.getCategory().equals(Category.INTERFACE))
-			this.gVizRep.append("\"{\\<\\<interface\\>\\>\\n" + uClass.getName());
+			this.graphVizRep.append("\"{\\<\\<interface\\>\\>\\n\n" + uClass.getName());
 		else
-			this.gVizRep.append(uClass.getName());
+			this.graphVizRep.append(uClass.getName());
 		
-		this.gVizRep.append("|");
+		this.graphVizRep.append(" | ");
 		
 		// Fields
 		for(UMLField field : uClass.getFields()) {
 			if (field.getVisibility().compareTo(runViz) >= 0)
 			{
-				this.gVizRep.append(field.getVisibility().getVisibilityCode() + " " + field.getName() + ": " + field.getType() + "\\l");
+				this.graphVizRep.append(field.getVisibility().getVisibilityCode() + " " + field.getName() + " : " + field.getType() + "\\l");
 			}
 		}
 		// TODO Potentially remove | if no fields/methods 
-		this.gVizRep.append("|");
+		this.graphVizRep.append("|");
 
 		for(UMLMethod method : uClass.getMethods()) {
-			if (method.getVisibility().compareTo(runViz) >= 0)
+			if (method.getVisibility().compareTo(runViz) >= 0
+					&& !method.getName().equals("<init>")
+					&& !method.getName().equals("<clinit>"))
 			{
 				StringBuilder paramList = new StringBuilder();
 				for(int i = 0; i < method.getParameters().size(); i++)
@@ -47,16 +49,18 @@ public class ClassConverter implements Converter {
 					if(i < method.getParameters().size() - 1)
 						paramList.append(", ");
 				}
-				this.gVizRep.append(method.getVisibility().getVisibilityCode() + " " + method.getName() + "(" + paramList + "): "  +  method.getType());
+				this.graphVizRep.append(method.getVisibility().getVisibilityCode() + " " + method.getName() + "(" + paramList + "): "  +  method.getType());
 				if(method.isAbstract())
-					this.gVizRep.append("{abstract}");
-				this.gVizRep.append("\\l");
+					this.graphVizRep.append("{abstract}");
+				this.graphVizRep.append("\\l\n");
 			}
 		}
 		// Ending
-		this.gVizRep.append("}\" ];");
+		this.graphVizRep.append("}\" \n];");
 		
-			
-
+	}
+	@Override
+	public String getGraphVizRep() {
+		return this.graphVizRep.toString();
 	}
 }

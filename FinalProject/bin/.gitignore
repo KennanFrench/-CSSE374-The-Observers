@@ -8,3 +8,6 @@
 /CommandLineParser.class
 /Converter.class
 /ClassConverter.class
+/DesignConverter.class
+/ConverterFactory.class
+/ArrowConverter.class
