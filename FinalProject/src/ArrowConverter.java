@@ -20,5 +20,9 @@ public class ArrowConverter implements Converter {
 	public String getGraphVizRep() {
 		return graphVizRep.toString();
 	}
+	
+	public Visibility getVis() {
+		return this.vis;
+	}
 
 }

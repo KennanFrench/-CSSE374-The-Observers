@@ -18,9 +18,9 @@ public class ClassParser implements Parser {
 		this.node = node;
 		this.arrows = new ArrayList<UMLElement>();
 		this.classList = classList;
-		for (int i = 0; i < classList.size(); i++) {
-			this.classList.set(i, Launcher.getNiceName(classList.get(i)));
-		}
+		//for (int i = 0; i < classList.size(); i++) {
+		//	this.classList.set(i, Launcher.getNiceName(classList.get(i)));
+		//}
 	}
 
 	@Override
@@ -67,14 +67,14 @@ public class ClassParser implements Parser {
 		
 		// Create UMLArrows
 		String tempName = Launcher.getNiceName(this.node.superName);
-		if (tempName != null && this.classList.contains(tempName))
+		if (this.node.superName != null && this.classList.contains(this.node.superName))
 		{
 			arrows.add(new UMLArrow(this.uClass.getName(), tempName, HeadType.CLOSED, LineType.SOLID));
 		}
 		
 		for (int i = 0; i < this.node.interfaces.size(); i++) {
 			tempName = Launcher.getNiceName(this.node.interfaces.get(i) + "");
-			if (this.classList.contains(tempName)) {
+			if (this.classList.contains(this.node.interfaces.get(i) + "")) {
 				arrows.add(new UMLArrow(this.uClass.getName(), tempName, HeadType.CLOSED, LineType.DASHED));
 			}
 		}

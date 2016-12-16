@@ -11,3 +11,5 @@
 /DesignConverter.class
 /ConverterFactory.class
 /ArrowConverter.class
+/FieldConverter.class
+/MethodConverter.class

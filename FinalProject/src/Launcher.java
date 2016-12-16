@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Launcher {
@@ -29,7 +30,16 @@ public class Launcher {
 		design.addAll(parser.getArrowList());
 		DesignConverter converter = new DesignConverter(design, parser.getRunVis(), "ILoveThisProject");
 		converter.convert();
-		System.out.println(converter.getGraphVizRep().replaceAll("\\$", ""));
+		try{
+		    PrintWriter writer = new PrintWriter("test.gv");
+		    writer.print(converter.getGraphVizRep().replaceAll("\\$", ""));
+		    writer.close();
+		} catch (IOException e) {
+		   // do something
+		}
+		Runtime rt = Runtime.getRuntime();
+		Process pr = rt.exec("cmd /c dot -Tpng test.gv > out.png");
+				System.out.println(converter.getGraphVizRep().replaceAll("\\$", ""));
 		/*for (UMLClass uClass : parser.classList) {
 			ClassConverter converter = new ClassConverter(uClass, Visibility.PRIVATE);
 			converter.convert();

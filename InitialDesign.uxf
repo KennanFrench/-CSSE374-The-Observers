@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>630</x>
-      <y>490</y>
+      <y>546</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -19,22 +19,29 @@ void parse()
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>490</x>
-      <y>588</y>
+      <x>483</x>
+      <y>637</y>
       <w>147</w>
-      <h>63</h>
+      <h>98</h>
     </coordinates>
     <panel_attributes>ClassParser
 --
-List&lt;MethodParser&gt;
-List&lt;FieldParser&gt;</panel_attributes>
+- ClassNode node
+- UMLClass uClass
+-ArrayList&lt;UMLElement&gt; arrows
+-ArrayList&lt;String&gt; classList
+--
++ void parse()
++ ClassNode getNode()
++ UMLClass getuClass()
++ ArrayList&lt;UMLElement&gt; getArrows()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>385</x>
-      <y>686</y>
+      <x>371</x>
+      <y>805</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -46,8 +53,8 @@ List&lt;FieldParser&gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>602</x>
-      <y>693</y>
+      <x>637</x>
+      <y>805</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -59,87 +66,63 @@ List&lt;FieldParser&gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>574</x>
-      <y>546</y>
-      <w>91</w>
-      <h>56</h>
+      <x>567</x>
+      <y>602</y>
+      <w>98</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>110.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>120.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>686</x>
-      <y>546</y>
-      <w>28</w>
-      <h>161</h>
+      <x>693</x>
+      <y>602</y>
+      <w>49</w>
+      <h>217</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>20.0;10.0;10.0;210.0</additional_attributes>
+    <additional_attributes>10.0;10.0;50.0;290.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>434</x>
-      <y>532</y>
-      <w>210</w>
-      <h>168</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>280.0;10.0;10.0;50.0;40.0;220.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>630</x>
-      <y>616</y>
-      <w>63</w>
-      <h>91</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>70.0;110.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>462</x>
-      <y>616</y>
-      <w>42</w>
-      <h>84</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;100.0;40.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>728</x>
       <y>588</y>
-      <w>147</w>
-      <h>63</h>
+      <w>210</w>
+      <h>231</h>
     </coordinates>
-    <panel_attributes>InterfaceParser
---
-</panel_attributes>
-    <additional_attributes/>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>280.0;10.0;10.0;30.0;20.0;310.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>714</x>
-      <y>546</y>
+      <x>623</x>
+      <y>665</y>
       <w>105</w>
-      <h>56</h>
+      <h>154</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;60.0</additional_attributes>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>130.0;200.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>665</y>
+      <w>49</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;200.0;50.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>672</x>
-      <y>147</y>
+      <y>189</y>
       <w>147</w>
       <h>133</h>
     </coordinates>
@@ -159,19 +142,19 @@ runRunner
     <id>Relation</id>
     <coordinates>
       <x>686</x>
-      <y>273</y>
+      <y>315</y>
       <w>77</w>
-      <h>231</h>
+      <h>245</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 </panel_attributes>
-    <additional_attributes>90.0;10.0;10.0;310.0</additional_attributes>
+    <additional_attributes>90.0;10.0;10.0;330.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>245</x>
-      <y>196</y>
+      <y>238</y>
       <w>441</w>
       <h>308</h>
     </coordinates>
@@ -183,7 +166,7 @@ runRunner
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>595</y>
+      <y>637</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -196,7 +179,7 @@ runRunner
     <id>Relation</id>
     <coordinates>
       <x>70</x>
-      <y>539</y>
+      <y>581</y>
       <w>70</w>
       <h>70</h>
     </coordinates>
@@ -207,49 +190,40 @@ runRunner
     <id>UMLClass</id>
     <coordinates>
       <x>1204</x>
-      <y>539</y>
+      <y>581</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 Converter
 --
-void convert()
++ void convert()
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1064</x>
-      <y>637</y>
+      <x>1057</x>
+      <y>679</y>
       <w>147</w>
-      <h>63</h>
+      <h>84</h>
     </coordinates>
     <panel_attributes>ClassConverter
 --
-List&lt;MethodParser&gt;
-List&lt;FieldParser&gt;</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1309</x>
-      <y>637</y>
-      <w>147</w>
-      <h>63</h>
-    </coordinates>
-    <panel_attributes>InterfaceConverter
+- UMLClass uClass
+- StringBuilder graphVizRep
+- Visibility runViz
 --
-</panel_attributes>
++ void convert()
++ String getGraphVizRep()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>1176</x>
-      <y>742</y>
+      <y>784</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -262,7 +236,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>959</x>
-      <y>735</y>
+      <y>777</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -275,7 +249,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1008</x>
-      <y>581</y>
+      <y>623</y>
       <w>210</w>
       <h>168</h>
     </coordinates>
@@ -285,41 +259,41 @@ List&lt;FieldParser&gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1148</x>
-      <y>595</y>
-      <w>84</w>
+      <x>1141</x>
+      <y>637</y>
+      <w>91</w>
       <h>56</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>100.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>110.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1204</x>
-      <y>665</y>
-      <w>63</w>
+      <x>1197</x>
+      <y>707</y>
+      <w>70</w>
       <h>91</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>70.0;110.0;10.0;10.0</additional_attributes>
+    <additional_attributes>80.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1036</x>
-      <y>665</y>
-      <w>42</w>
-      <h>84</h>
+      <x>1029</x>
+      <y>371</y>
+      <w>77</w>
+      <h>322</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;100.0;40.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;90.0;440.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1260</x>
-      <y>595</y>
+      <y>637</y>
       <w>28</w>
       <h>161</h>
     </coordinates>
@@ -329,19 +303,8 @@ List&lt;FieldParser&gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1288</x>
-      <y>595</y>
-      <w>112</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;140.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
       <x>812</x>
-      <y>203</y>
+      <y>245</y>
       <w>413</w>
       <h>350</h>
     </coordinates>
@@ -353,7 +316,7 @@ List&lt;FieldParser&gt;</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>133</x>
-      <y>203</y>
+      <y>245</y>
       <w>329</w>
       <h>84</h>
     </coordinates>
@@ -369,7 +332,7 @@ Then Runner will just run the code in GraphViz, or modify it if needed</panel_at
     <id>UMLClass</id>
     <coordinates>
       <x>105</x>
-      <y>483</y>
+      <y>525</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -383,7 +346,7 @@ GrapuVizRunner
     <id>UMLClass</id>
     <coordinates>
       <x>1183</x>
-      <y>154</y>
+      <y>196</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -398,9 +361,9 @@ UMLElement
     <id>UMLClass</id>
     <coordinates>
       <x>959</x>
-      <y>259</y>
+      <y>301</y>
       <w>147</w>
-      <h>63</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>UMLClass
 --
@@ -415,7 +378,7 @@ List&lt;UMLMethod&gt; methods
     <id>UMLClass</id>
     <coordinates>
       <x>1435</x>
-      <y>280</y>
+      <y>322</y>
       <w>147</w>
       <h>84</h>
     </coordinates>
@@ -433,7 +396,7 @@ List&lt;UMLField&gt; parameters
     <id>UMLClass</id>
     <coordinates>
       <x>1099</x>
-      <y>336</y>
+      <y>378</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -449,7 +412,7 @@ String type
     <id>UMLClass</id>
     <coordinates>
       <x>1260</x>
-      <y>315</y>
+      <y>357</y>
       <w>147</w>
       <h>70</h>
     </coordinates>
@@ -466,7 +429,7 @@ UMLClass end
     <id>Relation</id>
     <coordinates>
       <x>1274</x>
-      <y>210</y>
+      <y>252</y>
       <w>77</w>
       <h>119</h>
     </coordinates>
@@ -477,7 +440,7 @@ UMLClass end
     <id>Relation</id>
     <coordinates>
       <x>1057</x>
-      <y>210</y>
+      <y>252</y>
       <w>140</w>
       <h>63</h>
     </coordinates>
@@ -488,7 +451,7 @@ UMLClass end
     <id>Relation</id>
     <coordinates>
       <x>1323</x>
-      <y>210</y>
+      <y>252</y>
       <w>133</w>
       <h>84</h>
     </coordinates>
@@ -499,7 +462,7 @@ UMLClass end
     <id>Relation</id>
     <coordinates>
       <x>1155</x>
-      <y>210</y>
+      <y>252</y>
       <w>63</w>
       <h>140</h>
     </coordinates>
@@ -510,7 +473,7 @@ UMLClass end
     <id>Relation</id>
     <coordinates>
       <x>812</x>
-      <y>175</y>
+      <y>217</y>
       <w>385</w>
       <h>35</h>
     </coordinates>
@@ -522,18 +485,18 @@ UMLClass end
     <id>Relation</id>
     <coordinates>
       <x>1092</x>
-      <y>315</y>
+      <y>371</y>
       <w>70</w>
-      <h>35</h>
+      <h>21</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>80.0;30.0;10.0;10.0</additional_attributes>
+    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1099</x>
-      <y>280</y>
+      <y>322</y>
       <w>350</w>
       <h>35</h>
     </coordinates>
@@ -544,7 +507,7 @@ UMLClass end
     <id>Relation</id>
     <coordinates>
       <x>1099</x>
-      <y>301</y>
+      <y>343</y>
       <w>175</w>
       <h>42</h>
     </coordinates>
@@ -555,11 +518,116 @@ UMLClass end
     <id>Relation</id>
     <coordinates>
       <x>1400</x>
-      <y>343</y>
+      <y>385</y>
       <w>49</w>
       <h>21</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>448</x>
+      <y>21</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Launcher
+--
+List&lt;GraphVizRunner&gt;
+List&lt;UMLClass&gt;
+List&lt;UMLArrow&gt;
+--
+runParser
+runConverter
+runRunner
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1337</x>
+      <y>693</y>
+      <w>147</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>ArrowConverter
+--
+- UMLArrow arrow
+- Visibility vis
+- StringBuilder graphVizRep
+--
++ void convert()
++ String getGraphVizRep()
++ Visibility getVis()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1330</x>
+      <y>637</y>
+      <w>77</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>973</x>
+      <y>532</y>
+      <w>42</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+uses</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>539</x>
+      <y>343</y>
+      <w>434</w>
+      <h>308</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>600.0;10.0;150.0;200.0;10.0;420.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>511</x>
+      <y>217</y>
+      <w>686</w>
+      <h>434</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>960.0;10.0;670.0;50.0;190.0;370.0;10.0;600.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>735</x>
+      <y>0</y>
+      <w>147</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>CommandLineParser
+--
+ArrayList&lt;String&gt; args
+ArrayList&lt;String&gt; classList
+Visibility runVis
+boolean drawRecursive
+--
+runParser
+runConverter
+runRunner
+</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
