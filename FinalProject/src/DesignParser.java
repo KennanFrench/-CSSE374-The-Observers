@@ -20,6 +20,7 @@ public class DesignParser {
 	private ArrayList<UMLElement> classList;
 	private ArrayList<UMLElement> arrowList;
 	private Visibility runVis;
+	private boolean drawRecurisve;
 	
 	public DesignParser() {
 		this.classList = new ArrayList<UMLElement>();
@@ -32,38 +33,41 @@ public class DesignParser {
 		clParser.parse();
 		ArrayList<String> classes = clParser.getClassList();
 		this.runVis = clParser.getRunVis();
+		this.drawRecurisve = clParser.getDrawRecursive();
 		
 		//move this to a different method once we figure out how recursive to make it
 		int size = classes.size();
 		int j = 0;
-		while(j < size) {
-			String className = classes.get(j);
-			//System.out.println(className);
-			ClassReader reader = new ClassReader(className);
-			ClassNode classNode = new ClassNode();
-			reader.accept(classNode, ClassReader.EXPAND_FRAMES);
-			
-			if (!classes.contains(classNode.superName) && classNode.superName != null) {
-				classes.add(classNode.superName);
-				size++;
-			}
-			for (int i = 0; i < classNode.interfaces.size(); i++) {
-				if (!classes.contains((String) classNode.interfaces.get(i))) {
-					classes.add((String) classNode.interfaces.get(i));
+		if (this.drawRecurisve) {
+			while ((j < size)) {
+				String className = classes.get(j);
+				//System.out.println(className);
+				ClassReader reader = new ClassReader(className);
+				ClassNode classNode = new ClassNode();
+				reader.accept(classNode, ClassReader.EXPAND_FRAMES);
+				
+				if (!classes.contains(classNode.superName) && classNode.superName != null) {
+					classes.add(classNode.superName);
 					size++;
 				}
+				for (int i = 0; i < classNode.interfaces.size(); i++) {
+					if (!classes.contains((String) classNode.interfaces.get(i))) {
+						classes.add((String) classNode.interfaces.get(i));
+						size++;
+					}
+				}
+				j++;
 			}
-			j++;
 		}
 
 		for (String className : classes) {
 			ClassReader reader = new ClassReader(className);
 			ClassNode classNode = new ClassNode();
 			reader.accept(classNode, ClassReader.EXPAND_FRAMES);
-			System.out.println("Extends: " + classNode.superName);
-			System.out.println("Implements: " + classNode.interfaces);
+			//System.out.println("Extends: " + classNode.superName);
+			//System.out.println("Implements: " + classNode.interfaces);
 
-			ClassParser parser = new ClassParser(classNode);
+			ClassParser parser = new ClassParser(classNode, classes);
 			parser.parse();
 			classList.add(parser.getuClass());
 			arrowList.addAll(parser.getArrows());

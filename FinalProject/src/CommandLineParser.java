@@ -8,26 +8,44 @@ public class CommandLineParser implements Parser{
 	//use the above ArrayList if we switch to an argument-by-argument parsing style
 	private ArrayList<String> classList;
 	private Visibility runVis;
+	private boolean drawRecursive;
 	
 	public CommandLineParser(String[] args) {
 		this.args = new ArrayList<String>(Arrays.asList(args));
 		this.runVis = Visibility.PRIVATE;
+		this.drawRecursive = false;
 	}
 	
 	@Override
 	public void parse() {
-		String lastArg = args.get(args.size() - 1);
-		if (lastArg.equalsIgnoreCase("--public")) {
-			this.runVis = Visibility.PUBLIC;
-			args.remove(args.size() - 1);
-		} else if (lastArg.equalsIgnoreCase("--protected")) {
-			this.runVis = Visibility.PROTECTED;
-			args.remove(args.size() - 1);
-		} else if (lastArg.equalsIgnoreCase("--private")) {
-			this.runVis = Visibility.PRIVATE;
-			args.remove(args.size() - 1);
+		for (int i = 0; i < args.size(); i++) {
+			if (args.get(i).startsWith("--")) {
+				this.parseDashDash(args.get(i));
+				args.remove(i);
+				i--;
+			} else if (args.get(i).startsWith("-")) {
+				this.parseDash(args.get(i));
+				args.remove(i);
+				i--;
+			}
 		}
 		this.classList = args;
+	}
+	
+	private void parseDashDash(String arg) {
+		if (arg.equalsIgnoreCase("--public")) {
+			this.runVis = Visibility.PUBLIC;
+		} else if (arg.equalsIgnoreCase("--protected")) {
+			this.runVis = Visibility.PROTECTED;
+		} else if (arg.equalsIgnoreCase("--private")) {
+			this.runVis = Visibility.PRIVATE;
+		}
+	}
+	
+	private void parseDash(String arg) {
+		if (arg.equals("-r")) {
+			this.drawRecursive = true;
+		}
 	}
 
 	public ArrayList<String> getClassList() {
@@ -36,6 +54,10 @@ public class CommandLineParser implements Parser{
 
 	public Visibility getRunVis() {
 		return runVis;
+	}
+
+	public boolean getDrawRecursive() {
+		return drawRecursive;
 	}
 
 }
