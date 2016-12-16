@@ -46,13 +46,13 @@ public class DesignParser {
 				ClassNode classNode = new ClassNode();
 				reader.accept(classNode, ClassReader.EXPAND_FRAMES);
 				
-				if (!classes.contains(classNode.superName) && classNode.superName != null) {
-					classes.add(classNode.superName);
+				if (!classes.contains(Launcher.getDotName(classNode.superName)) && classNode.superName != null) {
+					classes.add(Launcher.getDotName(classNode.superName));
 					size++;
 				}
 				for (int i = 0; i < classNode.interfaces.size(); i++) {
-					if (!classes.contains((String) classNode.interfaces.get(i))) {
-						classes.add((String) classNode.interfaces.get(i));
+					if (!classes.contains(Launcher.getDotName(classNode.interfaces.get(i)+""))) {
+						classes.add(Launcher.getDotName(classNode.interfaces.get(i)+""));
 						size++;
 					}
 				}

@@ -38,7 +38,8 @@ public class Launcher {
 		   // do something
 		}
 		Runtime rt = Runtime.getRuntime();
-		Process pr = rt.exec("cmd /c dot -Tpng test.gv > out.png");
+		Process p = new ProcessBuilder("cmd", "/c", "dot","-Tpng","test.gv", "-o", "out.png").start();
+//		Process pr = rt.exec("cmd /c dot -Tpng test.gv > out.png");
 				System.out.println(converter.getGraphVizRep().replaceAll("\\$", ""));
 		/*for (UMLClass uClass : parser.classList) {
 			ClassConverter converter = new ClassConverter(uClass, Visibility.PRIVATE);
@@ -91,6 +92,12 @@ public class Launcher {
 			return null;
 		String tempArray[] = slashName.split("/"); 
 		return tempArray[tempArray.length -1];
+	}
+
+	public static String getDotName(String slashName) {
+		if(slashName == null)
+			return null;
+		return slashName.replaceAll("/", ".");
 	}
 	
 }

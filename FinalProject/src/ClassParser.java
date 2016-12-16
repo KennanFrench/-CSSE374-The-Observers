@@ -67,14 +67,17 @@ public class ClassParser implements Parser {
 		
 		// Create UMLArrows
 		String tempName = Launcher.getNiceName(this.node.superName);
-		if (this.node.superName != null && this.classList.contains(this.node.superName))
+		String dot = Launcher.getDotName(this.node.superName);
+		if (this.node.superName != null && this.classList.contains(dot))
 		{
 			arrows.add(new UMLArrow(this.uClass.getName(), tempName, HeadType.CLOSED, LineType.SOLID));
 		}
 		
 		for (int i = 0; i < this.node.interfaces.size(); i++) {
+			String interName = this.node.interfaces.get(i) + "";
 			tempName = Launcher.getNiceName(this.node.interfaces.get(i) + "");
-			if (this.classList.contains(this.node.interfaces.get(i) + "")) {
+			String dotName = Launcher.getDotName(interName);
+			if (this.classList.contains(dotName)) {
 				arrows.add(new UMLArrow(this.uClass.getName(), tempName, HeadType.CLOSED, LineType.DASHED));
 			}
 		}
