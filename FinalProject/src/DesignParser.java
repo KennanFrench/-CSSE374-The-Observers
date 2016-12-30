@@ -20,7 +20,7 @@ public class DesignParser {
 	private ArrayList<UMLElement> classList;
 	private ArrayList<UMLElement> arrowList;
 	private Visibility runVis;
-	private boolean drawRecurisve;
+	private boolean drawRecursive;
 	
 	public DesignParser() {
 		this.classList = new ArrayList<UMLElement>();
@@ -33,12 +33,12 @@ public class DesignParser {
 		clParser.parse();
 		ArrayList<String> classes = clParser.getClassList();
 		this.runVis = clParser.getRunVis();
-		this.drawRecurisve = clParser.getDrawRecursive();
+		this.drawRecursive = clParser.getDrawRecursive();
 		
 		//move this to a different method once we figure out how recursive to make it
 		int size = classes.size();
 		int j = 0;
-		if (this.drawRecurisve) {
+		if (this.drawRecursive) {
 			while ((j < size)) {
 				String className = classes.get(j);
 				//System.out.println(className);
@@ -46,13 +46,13 @@ public class DesignParser {
 				ClassNode classNode = new ClassNode();
 				reader.accept(classNode, ClassReader.EXPAND_FRAMES);
 				
-				if (!classes.contains(Launcher.getDotName(classNode.superName)) && classNode.superName != null) {
-					classes.add(Launcher.getDotName(classNode.superName));
+				if (!classes.contains(NameChanger.getDotName(classNode.superName)) && classNode.superName != null) {
+					classes.add(NameChanger.getDotName(classNode.superName));
 					size++;
 				}
 				for (int i = 0; i < classNode.interfaces.size(); i++) {
-					if (!classes.contains(Launcher.getDotName(classNode.interfaces.get(i)+""))) {
-						classes.add(Launcher.getDotName(classNode.interfaces.get(i)+""));
+					if (!classes.contains(NameChanger.getDotName(classNode.interfaces.get(i)+""))) {
+						classes.add(NameChanger.getDotName(classNode.interfaces.get(i)+""));
 						size++;
 					}
 				}
@@ -74,7 +74,8 @@ public class DesignParser {
 		}
 	}
 
-	// FIXME: is it GOOD DESIGN to have a class where everything is static?
+
+	// Unused, just for reference
 	private static void printClass(ClassNode classNode) {
 		System.out.println("Class's JVM internal name: " + classNode.name);
 		System.out.println("User-friendly name: "

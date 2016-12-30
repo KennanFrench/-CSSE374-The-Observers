@@ -1,16 +1,21 @@
 
 public class FieldConverter implements Converter {
 
+	private UMLField field;
+	private String graphVizRep; 
+	
+	public FieldConverter(UMLField field) {
+		this.field = field;
+	}
+
 	@Override
 	public void convert() {
-		// TODO Auto-generated method stub
-
+		this.graphVizRep = this.field.getVisibility().getVisibilityCode() + " " + this.field.getName() + " : " + this.field.getType() + "\\l";
 	}
 
 	@Override
 	public String getGraphVizRep() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.graphVizRep;
 	}
 
 }

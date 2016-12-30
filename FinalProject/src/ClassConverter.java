@@ -27,32 +27,28 @@ public class ClassConverter implements Converter {
 		this.graphVizRep.append(" | ");
 		
 		// Fields
+		FieldConverter currFC;
 		for(UMLField field : uClass.getFields()) {
 			if (field.getVisibility().compareTo(runViz) >= 0)
 			{
-				this.graphVizRep.append(field.getVisibility().getVisibilityCode() + " " + field.getName() + " : " + field.getType() + "\\l");
+				currFC = new FieldConverter(field);
+				currFC.convert();
+				this.graphVizRep.append(currFC.getGraphVizRep());
 			}
 		}
 		// TODO Potentially remove | if no fields/methods 
 		this.graphVizRep.append("|");
 
+		// Methods
+		MethodConverter currMC;
 		for(UMLMethod method : uClass.getMethods()) {
 			if (method.getVisibility().compareTo(runViz) >= 0
 					&& !method.getName().equals("<init>")
 					&& !method.getName().equals("<clinit>"))
 			{
-				StringBuilder paramList = new StringBuilder();
-				for(int i = 0; i < method.getParameters().size(); i++)
-				{
-					UMLParam param = method.getParameters().get(i);
-					paramList.append(param.getName() + ": "  + param.getType());
-					if(i < method.getParameters().size() - 1)
-						paramList.append(", ");
-				}
-				this.graphVizRep.append(method.getVisibility().getVisibilityCode() + " " + method.getName() + "(" + paramList + "): "  +  method.getType());
-				if(method.isAbstract())
-					this.graphVizRep.append("\\{abstract\\}");
-				this.graphVizRep.append("\\l\n");
+				currMC = new MethodConverter(method);
+				currMC.convert();
+				this.graphVizRep.append(currMC.getGraphVizRep());
 			}
 		}
 		// Ending

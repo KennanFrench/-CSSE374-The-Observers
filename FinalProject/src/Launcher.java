@@ -14,14 +14,11 @@ public class Launcher {
 	 */
 	
 
-	public static void main(String[] args) throws IOException,
-			ClassNotFoundException {
+	public static void main(String[] args) throws IOException {
 
 		// DONE: Learn how to create separate Run Configurations so you can run
 		// this code without changing the arguments each time.
 
-		// FIXME: this code has POOR DESIGN. If you keep this code as-is for
-		// your main method, you will be sad about your grade.
 		DesignParser parser = new DesignParser();
 		
 		parser.runParser(args);
@@ -30,17 +27,16 @@ public class Launcher {
 		design.addAll(parser.getArrowList());
 		DesignConverter converter = new DesignConverter(design, parser.getRunVis(), "ILoveThisProject");
 		converter.convert();
-		try{
-		    PrintWriter writer = new PrintWriter("test.gv");
-		    writer.print(converter.getGraphVizRep().replaceAll("\\$", ""));
-		    writer.close();
-		} catch (IOException e) {
-		   // do something
-		}
-		Runtime rt = Runtime.getRuntime();
-		Process p = new ProcessBuilder("cmd", "/c", "dot","-Tpng","test.gv", "-o", "out.png").start();
-//		Process pr = rt.exec("cmd /c dot -Tpng test.gv > out.png");
-				System.out.println(converter.getGraphVizRep().replaceAll("\\$", ""));
+		
+		FileRunner fr = new FileRunner();
+		fr.run(converter, "test.gv");
+
+		PictureRunner picR = new PictureRunner();
+		picR.run(converter, "test.gv");
+		
+		PrintRunner pr = new PrintRunner();
+		pr.run(converter, "test.gv");
+		
 		/*for (UMLClass uClass : parser.classList) {
 			ClassConverter converter = new ClassConverter(uClass, Visibility.PRIVATE);
 			converter.convert();
@@ -85,19 +81,4 @@ public class Launcher {
 			// TODO: Use GOOD DESIGN to parse the classes of interest and store
 			// them.
 		}
-	
-	public static String getNiceName(String slashName)
-	{
-		if(slashName == null)
-			return null;
-		String tempArray[] = slashName.split("/"); 
-		return tempArray[tempArray.length -1];
-	}
-
-	public static String getDotName(String slashName) {
-		if(slashName == null)
-			return null;
-		return slashName.replaceAll("/", ".");
-	}
-	
 }

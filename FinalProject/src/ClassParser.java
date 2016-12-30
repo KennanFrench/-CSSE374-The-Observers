@@ -31,7 +31,7 @@ public class ClassParser implements Parser {
 		ArrayList<UMLField> fields = new ArrayList<UMLField>();
 		ArrayList<UMLMethod> methods = new ArrayList<UMLMethod>();
 
-		name = Launcher.getNiceName(this.node.name);
+		name = NameChanger.getNiceName(this.node.name);
 		
 		//System.out.println("public? "
 		//		+ ((classNode.access & Opcodes.ACC_PUBLIC) > 0));
@@ -66,8 +66,8 @@ public class ClassParser implements Parser {
 		this.uClass = new UMLClass(name, category, fields, methods);
 		
 		// Create UMLArrows
-		String tempName = Launcher.getNiceName(this.node.superName);
-		String dot = Launcher.getDotName(this.node.superName);
+		String tempName = NameChanger.getNiceName(this.node.superName);
+		String dot = NameChanger.getDotName(this.node.superName);
 		if (this.node.superName != null && this.classList.contains(dot))
 		{
 			arrows.add(new UMLArrow(this.uClass.getName(), tempName, HeadType.CLOSED, LineType.SOLID));
@@ -75,8 +75,8 @@ public class ClassParser implements Parser {
 		
 		for (int i = 0; i < this.node.interfaces.size(); i++) {
 			String interName = this.node.interfaces.get(i) + "";
-			tempName = Launcher.getNiceName(this.node.interfaces.get(i) + "");
-			String dotName = Launcher.getDotName(interName);
+			tempName = NameChanger.getNiceName(this.node.interfaces.get(i) + "");
+			String dotName = NameChanger.getDotName(interName);
 			if (this.classList.contains(dotName)) {
 				arrows.add(new UMLArrow(this.uClass.getName(), tempName, HeadType.CLOSED, LineType.DASHED));
 			}

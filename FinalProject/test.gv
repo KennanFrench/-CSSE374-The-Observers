@@ -78,8 +78,6 @@ HeadType [
 Launcher [
  shape="record",
  label="{Launcher | |+ main(arg0: java.lang.String[]): void\l
-+ getNiceName(arg0: java.lang.String): java.lang.String\l
-+ getDotName(arg0: java.lang.String): java.lang.String\l
 }" 
 ];
 LineType [
