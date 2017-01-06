@@ -13,8 +13,8 @@ import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
 import org.objectweb.asm.tree.VarInsnNode;
 
-// FIXME: everything about this class is completely terribly designed.
-// If your code even remotely resembles this class, you will be sad.
+//TODO Add has association arrows, did classes;
+// Similar for dependency arrows (with return and types in methods)
 public class DesignParser {
 	
 	private ArrayList<UMLElement> classList;
@@ -29,6 +29,8 @@ public class DesignParser {
 	
 	public void runParser(String[] args) throws IOException {
 		
+		
+		//***Use method.localvariables
 		CommandLineParser clParser = new CommandLineParser(args);
 		clParser.parse();
 		ArrayList<String> classes = clParser.getClassList();
@@ -59,9 +61,11 @@ public class DesignParser {
 				j++;
 			}
 		}
+		j = 0;
+		size = classes.size();
 
-		for (String className : classes) {
-			ClassReader reader = new ClassReader(className);
+		while(j < size) {
+			ClassReader reader = new ClassReader(classes.get(j));
 			ClassNode classNode = new ClassNode();
 			reader.accept(classNode, ClassReader.EXPAND_FRAMES);
 			//System.out.println("Extends: " + classNode.superName);
@@ -69,9 +73,21 @@ public class DesignParser {
 
 			ClassParser parser = new ClassParser(classNode, classes);
 			parser.parse();
+			ArrayList<String> tempList = parser.getuClassList();
 			classList.add(parser.getuClass());
-			arrowList.addAll(parser.getArrows());
+			
+			for (String x : tempList){
+				   if (!classes.contains(x)) {
+					   classes.add(x);
+					   size++;
+				   }
+			}
+			j++;
+			
+			arrowList.addAll(parser.getArrows());			
 		}
+				
+
 	}
 
 

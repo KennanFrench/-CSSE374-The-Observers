@@ -13,4 +13,18 @@ public class NameChanger {
 			return null;
 		return slashName.replaceAll("/", ".");
 	}
+
+public static String removeStart(String string) {
+	if(string == null)
+		return null;
+	if(string.startsWith("["))
+		return string.substring(2);
+	return string.substring(1);
+	}
+
+public static String removeEnd(String dotName) {
+	if (dotName.endsWith(";"))
+		return dotName.substring(0, dotName.length()-1);
+	return dotName;
+}
 }

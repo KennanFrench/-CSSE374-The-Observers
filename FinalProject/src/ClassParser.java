@@ -10,14 +10,16 @@ import org.objectweb.asm.tree.MethodNode;
 public class ClassParser implements Parser {
 	
 	private ClassNode node;
-	private UMLClass uClass;
+	private ArrayList<String> uClassList;
 	private ArrayList<UMLElement> arrows;
 	private ArrayList<String> classList;
+	private UMLClass uClass;
 	
 	public ClassParser(ClassNode node, ArrayList<String> classList) {
 		this.node = node;
 		this.arrows = new ArrayList<UMLElement>();
 		this.classList = classList;
+		this.uClassList = new ArrayList<String>();
 		//for (int i = 0; i < classList.size(); i++) {
 		//	this.classList.set(i, Launcher.getNiceName(classList.get(i)));
 		//}
@@ -54,14 +56,15 @@ public class ClassParser implements Parser {
 			FieldParser parser = new FieldParser(field);
 			parser.parse();
 			fields.add(parser.getuField());
+			uClassList.addAll(parser.getuClassList());
 		}
 
 		for (MethodNode method : methodNodes) {
 			MethodParser parser = new MethodParser(method);
 			parser.parse();
 			methods.add(parser.getuMethod());
+			//uClassList.addAll(parser.getuClassList());
 		}
-		
 		
 		this.uClass = new UMLClass(name, category, fields, methods);
 		
@@ -87,8 +90,12 @@ public class ClassParser implements Parser {
 		return node;
 	}
 
-	public UMLClass getuClass() {
-		return uClass;
+	public ArrayList<String> getuClassList() {
+		return uClassList;
+	}
+	
+	public UMLElement getuClass() {
+		return this.uClass;
 	}
 
 	public ArrayList<UMLElement> getArrows() {

@@ -29,12 +29,15 @@ public class ClassConverter implements Converter {
 		// Fields
 		FieldConverter currFC;
 		for(UMLField field : uClass.getFields()) {
-			if (field.getVisibility().compareTo(runViz) >= 0)
-			{
-				currFC = new FieldConverter(field);
-				currFC.convert();
-				this.graphVizRep.append(currFC.getGraphVizRep());
+			if(field != null) {
+				if (field.getVisibility().compareTo(runViz) >= 0)
+				{
+					currFC = new FieldConverter(field);
+					currFC.convert();
+					this.graphVizRep.append(currFC.getGraphVizRep());
+				}
 			}
+
 		}
 		// TODO Potentially remove | if no fields/methods 
 		this.graphVizRep.append("|");
