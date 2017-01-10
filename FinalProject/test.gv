@@ -1,18 +1,954 @@
 digraph ILoveThisProject{
 rankdir=BT;
-ArrayList [
+TestClass [
  shape="record",
- label="{ArrayList | - EMPTY_ELEMENTDATA : Object;\l- DEFAULTCAPACITY_EMPTY_ELEMENTDATA : Object;\l- elementData : Object;\l|+ trimToSize(): void\l
-+ ensureCapacity(arg0: int): void\l
-- ensureCapacityInternal(arg0: int): void\l
-- ensureExplicitCapacity(arg0: int): void\l
-- grow(arg0: int): void\l
-- hugeCapacity(arg0: int): int\l
+ label="{TestClass | + s : String\l|+ getThing(arg0: int): java.math.BigInteger\l
++ getThing2(arg0: char): int[]\l
++ getThing3(): TestClass\l
++ getThing4(): void\l
++ getThing5(): TestClass[]\l
+}" 
+];
+String [
+ shape="record",
+ label="{String | - serialPersistentFields : ObjectStreamField\l+ CASE_INSENSITIVE_ORDER : Comparator\l|- checkBounds(arg0: byte[], arg1: int, arg2: int): void\l
++ length(): int\l
++ isEmpty(): boolean\l
++ charAt(arg0: int): char\l
++ codePointAt(arg0: int): int\l
++ codePointBefore(arg0: int): int\l
++ codePointCount(arg0: int, arg1: int): int\l
++ offsetByCodePoints(arg0: int, arg1: int): int\l
+- getChars(arg0: char[], arg1: int): void\l
++ getChars(arg0: int, arg1: int, arg2: char[], arg3: int): void\l
++ getBytes(arg0: int, arg1: int, arg2: byte[], arg3: int): void\l
++ getBytes(arg0: java.lang.String): byte[]\l
++ getBytes(arg0: java.nio.charset.Charset): byte[]\l
++ getBytes(): byte[]\l
++ equals(arg0: java.lang.Object): boolean\l
++ contentEquals(arg0: java.lang.StringBuffer): boolean\l
+- nonSyncContentEquals(arg0: java.lang.AbstractStringBuilder): boolean\l
++ contentEquals(arg0: java.lang.CharSequence): boolean\l
++ equalsIgnoreCase(arg0: java.lang.String): boolean\l
++ compareTo(arg0: java.lang.String): int\l
++ compareToIgnoreCase(arg0: java.lang.String): int\l
++ regionMatches(arg0: int, arg1: java.lang.String, arg2: int, arg3: int): boolean\l
++ regionMatches(arg0: boolean, arg1: int, arg2: java.lang.String, arg3: int, arg4: int): boolean\l
++ startsWith(arg0: java.lang.String, arg1: int): boolean\l
++ startsWith(arg0: java.lang.String): boolean\l
++ endsWith(arg0: java.lang.String): boolean\l
++ hashCode(): int\l
++ indexOf(arg0: int): int\l
++ indexOf(arg0: int, arg1: int): int\l
+- indexOfSupplementary(arg0: int, arg1: int): int\l
++ lastIndexOf(arg0: int): int\l
++ lastIndexOf(arg0: int, arg1: int): int\l
+- lastIndexOfSupplementary(arg0: int, arg1: int): int\l
++ indexOf(arg0: java.lang.String): int\l
++ indexOf(arg0: java.lang.String, arg1: int): int\l
+- indexOf(arg0: char[], arg1: int, arg2: int, arg3: java.lang.String, arg4: int): int\l
+- indexOf(arg0: char[], arg1: int, arg2: int, arg3: char[], arg4: int, arg5: int, arg6: int): int\l
++ lastIndexOf(arg0: java.lang.String): int\l
++ lastIndexOf(arg0: java.lang.String, arg1: int): int\l
+- lastIndexOf(arg0: char[], arg1: int, arg2: int, arg3: java.lang.String, arg4: int): int\l
+- lastIndexOf(arg0: char[], arg1: int, arg2: int, arg3: char[], arg4: int, arg5: int, arg6: int): int\l
++ substring(arg0: int): java.lang.String\l
++ substring(arg0: int, arg1: int): java.lang.String\l
++ subSequence(arg0: int, arg1: int): java.lang.CharSequence\l
++ concat(arg0: java.lang.String): java.lang.String\l
++ replace(arg0: char, arg1: char): java.lang.String\l
++ matches(arg0: java.lang.String): boolean\l
++ contains(arg0: java.lang.CharSequence): boolean\l
++ replaceFirst(arg0: java.lang.String, arg1: java.lang.String): java.lang.String\l
++ replaceAll(arg0: java.lang.String, arg1: java.lang.String): java.lang.String\l
++ replace(arg0: java.lang.CharSequence, arg1: java.lang.CharSequence): java.lang.String\l
++ split(arg0: java.lang.String, arg1: int): java.lang.String[]\l
++ split(arg0: java.lang.String): java.lang.String[]\l
++ join(arg0: java.lang.CharSequence, arg1: java.lang.CharSequence[]): java.lang.String\l
++ join(arg0: java.lang.CharSequence, arg1: java.lang.Iterable): java.lang.String\l
++ toLowerCase(arg0: java.util.Locale): java.lang.String\l
++ toLowerCase(): java.lang.String\l
++ toUpperCase(arg0: java.util.Locale): java.lang.String\l
++ toUpperCase(): java.lang.String\l
++ trim(): java.lang.String\l
++ toString(): java.lang.String\l
++ toCharArray(): char[]\l
++ format(arg0: java.lang.String, arg1: java.lang.Object[]): java.lang.String\l
++ format(arg0: java.util.Locale, arg1: java.lang.String, arg2: java.lang.Object[]): java.lang.String\l
++ valueOf(arg0: java.lang.Object): java.lang.String\l
++ valueOf(arg0: char[]): java.lang.String\l
++ valueOf(arg0: char[], arg1: int, arg2: int): java.lang.String\l
++ copyValueOf(arg0: char[], arg1: int, arg2: int): java.lang.String\l
++ copyValueOf(arg0: char[]): java.lang.String\l
++ valueOf(arg0: boolean): java.lang.String\l
++ valueOf(arg0: char): java.lang.String\l
++ valueOf(arg0: int): java.lang.String\l
++ valueOf(arg0: long): java.lang.String\l
++ valueOf(arg0: float): java.lang.String\l
++ valueOf(arg0: double): java.lang.String\l
++ intern(): java.lang.String\l
++ compareTo(arg0: java.lang.Object): int\l
+}" 
+];
+ObjectStreamField [
+ shape="record",
+ label="{ObjectStreamField | - name : String\l- signature : String\l- type : Class\l- field : Field\l|+ getName(): java.lang.String\l
++ getType(): java.lang.Class\l
++ getTypeCode(): char\l
++ getTypeString(): java.lang.String\l
++ getOffset(): int\l
+# setOffset(arg0: int): void\l
++ isPrimitive(): boolean\l
++ isUnshared(): boolean\l
++ compareTo(arg0: java.lang.Object): int\l
++ toString(): java.lang.String\l
+- getField(): java.lang.reflect.Field\l
+- getSignature(): java.lang.String\l
+- getClassSignature(arg0: java.lang.Class): java.lang.String\l
+}" 
+];
+Comparator [
+ shape="record",
+ label="{\<\<interface\>\>\n
+Comparator | |+ compare(arg0: java.lang.Object, arg1: java.lang.Object): int\{abstract\}\l
++ equals(arg0: java.lang.Object): boolean\{abstract\}\l
++ reversed(): java.util.Comparator\l
++ thenComparing(arg0: java.util.Comparator): java.util.Comparator\l
++ thenComparing(arg0: java.util.function.Function, arg1: java.util.Comparator): java.util.Comparator\l
++ thenComparing(arg0: java.util.function.Function): java.util.Comparator\l
++ thenComparingInt(arg0: java.util.function.ToIntFunction): java.util.Comparator\l
++ thenComparingLong(arg0: java.util.function.ToLongFunction): java.util.Comparator\l
++ thenComparingDouble(arg0: java.util.function.ToDoubleFunction): java.util.Comparator\l
++ reverseOrder(): java.util.Comparator\l
++ naturalOrder(): java.util.Comparator\l
++ nullsFirst(arg0: java.util.Comparator): java.util.Comparator\l
++ nullsLast(arg0: java.util.Comparator): java.util.Comparator\l
++ comparing(arg0: java.util.function.Function, arg1: java.util.Comparator): java.util.Comparator\l
++ comparing(arg0: java.util.function.Function): java.util.Comparator\l
++ comparingInt(arg0: java.util.function.ToIntFunction): java.util.Comparator\l
++ comparingLong(arg0: java.util.function.ToLongFunction): java.util.Comparator\l
++ comparingDouble(arg0: java.util.function.ToDoubleFunction): java.util.Comparator\l
+- deserializeLambda(arg0: java.lang.invoke.SerializedLambda): java.lang.Object\l
+- lambdacomparingDouble8dcf42ea1(arg0: java.util.function.ToDoubleFunction, arg1: java.lang.Object, arg2: java.lang.Object): int\l
+- lambdacomparingLong6043328a1(arg0: java.util.function.ToLongFunction, arg1: java.lang.Object, arg2: java.lang.Object): int\l
+- lambdacomparingInt7b0bb601(arg0: java.util.function.ToIntFunction, arg1: java.lang.Object, arg2: java.lang.Object): int\l
+- lambdacomparing77a9974f1(arg0: java.util.function.Function, arg1: java.lang.Object, arg2: java.lang.Object): int\l
+- lambdacomparingea9a8b3a1(arg0: java.util.Comparator, arg1: java.util.function.Function, arg2: java.lang.Object, arg3: java.lang.Object): int\l
+- lambdathenComparing36697e651(arg0: java.util.Comparator, arg1: java.lang.Object, arg2: java.lang.Object): int\l
+}" 
+];
+Class [
+ shape="record",
+ label="{Class | - cachedConstructor : Constructor\l- newInstanceCallerCache : Class\l- name : String\l- allPermDomain : ProtectionDomain\l- reflectionData : SoftReference\l- genericInfo : ClassRepository\l- serialPersistentFields : ObjectStreamField\l- reflectionFactory : ReflectionFactory\l- enumConstants : Object\l- enumConstantDirectory : Map\l- annotationData : ClassAnnotationData\l- annotationType : AnnotationType\l- classValueMap : ClassValueClassValueMap\l|- registerNatives(): void\l
++ toString(): java.lang.String\l
++ toGenericString(): java.lang.String\l
++ forName(arg0: java.lang.String): java.lang.Class\l
++ forName(arg0: java.lang.String, arg1: boolean, arg2: java.lang.ClassLoader): java.lang.Class\l
+- forName0(arg0: java.lang.String, arg1: boolean, arg2: java.lang.ClassLoader, arg3: java.lang.Class): java.lang.Class\l
++ newInstance(): java.lang.Object\l
++ isInstance(arg0: java.lang.Object): boolean\l
++ isAssignableFrom(arg0: java.lang.Class): boolean\l
++ isInterface(): boolean\l
++ isArray(): boolean\l
++ isPrimitive(): boolean\l
++ isAnnotation(): boolean\l
++ isSynthetic(): boolean\l
++ getName(): java.lang.String\l
+- getName0(): java.lang.String\l
++ getClassLoader(): java.lang.ClassLoader\l
+- getClassLoader0(): java.lang.ClassLoader\l
++ getTypeParameters(): java.lang.reflect.TypeVariable[]\l
++ getSuperclass(): java.lang.Class\l
++ getGenericSuperclass(): java.lang.reflect.Type\l
++ getPackage(): java.lang.Package\l
++ getInterfaces(): java.lang.Class[]\l
+- getInterfaces0(): java.lang.Class[]\l
++ getGenericInterfaces(): java.lang.reflect.Type[]\l
++ getComponentType(): java.lang.Class\l
++ getModifiers(): int\l
++ getSigners(): java.lang.Object[]\l
+- setSigners(arg0: java.lang.Object[]): void\l
++ getEnclosingMethod(): java.lang.reflect.Method\l
+- getEnclosingMethod0(): java.lang.Object[]\l
+- getEnclosingMethodInfo(): java.lang.ClassEnclosingMethodInfo\l
+- toClass(arg0: java.lang.reflect.Type): java.lang.Class\l
++ getEnclosingConstructor(): java.lang.reflect.Constructor\l
++ getDeclaringClass(): java.lang.Class\l
+- getDeclaringClass0(): java.lang.Class\l
++ getEnclosingClass(): java.lang.Class\l
++ getSimpleName(): java.lang.String\l
++ getTypeName(): java.lang.String\l
+- isAsciiDigit(arg0: char): boolean\l
++ getCanonicalName(): java.lang.String\l
++ isAnonymousClass(): boolean\l
++ isLocalClass(): boolean\l
++ isMemberClass(): boolean\l
+- getSimpleBinaryName(): java.lang.String\l
+- isLocalOrAnonymousClass(): boolean\l
++ getClasses(): java.lang.Class[]\l
++ getFields(): java.lang.reflect.Field[]\l
++ getMethods(): java.lang.reflect.Method[]\l
++ getConstructors(): java.lang.reflect.Constructor[]\l
++ getField(arg0: java.lang.String): java.lang.reflect.Field\l
++ getMethod(arg0: java.lang.String, arg1: java.lang.Class[]): java.lang.reflect.Method\l
++ getConstructor(arg0: java.lang.Class[]): java.lang.reflect.Constructor\l
++ getDeclaredClasses(): java.lang.Class[]\l
++ getDeclaredFields(): java.lang.reflect.Field[]\l
++ getDeclaredMethods(): java.lang.reflect.Method[]\l
++ getDeclaredConstructors(): java.lang.reflect.Constructor[]\l
++ getDeclaredField(arg0: java.lang.String): java.lang.reflect.Field\l
++ getDeclaredMethod(arg0: java.lang.String, arg1: java.lang.Class[]): java.lang.reflect.Method\l
++ getDeclaredConstructor(arg0: java.lang.Class[]): java.lang.reflect.Constructor\l
++ getResourceAsStream(arg0: java.lang.String): java.io.InputStream\l
++ getResource(arg0: java.lang.String): java.net.URL\l
++ getProtectionDomain(): java.security.ProtectionDomain\l
+- getProtectionDomain0(): java.security.ProtectionDomain\l
+- getPrimitiveClass(arg0: java.lang.String): java.lang.Class\l
+- checkMemberAccess(arg0: int, arg1: java.lang.Class, arg2: boolean): void\l
+- checkPackageAccess(arg0: java.lang.ClassLoader, arg1: boolean): void\l
+- resolveName(arg0: java.lang.String): java.lang.String\l
+- reflectionData(): java.lang.ClassReflectionData\l
+- newReflectionData(arg0: java.lang.ref.SoftReference, arg1: int): java.lang.ClassReflectionData\l
+- getGenericSignature0(): java.lang.String\l
+- getFactory(): sun.reflect.generics.factory.GenericsFactory\l
+- getGenericInfo(): sun.reflect.generics.repository.ClassRepository\l
+- getRawAnnotations(): byte[]\l
+- getRawTypeAnnotations(): byte[]\l
+- getExecutableTypeAnnotationBytes(arg0: java.lang.reflect.Executable): byte[]\l
+- getConstantPool(): sun.reflect.ConstantPool\l
+- privateGetDeclaredFields(arg0: boolean): java.lang.reflect.Field[]\l
+- privateGetPublicFields(arg0: java.util.Set): java.lang.reflect.Field[]\l
+- addAll(arg0: java.util.Collection, arg1: java.lang.reflect.Field[]): void\l
+- privateGetDeclaredConstructors(arg0: boolean): java.lang.reflect.Constructor[]\l
+- privateGetDeclaredMethods(arg0: boolean): java.lang.reflect.Method[]\l
+- privateGetPublicMethods(): java.lang.reflect.Method[]\l
+- searchFields(arg0: java.lang.reflect.Field[], arg1: java.lang.String): java.lang.reflect.Field\l
+- getField0(arg0: java.lang.String): java.lang.reflect.Field\l
+- searchMethods(arg0: java.lang.reflect.Method[], arg1: java.lang.String, arg2: java.lang.Class[]): java.lang.reflect.Method\l
+- getMethod0(arg0: java.lang.String, arg1: java.lang.Class[], arg2: boolean): java.lang.reflect.Method\l
+- privateGetMethodRecursive(arg0: java.lang.String, arg1: java.lang.Class[], arg2: boolean, arg3: java.lang.ClassMethodArray): java.lang.reflect.Method\l
+- getConstructor0(arg0: java.lang.Class[], arg1: int): java.lang.reflect.Constructor\l
+- arrayContentsEq(arg0: java.lang.Object[], arg1: java.lang.Object[]): boolean\l
+- copyFields(arg0: java.lang.reflect.Field[]): java.lang.reflect.Field[]\l
+- copyMethods(arg0: java.lang.reflect.Method[]): java.lang.reflect.Method[]\l
+- copyConstructors(arg0: java.lang.reflect.Constructor[]): java.lang.reflect.Constructor[]\l
+- getDeclaredFields0(arg0: boolean): java.lang.reflect.Field[]\l
+- getDeclaredMethods0(arg0: boolean): java.lang.reflect.Method[]\l
+- getDeclaredConstructors0(arg0: boolean): java.lang.reflect.Constructor[]\l
+- getDeclaredClasses0(): java.lang.Class[]\l
+- argumentTypesToString(arg0: java.lang.Class[]): java.lang.String\l
++ desiredAssertionStatus(): boolean\l
+- desiredAssertionStatus0(arg0: java.lang.Class): boolean\l
++ isEnum(): boolean\l
+- getReflectionFactory(): sun.reflect.ReflectionFactory\l
+- checkInitted(): void\l
++ getEnumConstants(): java.lang.Object[]\l
+- getEnumConstantsShared(): java.lang.Object[]\l
+- enumConstantDirectory(): java.util.Map\l
++ cast(arg0: java.lang.Object): java.lang.Object\l
+- cannotCastMsg(arg0: java.lang.Object): java.lang.String\l
++ asSubclass(arg0: java.lang.Class): java.lang.Class\l
++ getAnnotation(arg0: java.lang.Class): java.lang.annotation.Annotation\l
++ isAnnotationPresent(arg0: java.lang.Class): boolean\l
++ getAnnotationsByType(arg0: java.lang.Class): java.lang.annotation.Annotation[]\l
++ getAnnotations(): java.lang.annotation.Annotation[]\l
++ getDeclaredAnnotation(arg0: java.lang.Class): java.lang.annotation.Annotation\l
++ getDeclaredAnnotationsByType(arg0: java.lang.Class): java.lang.annotation.Annotation[]\l
++ getDeclaredAnnotations(): java.lang.annotation.Annotation[]\l
+- annotationData(): java.lang.ClassAnnotationData\l
+- createAnnotationData(arg0: int): java.lang.ClassAnnotationData\l
+- casAnnotationType(arg0: sun.reflect.annotation.AnnotationType, arg1: sun.reflect.annotation.AnnotationType): boolean\l
+- getAnnotationType(): sun.reflect.annotation.AnnotationType\l
+- getDeclaredAnnotationMap(): java.util.Map\l
++ getAnnotatedSuperclass(): java.lang.reflect.AnnotatedType\l
++ getAnnotatedInterfaces(): java.lang.reflect.AnnotatedType[]\l
+- access100(arg0: java.lang.Class, arg1: boolean): java.lang.reflect.Field[]\l
+- access200(arg0: java.lang.reflect.Field[], arg1: java.lang.String): java.lang.reflect.Field\l
+- access300(arg0: java.lang.Object[], arg1: java.lang.Object[]): boolean\l
+- access402(arg0: boolean): boolean\l
+- access502(arg0: boolean): boolean\l
+}" 
+];
+Field [
+ shape="record",
+ label="{Field | - clazz : Class\l- name : String\l- type : Class\l- signature : String\l- genericInfo : FieldRepository\l- fieldAccessor : FieldAccessor\l- overrideFieldAccessor : FieldAccessor\l- root : Field\l- declaredAnnotations : Map\l|- getGenericSignature(): java.lang.String\l
+- getFactory(): sun.reflect.generics.factory.GenericsFactory\l
+- getGenericInfo(): sun.reflect.generics.repository.FieldRepository\l
+- copy(): java.lang.reflect.Field\l
++ getDeclaringClass(): java.lang.Class\l
++ getName(): java.lang.String\l
++ getModifiers(): int\l
++ isEnumConstant(): boolean\l
++ isSynthetic(): boolean\l
++ getType(): java.lang.Class\l
++ getGenericType(): java.lang.reflect.Type\l
++ equals(arg0: java.lang.Object): boolean\l
++ hashCode(): int\l
++ toString(): java.lang.String\l
++ toGenericString(): java.lang.String\l
++ get(arg0: java.lang.Object): java.lang.Object\l
++ getBoolean(arg0: java.lang.Object): boolean\l
++ getByte(arg0: java.lang.Object): byte\l
++ getChar(arg0: java.lang.Object): char\l
++ getShort(arg0: java.lang.Object): short\l
++ getInt(arg0: java.lang.Object): int\l
++ getLong(arg0: java.lang.Object): long\l
++ getFloat(arg0: java.lang.Object): float\l
++ getDouble(arg0: java.lang.Object): double\l
++ set(arg0: java.lang.Object, arg1: java.lang.Object): void\l
++ setBoolean(arg0: java.lang.Object, arg1: boolean): void\l
++ setByte(arg0: java.lang.Object, arg1: byte): void\l
++ setChar(arg0: java.lang.Object, arg1: char): void\l
++ setShort(arg0: java.lang.Object, arg1: short): void\l
++ setInt(arg0: java.lang.Object, arg1: int): void\l
++ setLong(arg0: java.lang.Object, arg1: long): void\l
++ setFloat(arg0: java.lang.Object, arg1: float): void\l
++ setDouble(arg0: java.lang.Object, arg1: double): void\l
+- getFieldAccessor(arg0: java.lang.Object): sun.reflect.FieldAccessor\l
+- acquireFieldAccessor(arg0: boolean): sun.reflect.FieldAccessor\l
+- getFieldAccessor(arg0: boolean): sun.reflect.FieldAccessor\l
+- setFieldAccessor(arg0: sun.reflect.FieldAccessor, arg1: boolean): void\l
++ getAnnotation(arg0: java.lang.Class): java.lang.annotation.Annotation\l
++ getAnnotationsByType(arg0: java.lang.Class): java.lang.annotation.Annotation[]\l
++ getDeclaredAnnotations(): java.lang.annotation.Annotation[]\l
+- declaredAnnotations(): java.util.Map\l
+- getTypeAnnotationBytes0(): byte[]\l
++ getAnnotatedType(): java.lang.reflect.AnnotatedType\l
+}" 
+];
+Constructor [
+ shape="record",
+ label="{Constructor | - clazz : Class\l- parameterTypes : Class\l- exceptionTypes : Class\l- signature : String\l- genericInfo : ConstructorRepository\l- constructorAccessor : ConstructorAccessor\l- root : Constructor\l|- getFactory(): sun.reflect.generics.factory.GenericsFactory\l
+- getGenericInfo(): sun.reflect.generics.repository.ConstructorRepository\l
+- copy(): java.lang.reflect.Constructor\l
+- hasGenericInformation(): boolean\l
+- getAnnotationBytes(): byte[]\l
++ getDeclaringClass(): java.lang.Class\l
++ getName(): java.lang.String\l
++ getModifiers(): int\l
++ getTypeParameters(): java.lang.reflect.TypeVariable[]\l
++ getParameterTypes(): java.lang.Class[]\l
++ getParameterCount(): int\l
++ getGenericParameterTypes(): java.lang.reflect.Type[]\l
++ getExceptionTypes(): java.lang.Class[]\l
++ getGenericExceptionTypes(): java.lang.reflect.Type[]\l
++ equals(arg0: java.lang.Object): boolean\l
++ hashCode(): int\l
++ toString(): java.lang.String\l
+- specificToStringHeader(arg0: java.lang.StringBuilder): void\l
++ toGenericString(): java.lang.String\l
+- specificToGenericStringHeader(arg0: java.lang.StringBuilder): void\l
++ newInstance(arg0: java.lang.Object[]): java.lang.Object\l
++ isVarArgs(): boolean\l
++ isSynthetic(): boolean\l
+- acquireConstructorAccessor(): sun.reflect.ConstructorAccessor\l
+- getConstructorAccessor(): sun.reflect.ConstructorAccessor\l
+- setConstructorAccessor(arg0: sun.reflect.ConstructorAccessor): void\l
+- getSlot(): int\l
+- getSignature(): java.lang.String\l
+- getRawAnnotations(): byte[]\l
+- getRawParameterAnnotations(): byte[]\l
++ getAnnotation(arg0: java.lang.Class): java.lang.annotation.Annotation\l
++ getDeclaredAnnotations(): java.lang.annotation.Annotation[]\l
++ getParameterAnnotations(): java.lang.annotation.Annotation[][]\l
+- handleParameterNumberMismatch(arg0: int, arg1: int): void\l
++ getAnnotatedReturnType(): java.lang.reflect.AnnotatedType\l
++ getAnnotatedReceiverType(): java.lang.reflect.AnnotatedType\l
+}" 
+];
+ProtectionDomain [
+ shape="record",
+ label="{ProtectionDomain | - codesource : CodeSource\l- classloader : ClassLoader\l- principals : Principal\l- permissions : PermissionCollection\l- key : ProtectionDomainKey\l- debug : Debug\l|+ getCodeSource(): java.security.CodeSource\l
++ getClassLoader(): java.lang.ClassLoader\l
++ getPrincipals(): java.security.Principal[]\l
++ getPermissions(): java.security.PermissionCollection\l
++ implies(arg0: java.security.Permission): boolean\l
+- impliesCreateAccessControlContext(): boolean\l
++ toString(): java.lang.String\l
+- seeAllp(): boolean\l
+- mergePermissions(): java.security.PermissionCollection\l
+}" 
+];
+SoftReference [
+ shape="record",
+ label="{SoftReference | |+ get(): java.lang.Object\l
+}" 
+];
+ClassRepository [
+ shape="record",
+ label="{ClassRepository | + NONE : ClassRepository\l- superclass : Type\l- superInterfaces : Type\l|# parse(arg0: java.lang.String): sun.reflect.generics.tree.ClassSignature\l
++ make(arg0: java.lang.String, arg1: sun.reflect.generics.factory.GenericsFactory): sun.reflect.generics.repository.ClassRepository\l
++ getSuperclass(): java.lang.reflect.Type\l
++ getSuperInterfaces(): java.lang.reflect.Type[]\l
+# parse(arg0: java.lang.String): sun.reflect.generics.tree.Tree\l
+}" 
+];
+ReflectionFactory [
+ shape="record",
+ label="{ReflectionFactory | - reflectionFactoryAccessPerm : Permission\l- soleInstance : ReflectionFactory\l- langReflectAccess : LangReflectAccess\l|+ getReflectionFactory(): sun.reflect.ReflectionFactory\l
++ setLangReflectAccess(arg0: sun.reflect.LangReflectAccess): void\l
++ newFieldAccessor(arg0: java.lang.reflect.Field, arg1: boolean): sun.reflect.FieldAccessor\l
++ newMethodAccessor(arg0: java.lang.reflect.Method): sun.reflect.MethodAccessor\l
++ newConstructorAccessor(arg0: java.lang.reflect.Constructor): sun.reflect.ConstructorAccessor\l
++ newField(arg0: java.lang.Class, arg1: java.lang.String, arg2: java.lang.Class, arg3: int, arg4: int, arg5: java.lang.String, arg6: byte[]): java.lang.reflect.Field\l
++ newMethod(arg0: java.lang.Class, arg1: java.lang.String, arg2: java.lang.Class[], arg3: java.lang.Class, arg4: java.lang.Class[], arg5: int, arg6: int, arg7: java.lang.String, arg8: byte[], arg9: byte[], arg10: byte[]): java.lang.reflect.Method\l
++ newConstructor(arg0: java.lang.Class, arg1: java.lang.Class[], arg2: java.lang.Class[], arg3: int, arg4: int, arg5: java.lang.String, arg6: byte[], arg7: byte[]): java.lang.reflect.Constructor\l
++ getMethodAccessor(arg0: java.lang.reflect.Method): sun.reflect.MethodAccessor\l
++ setMethodAccessor(arg0: java.lang.reflect.Method, arg1: sun.reflect.MethodAccessor): void\l
++ getConstructorAccessor(arg0: java.lang.reflect.Constructor): sun.reflect.ConstructorAccessor\l
++ setConstructorAccessor(arg0: java.lang.reflect.Constructor, arg1: sun.reflect.ConstructorAccessor): void\l
++ copyMethod(arg0: java.lang.reflect.Method): java.lang.reflect.Method\l
++ copyField(arg0: java.lang.reflect.Field): java.lang.reflect.Field\l
++ copyConstructor(arg0: java.lang.reflect.Constructor): java.lang.reflect.Constructor\l
++ getExecutableTypeAnnotationBytes(arg0: java.lang.reflect.Executable): byte[]\l
++ newConstructorForSerialization(arg0: java.lang.Class, arg1: java.lang.reflect.Constructor): java.lang.reflect.Constructor\l
+- inflationThreshold(): int\l
+- checkInitted(): void\l
+- langReflectAccess(): sun.reflect.LangReflectAccess\l
+- access002(arg0: boolean): boolean\l
+- access102(arg0: int): int\l
+- access202(arg0: boolean): boolean\l
+}" 
+];
+Object [
+ shape="record",
+ label="{Object | |- registerNatives(): void\l
++ getClass(): java.lang.Class\l
++ hashCode(): int\l
++ equals(arg0: java.lang.Object): boolean\l
+# clone(): java.lang.Object\l
++ toString(): java.lang.String\l
++ notify(): void\l
++ notifyAll(): void\l
++ wait(arg0: long): void\l
++ wait(arg0: long, arg1: int): void\l
++ wait(): void\l
+# finalize(): void\l
+}" 
+];
+Map [
+ shape="record",
+ label="{\<\<interface\>\>\n
+Map | |+ size(): int\{abstract\}\l
++ isEmpty(): boolean\{abstract\}\l
++ containsKey(arg0: java.lang.Object): boolean\{abstract\}\l
++ containsValue(arg0: java.lang.Object): boolean\{abstract\}\l
++ get(arg0: java.lang.Object): java.lang.Object\{abstract\}\l
++ put(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\{abstract\}\l
++ remove(arg0: java.lang.Object): java.lang.Object\{abstract\}\l
++ putAll(arg0: java.util.Map): void\{abstract\}\l
++ clear(): void\{abstract\}\l
++ keySet(): java.util.Set\{abstract\}\l
++ values(): java.util.Collection\{abstract\}\l
++ entrySet(): java.util.Set\{abstract\}\l
++ equals(arg0: java.lang.Object): boolean\{abstract\}\l
++ hashCode(): int\{abstract\}\l
++ getOrDefault(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ forEach(arg0: java.util.function.BiConsumer): void\l
++ replaceAll(arg0: java.util.function.BiFunction): void\l
++ putIfAbsent(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ remove(arg0: java.lang.Object, arg1: java.lang.Object): boolean\l
++ replace(arg0: java.lang.Object, arg1: java.lang.Object, arg2: java.lang.Object): boolean\l
++ replace(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ computeIfAbsent(arg0: java.lang.Object, arg1: java.util.function.Function): java.lang.Object\l
++ computeIfPresent(arg0: java.lang.Object, arg1: java.util.function.BiFunction): java.lang.Object\l
++ compute(arg0: java.lang.Object, arg1: java.util.function.BiFunction): java.lang.Object\l
++ merge(arg0: java.lang.Object, arg1: java.lang.Object, arg2: java.util.function.BiFunction): java.lang.Object\l
+}" 
+];
+ClassAnnotationData [
+ shape="record",
+ label="{ClassAnnotationData | - annotations : Map\l- declaredAnnotations : Map\l|}" 
+];
+AnnotationType [
+ shape="record",
+ label="{AnnotationType | - memberTypes : Map\l- memberDefaults : Map\l- members : Map\l- retention : RetentionPolicy\l|+ getInstance(arg0: java.lang.Class): sun.reflect.annotation.AnnotationType\l
++ invocationHandlerReturnType(arg0: java.lang.Class): java.lang.Class\l
++ memberTypes(): java.util.Map\l
++ members(): java.util.Map\l
++ memberDefaults(): java.util.Map\l
++ retention(): java.lang.annotation.RetentionPolicy\l
++ isInherited(): boolean\l
++ toString(): java.lang.String\l
+}" 
+];
+ClassValueClassValueMap [
+ shape="record",
+ label="{ClassValueClassValueMap | - type : Class\l- cacheArray : ClassValueEntry\l|- getCache(): java.lang.ClassValueEntry[]\l
+- startEntry(arg0: java.lang.ClassValue): java.lang.ClassValueEntry\l
+- finishEntry(arg0: java.lang.ClassValue, arg1: java.lang.ClassValueEntry): java.lang.ClassValueEntry\l
+- removeEntry(arg0: java.lang.ClassValue): void\l
+- changeEntry(arg0: java.lang.ClassValue, arg1: java.lang.Object): void\l
+- loadFromCache(arg0: java.lang.ClassValueEntry[], arg1: int): java.lang.ClassValueEntry\l
+- probeHomeLocation(arg0: java.lang.ClassValueEntry[], arg1: java.lang.ClassValue): java.lang.ClassValueEntry\l
+- probeBackupLocations(arg0: java.lang.ClassValueEntry[], arg1: java.lang.ClassValue): java.lang.ClassValueEntry\l
+- entryDislocation(arg0: java.lang.ClassValueEntry[], arg1: int, arg2: java.lang.ClassValueEntry): int\l
+- sizeCache(arg0: int): void\l
+- checkCacheLoad(): void\l
+- reduceCacheLoad(): void\l
+- removeStaleEntries(arg0: java.lang.ClassValueEntry[], arg1: int, arg2: int): void\l
+- findReplacement(arg0: java.lang.ClassValueEntry[], arg1: int): java.lang.ClassValueEntry\l
+- removeStaleEntries(arg0: java.lang.ClassValue): void\l
+- removeStaleEntries(): void\l
+- addToCache(arg0: java.lang.ClassValueEntry): void\l
+- addToCache(arg0: java.lang.ClassValue, arg1: java.lang.ClassValueEntry): void\l
+- placeInCache(arg0: java.lang.ClassValueEntry[], arg1: int, arg2: java.lang.ClassValueEntry, arg3: boolean): java.lang.ClassValueEntry\l
+- overwrittenEntry(arg0: java.lang.ClassValueEntry): java.lang.ClassValueEntry\l
+}" 
+];
+FieldRepository [
+ shape="record",
+ label="{FieldRepository | - genericType : Type\l|# parse(arg0: java.lang.String): sun.reflect.generics.tree.TypeSignature\l
++ make(arg0: java.lang.String, arg1: sun.reflect.generics.factory.GenericsFactory): sun.reflect.generics.repository.FieldRepository\l
++ getGenericType(): java.lang.reflect.Type\l
+# parse(arg0: java.lang.String): sun.reflect.generics.tree.Tree\l
+}" 
+];
+FieldAccessor [
+ shape="record",
+ label="{\<\<interface\>\>\n
+FieldAccessor | |+ get(arg0: java.lang.Object): java.lang.Object\{abstract\}\l
++ getBoolean(arg0: java.lang.Object): boolean\{abstract\}\l
++ getByte(arg0: java.lang.Object): byte\{abstract\}\l
++ getChar(arg0: java.lang.Object): char\{abstract\}\l
++ getShort(arg0: java.lang.Object): short\{abstract\}\l
++ getInt(arg0: java.lang.Object): int\{abstract\}\l
++ getLong(arg0: java.lang.Object): long\{abstract\}\l
++ getFloat(arg0: java.lang.Object): float\{abstract\}\l
++ getDouble(arg0: java.lang.Object): double\{abstract\}\l
++ set(arg0: java.lang.Object, arg1: java.lang.Object): void\{abstract\}\l
++ setBoolean(arg0: java.lang.Object, arg1: boolean): void\{abstract\}\l
++ setByte(arg0: java.lang.Object, arg1: byte): void\{abstract\}\l
++ setChar(arg0: java.lang.Object, arg1: char): void\{abstract\}\l
++ setShort(arg0: java.lang.Object, arg1: short): void\{abstract\}\l
++ setInt(arg0: java.lang.Object, arg1: int): void\{abstract\}\l
++ setLong(arg0: java.lang.Object, arg1: long): void\{abstract\}\l
++ setFloat(arg0: java.lang.Object, arg1: float): void\{abstract\}\l
++ setDouble(arg0: java.lang.Object, arg1: double): void\{abstract\}\l
+}" 
+];
+ConstructorRepository [
+ shape="record",
+ label="{ConstructorRepository | - paramTypes : Type\l- exceptionTypes : Type\l|# parse(arg0: java.lang.String): sun.reflect.generics.tree.MethodTypeSignature\l
++ make(arg0: java.lang.String, arg1: sun.reflect.generics.factory.GenericsFactory): sun.reflect.generics.repository.ConstructorRepository\l
++ getParameterTypes(): java.lang.reflect.Type[]\l
++ getExceptionTypes(): java.lang.reflect.Type[]\l
+# parse(arg0: java.lang.String): sun.reflect.generics.tree.Tree\l
+}" 
+];
+ConstructorAccessor [
+ shape="record",
+ label="{\<\<interface\>\>\n
+ConstructorAccessor | |+ newInstance(arg0: java.lang.Object[]): java.lang.Object\{abstract\}\l
+}" 
+];
+CodeSource [
+ shape="record",
+ label="{CodeSource | - location : URL\l- signers : CodeSigner\l- certs : Certificate\l- sp : SocketPermission\l- factory : CertificateFactory\l|+ hashCode(): int\l
++ equals(arg0: java.lang.Object): boolean\l
++ getLocation(): java.net.URL\l
++ getCertificates(): java.security.cert.Certificate[]\l
++ getCodeSigners(): java.security.CodeSigner[]\l
++ implies(arg0: java.security.CodeSource): boolean\l
+- matchCerts(arg0: java.security.CodeSource, arg1: boolean): boolean\l
+- matchLocation(arg0: java.security.CodeSource): boolean\l
++ toString(): java.lang.String\l
+- writeObject(arg0: java.io.ObjectOutputStream): void\l
+- readObject(arg0: java.io.ObjectInputStream): void\l
+- convertCertArrayToSignerArray(arg0: java.security.cert.Certificate[]): java.security.CodeSigner[]\l
+}" 
+];
+ClassLoader [
+ shape="record",
+ label="{\<\<abstract\>\>\n
+ClassLoader | - parent : ClassLoader\l- parallelLockMap : ConcurrentHashMap\l- package2certs : Map\l- nocerts : Certificate\l- classes : Vector\l- defaultDomain : ProtectionDomain\l- domains : Set\l- packages : HashMap\l- scl : ClassLoader\l- loadedLibraryNames : Vector\l- systemNativeLibraries : Vector\l- nativeLibraries : Vector\l- nativeLibraryContext : Stack\l- usr_paths : String\l- sys_paths : String\l- assertionLock : Object\l- packageAssertionStatus : Map\l- classAssertionStatus : Map\l|- registerNatives(): void\l
+- addClass(arg0: java.lang.Class): void\l
+- checkCreateClassLoader(): java.lang.Void\l
++ loadClass(arg0: java.lang.String): java.lang.Class\l
+# loadClass(arg0: java.lang.String, arg1: boolean): java.lang.Class\l
+# getClassLoadingLock(arg0: java.lang.String): java.lang.Object\l
+- loadClassInternal(arg0: java.lang.String): java.lang.Class\l
+- checkPackageAccess(arg0: java.lang.Class, arg1: java.security.ProtectionDomain): void\l
+# findClass(arg0: java.lang.String): java.lang.Class\l
+# defineClass(arg0: byte[], arg1: int, arg2: int): java.lang.Class\l
+# defineClass(arg0: java.lang.String, arg1: byte[], arg2: int, arg3: int): java.lang.Class\l
+- preDefineClass(arg0: java.lang.String, arg1: java.security.ProtectionDomain): java.security.ProtectionDomain\l
+- defineClassSourceLocation(arg0: java.security.ProtectionDomain): java.lang.String\l
+- postDefineClass(arg0: java.lang.Class, arg1: java.security.ProtectionDomain): void\l
+# defineClass(arg0: java.lang.String, arg1: byte[], arg2: int, arg3: int, arg4: java.security.ProtectionDomain): java.lang.Class\l
+# defineClass(arg0: java.lang.String, arg1: java.nio.ByteBuffer, arg2: java.security.ProtectionDomain): java.lang.Class\l
+- defineClass0(arg0: java.lang.String, arg1: byte[], arg2: int, arg3: int, arg4: java.security.ProtectionDomain): java.lang.Class\l
+- defineClass1(arg0: java.lang.String, arg1: byte[], arg2: int, arg3: int, arg4: java.security.ProtectionDomain, arg5: java.lang.String): java.lang.Class\l
+- defineClass2(arg0: java.lang.String, arg1: java.nio.ByteBuffer, arg2: int, arg3: int, arg4: java.security.ProtectionDomain, arg5: java.lang.String): java.lang.Class\l
+- checkName(arg0: java.lang.String): boolean\l
+- checkCerts(arg0: java.lang.String, arg1: java.security.CodeSource): void\l
+- compareCerts(arg0: java.security.cert.Certificate[], arg1: java.security.cert.Certificate[]): boolean\l
+# resolveClass(arg0: java.lang.Class): void\l
+- resolveClass0(arg0: java.lang.Class): void\l
+# findSystemClass(arg0: java.lang.String): java.lang.Class\l
+- findBootstrapClassOrNull(arg0: java.lang.String): java.lang.Class\l
+- findBootstrapClass(arg0: java.lang.String): java.lang.Class\l
+# findLoadedClass(arg0: java.lang.String): java.lang.Class\l
+- findLoadedClass0(arg0: java.lang.String): java.lang.Class\l
+# setSigners(arg0: java.lang.Class, arg1: java.lang.Object[]): void\l
++ getResource(arg0: java.lang.String): java.net.URL\l
++ getResources(arg0: java.lang.String): java.util.Enumeration\l
+# findResource(arg0: java.lang.String): java.net.URL\l
+# findResources(arg0: java.lang.String): java.util.Enumeration\l
+# registerAsParallelCapable(): boolean\l
++ getSystemResource(arg0: java.lang.String): java.net.URL\l
++ getSystemResources(arg0: java.lang.String): java.util.Enumeration\l
+- getBootstrapResource(arg0: java.lang.String): java.net.URL\l
+- getBootstrapResources(arg0: java.lang.String): java.util.Enumeration\l
+- getBootstrapClassPath(): sun.misc.URLClassPath\l
++ getResourceAsStream(arg0: java.lang.String): java.io.InputStream\l
++ getSystemResourceAsStream(arg0: java.lang.String): java.io.InputStream\l
++ getParent(): java.lang.ClassLoader\l
++ getSystemClassLoader(): java.lang.ClassLoader\l
+- initSystemClassLoader(): void\l
+- isAncestor(arg0: java.lang.ClassLoader): boolean\l
+- needsClassLoaderPermissionCheck(arg0: java.lang.ClassLoader, arg1: java.lang.ClassLoader): boolean\l
+- getClassLoader(arg0: java.lang.Class): java.lang.ClassLoader\l
+- checkClassLoaderPermission(arg0: java.lang.ClassLoader, arg1: java.lang.Class): void\l
+# definePackage(arg0: java.lang.String, arg1: java.lang.String, arg2: java.lang.String, arg3: java.lang.String, arg4: java.lang.String, arg5: java.lang.String, arg6: java.lang.String, arg7: java.net.URL): java.lang.Package\l
+# getPackage(arg0: java.lang.String): java.lang.Package\l
+# getPackages(): java.lang.Package[]\l
+# findLibrary(arg0: java.lang.String): java.lang.String\l
+- initializePath(arg0: java.lang.String): java.lang.String[]\l
+- loadLibrary(arg0: java.lang.Class, arg1: java.lang.String, arg2: boolean): void\l
+- loadLibrary0(arg0: java.lang.Class, arg1: java.io.File): boolean\l
+- findNative(arg0: java.lang.ClassLoader, arg1: java.lang.String): long\l
++ setDefaultAssertionStatus(arg0: boolean): void\l
++ setPackageAssertionStatus(arg0: java.lang.String, arg1: boolean): void\l
++ setClassAssertionStatus(arg0: java.lang.String, arg1: boolean): void\l
++ clearAssertionStatus(): void\l
+- desiredAssertionStatus(arg0: java.lang.String): boolean\l
+- initializeJavaAssertionMaps(): void\l
+- retrieveDirectives(): java.lang.AssertionStatusDirectives\l
+- access000(): java.util.Vector\l
+- access100(): java.util.Stack\l
+}" 
+];
+Principal [
+ shape="record",
+ label="{\<\<interface\>\>\n
+Principal | |+ equals(arg0: java.lang.Object): boolean\{abstract\}\l
++ toString(): java.lang.String\{abstract\}\l
++ hashCode(): int\{abstract\}\l
++ getName(): java.lang.String\{abstract\}\l
++ implies(arg0: javax.security.auth.Subject): boolean\l
+}" 
+];
+PermissionCollection [
+ shape="record",
+ label="{\<\<abstract\>\>\n
+PermissionCollection | |+ add(arg0: java.security.Permission): void\{abstract\}\l
++ implies(arg0: java.security.Permission): boolean\{abstract\}\l
++ elements(): java.util.Enumeration\{abstract\}\l
++ setReadOnly(): void\l
++ isReadOnly(): boolean\l
++ toString(): java.lang.String\l
+}" 
+];
+ProtectionDomainKey [
+ shape="record",
+ label="{ProtectionDomainKey | - this0 : ProtectionDomain\l|}" 
+];
+Debug [
+ shape="record",
+ label="{Debug | - prefix : String\l- args : String\l|+ Help(): void\l
++ getInstance(arg0: java.lang.String): sun.security.util.Debug\l
++ getInstance(arg0: java.lang.String, arg1: java.lang.String): sun.security.util.Debug\l
++ isOn(arg0: java.lang.String): boolean\l
++ println(arg0: java.lang.String): void\l
++ println(): void\l
++ println(arg0: java.lang.String, arg1: java.lang.String): void\l
++ toHexString(arg0: java.math.BigInteger): java.lang.String\l
+- marshal(arg0: java.lang.String): java.lang.String\l
++ toString(arg0: byte[]): java.lang.String\l
+}" 
+];
+Type [
+ shape="record",
+ label="{\<\<interface\>\>\n
+Type | |+ getTypeName(): java.lang.String\l
+}" 
+];
+Permission [
+ shape="record",
+ label="{\<\<abstract\>\>\n
+Permission | - name : String\l|+ checkGuard(arg0: java.lang.Object): void\l
++ implies(arg0: java.security.Permission): boolean\{abstract\}\l
++ equals(arg0: java.lang.Object): boolean\{abstract\}\l
++ hashCode(): int\{abstract\}\l
++ getName(): java.lang.String\l
++ getActions(): java.lang.String\{abstract\}\l
++ newPermissionCollection(): java.security.PermissionCollection\l
++ toString(): java.lang.String\l
+}" 
+];
+LangReflectAccess [
+ shape="record",
+ label="{\<\<interface\>\>\n
+LangReflectAccess | |+ newField(arg0: java.lang.Class, arg1: java.lang.String, arg2: java.lang.Class, arg3: int, arg4: int, arg5: java.lang.String, arg6: byte[]): java.lang.reflect.Field\{abstract\}\l
++ newMethod(arg0: java.lang.Class, arg1: java.lang.String, arg2: java.lang.Class[], arg3: java.lang.Class, arg4: java.lang.Class[], arg5: int, arg6: int, arg7: java.lang.String, arg8: byte[], arg9: byte[], arg10: byte[]): java.lang.reflect.Method\{abstract\}\l
++ newConstructor(arg0: java.lang.Class, arg1: java.lang.Class[], arg2: java.lang.Class[], arg3: int, arg4: int, arg5: java.lang.String, arg6: byte[], arg7: byte[]): java.lang.reflect.Constructor\{abstract\}\l
++ getMethodAccessor(arg0: java.lang.reflect.Method): sun.reflect.MethodAccessor\{abstract\}\l
++ setMethodAccessor(arg0: java.lang.reflect.Method, arg1: sun.reflect.MethodAccessor): void\{abstract\}\l
++ getConstructorAccessor(arg0: java.lang.reflect.Constructor): sun.reflect.ConstructorAccessor\{abstract\}\l
++ setConstructorAccessor(arg0: java.lang.reflect.Constructor, arg1: sun.reflect.ConstructorAccessor): void\{abstract\}\l
++ getExecutableTypeAnnotationBytes(arg0: java.lang.reflect.Executable): byte[]\{abstract\}\l
++ getConstructorSlot(arg0: java.lang.reflect.Constructor): int\{abstract\}\l
++ getConstructorSignature(arg0: java.lang.reflect.Constructor): java.lang.String\{abstract\}\l
++ getConstructorAnnotations(arg0: java.lang.reflect.Constructor): byte[]\{abstract\}\l
++ getConstructorParameterAnnotations(arg0: java.lang.reflect.Constructor): byte[]\{abstract\}\l
++ copyMethod(arg0: java.lang.reflect.Method): java.lang.reflect.Method\{abstract\}\l
++ copyField(arg0: java.lang.reflect.Field): java.lang.reflect.Field\{abstract\}\l
++ copyConstructor(arg0: java.lang.reflect.Constructor): java.lang.reflect.Constructor\{abstract\}\l
+}" 
+];
+RetentionPolicy [
+ shape="record",
+ label="{RetentionPolicy | + SOURCE : RetentionPolicy\l+ CLASS : RetentionPolicy\l+ RUNTIME : RetentionPolicy\l- VALUES : RetentionPolicy\l|+ values(): java.lang.annotation.RetentionPolicy[]\l
++ valueOf(arg0: java.lang.String): java.lang.annotation.RetentionPolicy\l
+}" 
+];
+ClassValueEntry [
+ shape="record",
+ label="{ClassValueEntry | - value : Object\l- DEAD_ENTRY : ClassValueEntry\l|- assertNotPromise(): void\l
+- value(): java.lang.Object\l
+- isPromise(): boolean\l
+- version(): java.lang.ClassValueVersion\l
+- classValueOrNull(): java.lang.ClassValue\l
+- isLive(): boolean\l
+- refreshVersion(arg0: java.lang.ClassValueVersion): java.lang.ClassValueEntry\l
+}" 
+];
+URL [
+ shape="record",
+ label="{URL | - protocolPathProp : String\l- protocol : String\l- host : String\l- file : String\l- query : String\l- authority : String\l- path : String\l- userInfo : String\l- ref : String\l- hostAddress : InetAddress\l- handler : URLStreamHandler\l- factory : URLStreamHandlerFactory\l- handlers : Hashtable\l- streamHandlerLock : Object\l|- isValidProtocol(arg0: java.lang.String): boolean\l
+- checkSpecifyHandler(arg0: java.lang.SecurityManager): void\l
+- set(arg0: java.lang.String, arg1: java.lang.String, arg2: int, arg3: java.lang.String, arg4: java.lang.String): void\l
+- set(arg0: java.lang.String, arg1: java.lang.String, arg2: int, arg3: java.lang.String, arg4: java.lang.String, arg5: java.lang.String, arg6: java.lang.String, arg7: java.lang.String): void\l
++ getQuery(): java.lang.String\l
++ getPath(): java.lang.String\l
++ getUserInfo(): java.lang.String\l
++ getAuthority(): java.lang.String\l
++ getPort(): int\l
++ getDefaultPort(): int\l
++ getProtocol(): java.lang.String\l
++ getHost(): java.lang.String\l
++ getFile(): java.lang.String\l
++ getRef(): java.lang.String\l
++ equals(arg0: java.lang.Object): boolean\l
++ hashCode(): int\l
++ sameFile(arg0: java.net.URL): boolean\l
++ toString(): java.lang.String\l
++ toExternalForm(): java.lang.String\l
++ toURI(): java.net.URI\l
++ openConnection(): java.net.URLConnection\l
++ openConnection(arg0: java.net.Proxy): java.net.URLConnection\l
++ openStream(): java.io.InputStream\l
++ getContent(): java.lang.Object\l
++ getContent(arg0: java.lang.Class[]): java.lang.Object\l
++ setURLStreamHandlerFactory(arg0: java.net.URLStreamHandlerFactory): void\l
+- getURLStreamHandler(arg0: java.lang.String): java.net.URLStreamHandler\l
+- writeObject(arg0: java.io.ObjectOutputStream): void\l
+- readObject(arg0: java.io.ObjectInputStream): void\l
+}" 
+];
+CodeSigner [
+ shape="record",
+ label="{CodeSigner | - signerCertPath : CertPath\l- timestamp : Timestamp\l|+ getSignerCertPath(): java.security.cert.CertPath\l
++ getTimestamp(): java.security.Timestamp\l
++ hashCode(): int\l
++ equals(arg0: java.lang.Object): boolean\l
++ toString(): java.lang.String\l
+- readObject(arg0: java.io.ObjectInputStream): void\l
+}" 
+];
+Certificate [
+ shape="record",
+ label="{\<\<abstract\>\>\n
+Certificate | - type : String\l|+ getType(): java.lang.String\l
++ equals(arg0: java.lang.Object): boolean\l
++ hashCode(): int\l
++ getEncoded(): byte[]\{abstract\}\l
++ verify(arg0: java.security.PublicKey): void\{abstract\}\l
++ verify(arg0: java.security.PublicKey, arg1: java.lang.String): void\{abstract\}\l
++ verify(arg0: java.security.PublicKey, arg1: java.security.Provider): void\l
++ toString(): java.lang.String\{abstract\}\l
++ getPublicKey(): java.security.PublicKey\{abstract\}\l
+# writeReplace(): java.lang.Object\l
+}" 
+];
+SocketPermission [
+ shape="record",
+ label="{SocketPermission | - actions : String\l- hostname : String\l- cname : String\l- addresses : InetAddress\l- debug : Debug\l- cdomain : String\l- hdomain : String\l|- getDebug(): sun.security.util.Debug\l
+- setDeny(): void\l
+- getHost(arg0: java.lang.String): java.lang.String\l
+- parsePort(arg0: java.lang.String): int[]\l
+- includesEphemerals(): boolean\l
+- init(arg0: java.lang.String, arg1: int): void\l
+- getMask(arg0: java.lang.String): int\l
+- isUntrusted(): boolean\l
+- getCanonName(): void\l
+- match(arg0: java.lang.String, arg1: java.lang.String): boolean\l
+- authorized(arg0: java.lang.String, arg1: byte[]): boolean\l
+- authorizedIPv4(arg0: java.lang.String, arg1: byte[]): boolean\l
+- authorizedIPv6(arg0: java.lang.String, arg1: byte[]): boolean\l
+- getIP(): void\l
++ implies(arg0: java.security.Permission): boolean\l
+- impliesIgnoreMask(arg0: java.net.SocketPermission): boolean\l
+- compareHostnames(arg0: java.net.SocketPermission): boolean\l
++ equals(arg0: java.lang.Object): boolean\l
++ hashCode(): int\l
+- getMask(): int\l
+- getActions(arg0: int): java.lang.String\l
++ getActions(): java.lang.String\l
++ newPermissionCollection(): java.security.PermissionCollection\l
+- writeObject(arg0: java.io.ObjectOutputStream): void\l
+- readObject(arg0: java.io.ObjectInputStream): void\l
+- initEphemeralPorts(arg0: java.lang.String, arg1: int): int\l
+- inRange(arg0: int, arg1: int, arg2: int, arg3: int): boolean\l
+- access000(arg0: java.lang.String, arg1: int): int\l
+}" 
+];
+CertificateFactory [
+ shape="record",
+ label="{CertificateFactory | - type : String\l- provider : Provider\l- certFacSpi : CertificateFactorySpi\l|+ getInstance(arg0: java.lang.String): java.security.cert.CertificateFactory\l
++ getInstance(arg0: java.lang.String, arg1: java.lang.String): java.security.cert.CertificateFactory\l
++ getInstance(arg0: java.lang.String, arg1: java.security.Provider): java.security.cert.CertificateFactory\l
++ getProvider(): java.security.Provider\l
++ getType(): java.lang.String\l
++ generateCertificate(arg0: java.io.InputStream): java.security.cert.Certificate\l
++ getCertPathEncodings(): java.util.Iterator\l
++ generateCertPath(arg0: java.io.InputStream): java.security.cert.CertPath\l
++ generateCertPath(arg0: java.io.InputStream, arg1: java.lang.String): java.security.cert.CertPath\l
++ generateCertPath(arg0: java.util.List): java.security.cert.CertPath\l
++ generateCertificates(arg0: java.io.InputStream): java.util.Collection\l
++ generateCRL(arg0: java.io.InputStream): java.security.cert.CRL\l
++ generateCRLs(arg0: java.io.InputStream): java.util.Collection\l
+}" 
+];
+ConcurrentHashMap [
+ shape="record",
+ label="{ConcurrentHashMap | - serialPersistentFields : ObjectStreamField\l- table : ConcurrentHashMapNode\l- nextTable : ConcurrentHashMapNode\l- counterCells : ConcurrentHashMapCounterCell\l- keySet : ConcurrentHashMapKeySetView\l- values : ConcurrentHashMapValuesView\l- entrySet : ConcurrentHashMapEntrySetView\l- U : Unsafe\l|- spread(arg0: int): int\l
+- tableSizeFor(arg0: int): int\l
+- comparableClassFor(arg0: java.lang.Object): java.lang.Class\l
+- compareComparables(arg0: java.lang.Class, arg1: java.lang.Object, arg2: java.lang.Object): int\l
+- tabAt(arg0: java.util.concurrent.ConcurrentHashMapNode[], arg1: int): java.util.concurrent.ConcurrentHashMapNode\l
+- casTabAt(arg0: java.util.concurrent.ConcurrentHashMapNode[], arg1: int, arg2: java.util.concurrent.ConcurrentHashMapNode, arg3: java.util.concurrent.ConcurrentHashMapNode): boolean\l
+- setTabAt(arg0: java.util.concurrent.ConcurrentHashMapNode[], arg1: int, arg2: java.util.concurrent.ConcurrentHashMapNode): void\l
 + size(): int\l
 + isEmpty(): boolean\l
++ get(arg0: java.lang.Object): java.lang.Object\l
++ containsKey(arg0: java.lang.Object): boolean\l
++ containsValue(arg0: java.lang.Object): boolean\l
++ put(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
+- putVal(arg0: java.lang.Object, arg1: java.lang.Object, arg2: boolean): java.lang.Object\l
++ putAll(arg0: java.util.Map): void\l
++ remove(arg0: java.lang.Object): java.lang.Object\l
+- replaceNode(arg0: java.lang.Object, arg1: java.lang.Object, arg2: java.lang.Object): java.lang.Object\l
++ clear(): void\l
++ keySet(): java.util.concurrent.ConcurrentHashMapKeySetView\l
++ values(): java.util.Collection\l
++ entrySet(): java.util.Set\l
++ hashCode(): int\l
++ toString(): java.lang.String\l
++ equals(arg0: java.lang.Object): boolean\l
+- writeObject(arg0: java.io.ObjectOutputStream): void\l
+- readObject(arg0: java.io.ObjectInputStream): void\l
++ putIfAbsent(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ remove(arg0: java.lang.Object, arg1: java.lang.Object): boolean\l
++ replace(arg0: java.lang.Object, arg1: java.lang.Object, arg2: java.lang.Object): boolean\l
++ replace(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ getOrDefault(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ forEach(arg0: java.util.function.BiConsumer): void\l
++ replaceAll(arg0: java.util.function.BiFunction): void\l
++ computeIfAbsent(arg0: java.lang.Object, arg1: java.util.function.Function): java.lang.Object\l
++ computeIfPresent(arg0: java.lang.Object, arg1: java.util.function.BiFunction): java.lang.Object\l
++ compute(arg0: java.lang.Object, arg1: java.util.function.BiFunction): java.lang.Object\l
++ merge(arg0: java.lang.Object, arg1: java.lang.Object, arg2: java.util.function.BiFunction): java.lang.Object\l
++ contains(arg0: java.lang.Object): boolean\l
++ keys(): java.util.Enumeration\l
++ elements(): java.util.Enumeration\l
++ mappingCount(): long\l
++ newKeySet(): java.util.concurrent.ConcurrentHashMapKeySetView\l
++ newKeySet(arg0: int): java.util.concurrent.ConcurrentHashMapKeySetView\l
++ keySet(arg0: java.lang.Object): java.util.concurrent.ConcurrentHashMapKeySetView\l
+- resizeStamp(arg0: int): int\l
+- initTable(): java.util.concurrent.ConcurrentHashMapNode[]\l
+- addCount(arg0: long, arg1: int): void\l
+- helpTransfer(arg0: java.util.concurrent.ConcurrentHashMapNode[], arg1: java.util.concurrent.ConcurrentHashMapNode): java.util.concurrent.ConcurrentHashMapNode[]\l
+- tryPresize(arg0: int): void\l
+- transfer(arg0: java.util.concurrent.ConcurrentHashMapNode[], arg1: java.util.concurrent.ConcurrentHashMapNode[]): void\l
+- sumCount(): long\l
+- fullAddCount(arg0: long, arg1: boolean): void\l
+- treeifyBin(arg0: java.util.concurrent.ConcurrentHashMapNode[], arg1: int): void\l
+- untreeify(arg0: java.util.concurrent.ConcurrentHashMapNode): java.util.concurrent.ConcurrentHashMapNode\l
+- batchFor(arg0: long): int\l
++ forEach(arg0: long, arg1: java.util.function.BiConsumer): void\l
++ forEach(arg0: long, arg1: java.util.function.BiFunction, arg2: java.util.function.Consumer): void\l
++ search(arg0: long, arg1: java.util.function.BiFunction): java.lang.Object\l
++ reduce(arg0: long, arg1: java.util.function.BiFunction, arg2: java.util.function.BiFunction): java.lang.Object\l
++ reduceToDouble(arg0: long, arg1: java.util.function.ToDoubleBiFunction, arg2: double, arg3: java.util.function.DoubleBinaryOperator): double\l
++ reduceToLong(arg0: long, arg1: java.util.function.ToLongBiFunction, arg2: long, arg3: java.util.function.LongBinaryOperator): long\l
++ reduceToInt(arg0: long, arg1: java.util.function.ToIntBiFunction, arg2: int, arg3: java.util.function.IntBinaryOperator): int\l
++ forEachKey(arg0: long, arg1: java.util.function.Consumer): void\l
++ forEachKey(arg0: long, arg1: java.util.function.Function, arg2: java.util.function.Consumer): void\l
++ searchKeys(arg0: long, arg1: java.util.function.Function): java.lang.Object\l
++ reduceKeys(arg0: long, arg1: java.util.function.BiFunction): java.lang.Object\l
++ reduceKeys(arg0: long, arg1: java.util.function.Function, arg2: java.util.function.BiFunction): java.lang.Object\l
++ reduceKeysToDouble(arg0: long, arg1: java.util.function.ToDoubleFunction, arg2: double, arg3: java.util.function.DoubleBinaryOperator): double\l
++ reduceKeysToLong(arg0: long, arg1: java.util.function.ToLongFunction, arg2: long, arg3: java.util.function.LongBinaryOperator): long\l
++ reduceKeysToInt(arg0: long, arg1: java.util.function.ToIntFunction, arg2: int, arg3: java.util.function.IntBinaryOperator): int\l
++ forEachValue(arg0: long, arg1: java.util.function.Consumer): void\l
++ forEachValue(arg0: long, arg1: java.util.function.Function, arg2: java.util.function.Consumer): void\l
++ searchValues(arg0: long, arg1: java.util.function.Function): java.lang.Object\l
++ reduceValues(arg0: long, arg1: java.util.function.BiFunction): java.lang.Object\l
++ reduceValues(arg0: long, arg1: java.util.function.Function, arg2: java.util.function.BiFunction): java.lang.Object\l
++ reduceValuesToDouble(arg0: long, arg1: java.util.function.ToDoubleFunction, arg2: double, arg3: java.util.function.DoubleBinaryOperator): double\l
++ reduceValuesToLong(arg0: long, arg1: java.util.function.ToLongFunction, arg2: long, arg3: java.util.function.LongBinaryOperator): long\l
++ reduceValuesToInt(arg0: long, arg1: java.util.function.ToIntFunction, arg2: int, arg3: java.util.function.IntBinaryOperator): int\l
++ forEachEntry(arg0: long, arg1: java.util.function.Consumer): void\l
++ forEachEntry(arg0: long, arg1: java.util.function.Function, arg2: java.util.function.Consumer): void\l
++ searchEntries(arg0: long, arg1: java.util.function.Function): java.lang.Object\l
++ reduceEntries(arg0: long, arg1: java.util.function.BiFunction): java.util.MapEntry\l
++ reduceEntries(arg0: long, arg1: java.util.function.Function, arg2: java.util.function.BiFunction): java.lang.Object\l
++ reduceEntriesToDouble(arg0: long, arg1: java.util.function.ToDoubleFunction, arg2: double, arg3: java.util.function.DoubleBinaryOperator): double\l
++ reduceEntriesToLong(arg0: long, arg1: java.util.function.ToLongFunction, arg2: long, arg3: java.util.function.LongBinaryOperator): long\l
++ reduceEntriesToInt(arg0: long, arg1: java.util.function.ToIntFunction, arg2: int, arg3: java.util.function.IntBinaryOperator): int\l
++ keySet(): java.util.Set\l
+}" 
+];
+Vector [
+ shape="record",
+ label="{Vector | # elementData : Object\l|+ copyInto(arg0: java.lang.Object[]): void\l
++ trimToSize(): void\l
++ ensureCapacity(arg0: int): void\l
+- ensureCapacityHelper(arg0: int): void\l
+- grow(arg0: int): void\l
+- hugeCapacity(arg0: int): int\l
++ setSize(arg0: int): void\l
++ capacity(): int\l
++ size(): int\l
++ isEmpty(): boolean\l
++ elements(): java.util.Enumeration\l
 + contains(arg0: java.lang.Object): boolean\l
 + indexOf(arg0: java.lang.Object): int\l
++ indexOf(arg0: java.lang.Object, arg1: int): int\l
 + lastIndexOf(arg0: java.lang.Object): int\l
++ lastIndexOf(arg0: java.lang.Object, arg1: int): int\l
++ elementAt(arg0: int): java.lang.Object\l
++ firstElement(): java.lang.Object\l
++ lastElement(): java.lang.Object\l
++ setElementAt(arg0: java.lang.Object, arg1: int): void\l
++ removeElementAt(arg0: int): void\l
++ insertElementAt(arg0: java.lang.Object, arg1: int): void\l
++ addElement(arg0: java.lang.Object): void\l
++ removeElement(arg0: java.lang.Object): boolean\l
++ removeAllElements(): void\l
 + clone(): java.lang.Object\l
 + toArray(): java.lang.Object[]\l
 + toArray(arg0: java.lang.Object[]): java.lang.Object[]\l
@@ -20,56 +956,526 @@ ArrayList [
 + get(arg0: int): java.lang.Object\l
 + set(arg0: int, arg1: java.lang.Object): java.lang.Object\l
 + add(arg0: java.lang.Object): boolean\l
++ remove(arg0: java.lang.Object): boolean\l
 + add(arg0: int, arg1: java.lang.Object): void\l
 + remove(arg0: int): java.lang.Object\l
-+ remove(arg0: java.lang.Object): boolean\l
-- fastRemove(arg0: int): void\l
 + clear(): void\l
++ containsAll(arg0: java.util.Collection): boolean\l
 + addAll(arg0: java.util.Collection): boolean\l
-+ addAll(arg0: int, arg1: java.util.Collection): boolean\l
-# removeRange(arg0: int, arg1: int): void\l
-- rangeCheck(arg0: int): void\l
-- rangeCheckForAdd(arg0: int): void\l
-- outOfBoundsMsg(arg0: int): java.lang.String\l
 + removeAll(arg0: java.util.Collection): boolean\l
 + retainAll(arg0: java.util.Collection): boolean\l
-- batchRemove(arg0: java.util.Collection, arg1: boolean): boolean\l
++ addAll(arg0: int, arg1: java.util.Collection): boolean\l
++ equals(arg0: java.lang.Object): boolean\l
++ hashCode(): int\l
++ toString(): java.lang.String\l
++ subList(arg0: int, arg1: int): java.util.List\l
+# removeRange(arg0: int, arg1: int): void\l
 - writeObject(arg0: java.io.ObjectOutputStream): void\l
-- readObject(arg0: java.io.ObjectInputStream): void\l
 + listIterator(arg0: int): java.util.ListIterator\l
 + listIterator(): java.util.ListIterator\l
 + iterator(): java.util.Iterator\l
-+ subList(arg0: int, arg1: int): java.util.List\l
-- subListRangeCheck(arg0: int, arg1: int, arg2: int): void\l
 + forEach(arg0: java.util.function.Consumer): void\l
-+ spliterator(): java.util.Spliterator\l
 + removeIf(arg0: java.util.function.Predicate): boolean\l
 + replaceAll(arg0: java.util.function.UnaryOperator): void\l
 + sort(arg0: java.util.Comparator): void\l
-- access100(arg0: java.util.ArrayList): int\l
++ spliterator(): java.util.Spliterator\l
 }" 
 ];
-AbstractList [
+Set [
+ shape="record",
+ label="{\<\<interface\>\>\n
+Set | |+ size(): int\{abstract\}\l
++ isEmpty(): boolean\{abstract\}\l
++ contains(arg0: java.lang.Object): boolean\{abstract\}\l
++ iterator(): java.util.Iterator\{abstract\}\l
++ toArray(): java.lang.Object[]\{abstract\}\l
++ toArray(arg0: java.lang.Object[]): java.lang.Object[]\{abstract\}\l
++ add(arg0: java.lang.Object): boolean\{abstract\}\l
++ remove(arg0: java.lang.Object): boolean\{abstract\}\l
++ containsAll(arg0: java.util.Collection): boolean\{abstract\}\l
++ addAll(arg0: java.util.Collection): boolean\{abstract\}\l
++ retainAll(arg0: java.util.Collection): boolean\{abstract\}\l
++ removeAll(arg0: java.util.Collection): boolean\{abstract\}\l
++ clear(): void\{abstract\}\l
++ equals(arg0: java.lang.Object): boolean\{abstract\}\l
++ hashCode(): int\{abstract\}\l
++ spliterator(): java.util.Spliterator\l
+}" 
+];
+HashMap [
+ shape="record",
+ label="{HashMap | - table : HashMapNode\l- entrySet : Set\l|- hash(arg0: java.lang.Object): int\l
+- comparableClassFor(arg0: java.lang.Object): java.lang.Class\l
+- compareComparables(arg0: java.lang.Class, arg1: java.lang.Object, arg2: java.lang.Object): int\l
+- tableSizeFor(arg0: int): int\l
+- putMapEntries(arg0: java.util.Map, arg1: boolean): void\l
++ size(): int\l
++ isEmpty(): boolean\l
++ get(arg0: java.lang.Object): java.lang.Object\l
+- getNode(arg0: int, arg1: java.lang.Object): java.util.HashMapNode\l
++ containsKey(arg0: java.lang.Object): boolean\l
++ put(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
+- putVal(arg0: int, arg1: java.lang.Object, arg2: java.lang.Object, arg3: boolean, arg4: boolean): java.lang.Object\l
+- resize(): java.util.HashMapNode[]\l
+- treeifyBin(arg0: java.util.HashMapNode[], arg1: int): void\l
++ putAll(arg0: java.util.Map): void\l
++ remove(arg0: java.lang.Object): java.lang.Object\l
+- removeNode(arg0: int, arg1: java.lang.Object, arg2: java.lang.Object, arg3: boolean, arg4: boolean): java.util.HashMapNode\l
++ clear(): void\l
++ containsValue(arg0: java.lang.Object): boolean\l
++ keySet(): java.util.Set\l
++ values(): java.util.Collection\l
++ entrySet(): java.util.Set\l
++ getOrDefault(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ putIfAbsent(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ remove(arg0: java.lang.Object, arg1: java.lang.Object): boolean\l
++ replace(arg0: java.lang.Object, arg1: java.lang.Object, arg2: java.lang.Object): boolean\l
++ replace(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ computeIfAbsent(arg0: java.lang.Object, arg1: java.util.function.Function): java.lang.Object\l
++ computeIfPresent(arg0: java.lang.Object, arg1: java.util.function.BiFunction): java.lang.Object\l
++ compute(arg0: java.lang.Object, arg1: java.util.function.BiFunction): java.lang.Object\l
++ merge(arg0: java.lang.Object, arg1: java.lang.Object, arg2: java.util.function.BiFunction): java.lang.Object\l
++ forEach(arg0: java.util.function.BiConsumer): void\l
++ replaceAll(arg0: java.util.function.BiFunction): void\l
++ clone(): java.lang.Object\l
+- loadFactor(): float\l
+- capacity(): int\l
+- writeObject(arg0: java.io.ObjectOutputStream): void\l
+- readObject(arg0: java.io.ObjectInputStream): void\l
+- newNode(arg0: int, arg1: java.lang.Object, arg2: java.lang.Object, arg3: java.util.HashMapNode): java.util.HashMapNode\l
+- replacementNode(arg0: java.util.HashMapNode, arg1: java.util.HashMapNode): java.util.HashMapNode\l
+- newTreeNode(arg0: int, arg1: java.lang.Object, arg2: java.lang.Object, arg3: java.util.HashMapNode): java.util.HashMapTreeNode\l
+- replacementTreeNode(arg0: java.util.HashMapNode, arg1: java.util.HashMapNode): java.util.HashMapTreeNode\l
+- reinitialize(): void\l
+- afterNodeAccess(arg0: java.util.HashMapNode): void\l
+- afterNodeInsertion(arg0: boolean): void\l
+- afterNodeRemoval(arg0: java.util.HashMapNode): void\l
+- internalWriteEntries(arg0: java.io.ObjectOutputStream): void\l
+}" 
+];
+Stack [
+ shape="record",
+ label="{Stack | |+ push(arg0: java.lang.Object): java.lang.Object\l
++ pop(): java.lang.Object\l
++ peek(): java.lang.Object\l
++ empty(): boolean\l
++ search(arg0: java.lang.Object): int\l
+}" 
+];
+InetAddress [
+ shape="record",
+ label="{InetAddress | - holder : InetAddressInetAddressHolder\l- nameServices : List\l- canonicalHostName : String\l- addressCache : InetAddressCache\l- negativeCache : InetAddressCache\l- unknown_array : InetAddress\l- impl : InetAddressImpl\l- lookupTable : HashMap\l- cachedLocalHost : InetAddress\l- cacheLock : Object\l- UNSAFE : Unsafe\l- serialPersistentFields : ObjectStreamField\l|- holder(): java.net.InetAddressInetAddressHolder\l
+- readResolve(): java.lang.Object\l
++ isMulticastAddress(): boolean\l
++ isAnyLocalAddress(): boolean\l
++ isLoopbackAddress(): boolean\l
++ isLinkLocalAddress(): boolean\l
++ isSiteLocalAddress(): boolean\l
++ isMCGlobal(): boolean\l
++ isMCNodeLocal(): boolean\l
++ isMCLinkLocal(): boolean\l
++ isMCSiteLocal(): boolean\l
++ isMCOrgLocal(): boolean\l
++ isReachable(arg0: int): boolean\l
++ isReachable(arg0: java.net.NetworkInterface, arg1: int, arg2: int): boolean\l
++ getHostName(): java.lang.String\l
+- getHostName(arg0: boolean): java.lang.String\l
++ getCanonicalHostName(): java.lang.String\l
+- getHostFromNameService(arg0: java.net.InetAddress, arg1: boolean): java.lang.String\l
++ getAddress(): byte[]\l
++ getHostAddress(): java.lang.String\l
++ hashCode(): int\l
++ equals(arg0: java.lang.Object): boolean\l
++ toString(): java.lang.String\l
+- cacheInitIfNeeded(): void\l
+- cacheAddresses(arg0: java.lang.String, arg1: java.net.InetAddress[], arg2: boolean): void\l
+- getCachedAddresses(arg0: java.lang.String): java.net.InetAddress[]\l
+- createNSProvider(arg0: java.lang.String): sun.net.spi.nameservice.NameService\l
++ getByAddress(arg0: java.lang.String, arg1: byte[]): java.net.InetAddress\l
++ getByName(arg0: java.lang.String): java.net.InetAddress\l
+- getByName(arg0: java.lang.String, arg1: java.net.InetAddress): java.net.InetAddress\l
++ getAllByName(arg0: java.lang.String): java.net.InetAddress[]\l
+- getAllByName(arg0: java.lang.String, arg1: java.net.InetAddress): java.net.InetAddress[]\l
++ getLoopbackAddress(): java.net.InetAddress\l
+- checkNumericZone(arg0: java.lang.String): int\l
+- getAllByName0(arg0: java.lang.String): java.net.InetAddress[]\l
+- getAllByName0(arg0: java.lang.String, arg1: boolean): java.net.InetAddress[]\l
+- getAllByName0(arg0: java.lang.String, arg1: java.net.InetAddress, arg2: boolean): java.net.InetAddress[]\l
+- getAddressesFromNameService(arg0: java.lang.String, arg1: java.net.InetAddress): java.net.InetAddress[]\l
+- checkLookupTable(arg0: java.lang.String): java.net.InetAddress[]\l
+- updateLookupTable(arg0: java.lang.String): void\l
++ getByAddress(arg0: byte[]): java.net.InetAddress\l
++ getLocalHost(): java.net.InetAddress\l
+- init(): void\l
+- anyLocalAddress(): java.net.InetAddress\l
+- loadImpl(arg0: java.lang.String): java.net.InetAddressImpl\l
+- readObjectNoData(arg0: java.io.ObjectInputStream): void\l
+- readObject(arg0: java.io.ObjectInputStream): void\l
+- writeObject(arg0: java.io.ObjectOutputStream): void\l
+}" 
+];
+URLStreamHandler [
  shape="record",
  label="{\<\<abstract\>\>\n
-AbstractList | |+ add(arg0: java.lang.Object): boolean\l
-+ get(arg0: int): java.lang.Object\{abstract\}\l
-+ set(arg0: int, arg1: java.lang.Object): java.lang.Object\l
-+ add(arg0: int, arg1: java.lang.Object): void\l
-+ remove(arg0: int): java.lang.Object\l
-+ indexOf(arg0: java.lang.Object): int\l
-+ lastIndexOf(arg0: java.lang.Object): int\l
+URLStreamHandler | |# openConnection(arg0: java.net.URL): java.net.URLConnection\{abstract\}\l
+# openConnection(arg0: java.net.URL, arg1: java.net.Proxy): java.net.URLConnection\l
+# parseURL(arg0: java.net.URL, arg1: java.lang.String, arg2: int, arg3: int): void\l
+# getDefaultPort(): int\l
+# equals(arg0: java.net.URL, arg1: java.net.URL): boolean\l
+# hashCode(arg0: java.net.URL): int\l
+# sameFile(arg0: java.net.URL, arg1: java.net.URL): boolean\l
+# getHostAddress(arg0: java.net.URL): java.net.InetAddress\l
+# hostsEqual(arg0: java.net.URL, arg1: java.net.URL): boolean\l
+# toExternalForm(arg0: java.net.URL): java.lang.String\l
+# setURL(arg0: java.net.URL, arg1: java.lang.String, arg2: java.lang.String, arg3: int, arg4: java.lang.String, arg5: java.lang.String, arg6: java.lang.String, arg7: java.lang.String, arg8: java.lang.String): void\l
+# setURL(arg0: java.net.URL, arg1: java.lang.String, arg2: java.lang.String, arg3: int, arg4: java.lang.String, arg5: java.lang.String): void\l
+}" 
+];
+URLStreamHandlerFactory [
+ shape="record",
+ label="{\<\<interface\>\>\n
+URLStreamHandlerFactory | |+ createURLStreamHandler(arg0: java.lang.String): java.net.URLStreamHandler\{abstract\}\l
+}" 
+];
+Hashtable [
+ shape="record",
+ label="{Hashtable | - table : HashtableEntry\l- keySet : Set\l- entrySet : Set\l- values : Collection\l|+ size(): int\l
++ isEmpty(): boolean\l
++ keys(): java.util.Enumeration\l
++ elements(): java.util.Enumeration\l
++ contains(arg0: java.lang.Object): boolean\l
++ containsValue(arg0: java.lang.Object): boolean\l
++ containsKey(arg0: java.lang.Object): boolean\l
++ get(arg0: java.lang.Object): java.lang.Object\l
+# rehash(): void\l
+- addEntry(arg0: int, arg1: java.lang.Object, arg2: java.lang.Object, arg3: int): void\l
++ put(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ remove(arg0: java.lang.Object): java.lang.Object\l
++ putAll(arg0: java.util.Map): void\l
 + clear(): void\l
-+ addAll(arg0: int, arg1: java.util.Collection): boolean\l
-+ iterator(): java.util.Iterator\l
-+ listIterator(): java.util.ListIterator\l
-+ listIterator(arg0: int): java.util.ListIterator\l
-+ subList(arg0: int, arg1: int): java.util.List\l
++ clone(): java.lang.Object\l
++ toString(): java.lang.String\l
+- getEnumeration(arg0: int): java.util.Enumeration\l
+- getIterator(arg0: int): java.util.Iterator\l
++ keySet(): java.util.Set\l
++ entrySet(): java.util.Set\l
++ values(): java.util.Collection\l
 + equals(arg0: java.lang.Object): boolean\l
 + hashCode(): int\l
-# removeRange(arg0: int, arg1: int): void\l
-- rangeCheckForAdd(arg0: int): void\l
-- outOfBoundsMsg(arg0: int): java.lang.String\l
++ getOrDefault(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ forEach(arg0: java.util.function.BiConsumer): void\l
++ replaceAll(arg0: java.util.function.BiFunction): void\l
++ putIfAbsent(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ remove(arg0: java.lang.Object, arg1: java.lang.Object): boolean\l
++ replace(arg0: java.lang.Object, arg1: java.lang.Object, arg2: java.lang.Object): boolean\l
++ replace(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ computeIfAbsent(arg0: java.lang.Object, arg1: java.util.function.Function): java.lang.Object\l
++ computeIfPresent(arg0: java.lang.Object, arg1: java.util.function.BiFunction): java.lang.Object\l
++ compute(arg0: java.lang.Object, arg1: java.util.function.BiFunction): java.lang.Object\l
++ merge(arg0: java.lang.Object, arg1: java.lang.Object, arg2: java.util.function.BiFunction): java.lang.Object\l
+- writeObject(arg0: java.io.ObjectOutputStream): void\l
+- readObject(arg0: java.io.ObjectInputStream): void\l
+- reconstitutionPut(arg0: java.util.HashtableEntry[], arg1: java.lang.Object, arg2: java.lang.Object): void\l
+- access100(arg0: java.util.Hashtable, arg1: int): java.util.Iterator\l
+- access200(arg0: java.util.Hashtable): int\l
+- access400(arg0: java.util.Hashtable): java.util.HashtableEntry[]\l
+- access508(arg0: java.util.Hashtable): int\l
+- access210(arg0: java.util.Hashtable): int\l
+- access500(arg0: java.util.Hashtable): int\l
+}" 
+];
+CertPath [
+ shape="record",
+ label="{\<\<abstract\>\>\n
+CertPath | - type : String\l|+ getType(): java.lang.String\l
++ getEncodings(): java.util.Iterator\{abstract\}\l
++ equals(arg0: java.lang.Object): boolean\l
++ hashCode(): int\l
++ toString(): java.lang.String\l
++ getEncoded(): byte[]\{abstract\}\l
++ getEncoded(arg0: java.lang.String): byte[]\{abstract\}\l
++ getCertificates(): java.util.List\{abstract\}\l
+# writeReplace(): java.lang.Object\l
+}" 
+];
+Timestamp [
+ shape="record",
+ label="{Timestamp | - timestamp : Date\l- signerCertPath : CertPath\l|+ getTimestamp(): java.util.Date\l
++ getSignerCertPath(): java.security.cert.CertPath\l
++ hashCode(): int\l
++ equals(arg0: java.lang.Object): boolean\l
++ toString(): java.lang.String\l
+- readObject(arg0: java.io.ObjectInputStream): void\l
+}" 
+];
+Provider [
+ shape="record",
+ label="{\<\<abstract\>\>\n
+Provider | - debug : Debug\l- name : String\l- info : String\l- entrySet : Set\l- legacyStrings : Map\l- serviceMap : Map\l- legacyMap : Map\l- serviceSet : Set\l- ALIAS_PREFIX : String\l- ALIAS_PREFIX_LOWER : String\l- previousKey : ProviderServiceKey\l- knownEngines : Map\l|+ getName(): java.lang.String\l
++ getVersion(): double\l
++ getInfo(): java.lang.String\l
++ toString(): java.lang.String\l
++ clear(): void\l
++ load(arg0: java.io.InputStream): void\l
++ putAll(arg0: java.util.Map): void\l
++ entrySet(): java.util.Set\l
++ keySet(): java.util.Set\l
++ values(): java.util.Collection\l
++ put(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ putIfAbsent(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ remove(arg0: java.lang.Object): java.lang.Object\l
++ remove(arg0: java.lang.Object, arg1: java.lang.Object): boolean\l
++ replace(arg0: java.lang.Object, arg1: java.lang.Object, arg2: java.lang.Object): boolean\l
++ replace(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ replaceAll(arg0: java.util.function.BiFunction): void\l
++ compute(arg0: java.lang.Object, arg1: java.util.function.BiFunction): java.lang.Object\l
++ computeIfAbsent(arg0: java.lang.Object, arg1: java.util.function.Function): java.lang.Object\l
++ computeIfPresent(arg0: java.lang.Object, arg1: java.util.function.BiFunction): java.lang.Object\l
++ merge(arg0: java.lang.Object, arg1: java.lang.Object, arg2: java.util.function.BiFunction): java.lang.Object\l
++ get(arg0: java.lang.Object): java.lang.Object\l
++ getOrDefault(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ forEach(arg0: java.util.function.BiConsumer): void\l
++ keys(): java.util.Enumeration\l
++ elements(): java.util.Enumeration\l
++ getProperty(arg0: java.lang.String): java.lang.String\l
+- checkInitialized(): void\l
+- check(arg0: java.lang.String): void\l
+- putId(): void\l
+- readObject(arg0: java.io.ObjectInputStream): void\l
+- checkLegacy(arg0: java.lang.Object): boolean\l
+- implPutAll(arg0: java.util.Map): void\l
+- implRemove(arg0: java.lang.Object): java.lang.Object\l
+- implRemove(arg0: java.lang.Object, arg1: java.lang.Object): boolean\l
+- implReplace(arg0: java.lang.Object, arg1: java.lang.Object, arg2: java.lang.Object): boolean\l
+- implReplace(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
+- implReplaceAll(arg0: java.util.function.BiFunction): void\l
+- implMerge(arg0: java.lang.Object, arg1: java.lang.Object, arg2: java.util.function.BiFunction): java.lang.Object\l
+- implCompute(arg0: java.lang.Object, arg1: java.util.function.BiFunction): java.lang.Object\l
+- implComputeIfAbsent(arg0: java.lang.Object, arg1: java.util.function.Function): java.lang.Object\l
+- implComputeIfPresent(arg0: java.lang.Object, arg1: java.util.function.BiFunction): java.lang.Object\l
+- implPut(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
+- implPutIfAbsent(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
+- implClear(): void\l
+- ensureLegacyParsed(): void\l
+- removeInvalidServices(arg0: java.util.Map): void\l
+- getTypeAndAlgorithm(arg0: java.lang.String): java.lang.String[]\l
+- parseLegacyPut(arg0: java.lang.String, arg1: java.lang.String): void\l
++ getService(arg0: java.lang.String, arg1: java.lang.String): java.security.ProviderService\l
++ getServices(): java.util.Set\l
+# putService(arg0: java.security.ProviderService): void\l
+- putPropertyStrings(arg0: java.security.ProviderService): void\l
+- removePropertyStrings(arg0: java.security.ProviderService): void\l
+# removeService(arg0: java.security.ProviderService): void\l
+- implRemoveService(arg0: java.security.ProviderService): void\l
+- addEngine(arg0: java.lang.String, arg1: boolean, arg2: java.lang.String): void\l
+- getEngineName(arg0: java.lang.String): java.lang.String\l
+- access900(arg0: java.lang.String): java.lang.String\l
+- access1000(): java.util.Map\l
+}" 
+];
+CertificateFactorySpi [
+ shape="record",
+ label="{\<\<abstract\>\>\n
+CertificateFactorySpi | |+ engineGenerateCertificate(arg0: java.io.InputStream): java.security.cert.Certificate\{abstract\}\l
++ engineGenerateCertPath(arg0: java.io.InputStream): java.security.cert.CertPath\l
++ engineGenerateCertPath(arg0: java.io.InputStream, arg1: java.lang.String): java.security.cert.CertPath\l
++ engineGenerateCertPath(arg0: java.util.List): java.security.cert.CertPath\l
++ engineGetCertPathEncodings(): java.util.Iterator\l
++ engineGenerateCertificates(arg0: java.io.InputStream): java.util.Collection\{abstract\}\l
++ engineGenerateCRL(arg0: java.io.InputStream): java.security.cert.CRL\{abstract\}\l
++ engineGenerateCRLs(arg0: java.io.InputStream): java.util.Collection\{abstract\}\l
+}" 
+];
+ConcurrentHashMapNode [
+ shape="record",
+ label="{ConcurrentHashMapNode | - key : Object\l- val : Object\l- next : ConcurrentHashMapNode\l|+ getKey(): java.lang.Object\l
++ getValue(): java.lang.Object\l
++ hashCode(): int\l
++ toString(): java.lang.String\l
++ setValue(arg0: java.lang.Object): java.lang.Object\l
++ equals(arg0: java.lang.Object): boolean\l
+- find(arg0: int, arg1: java.lang.Object): java.util.concurrent.ConcurrentHashMapNode\l
+}" 
+];
+ConcurrentHashMapCounterCell [
+ shape="record",
+ label="{ConcurrentHashMapCounterCell | |}" 
+];
+ConcurrentHashMapKeySetView [
+ shape="record",
+ label="{ConcurrentHashMapKeySetView | - value : Object\l|+ getMappedValue(): java.lang.Object\l
++ contains(arg0: java.lang.Object): boolean\l
++ remove(arg0: java.lang.Object): boolean\l
++ iterator(): java.util.Iterator\l
++ add(arg0: java.lang.Object): boolean\l
++ addAll(arg0: java.util.Collection): boolean\l
++ hashCode(): int\l
++ equals(arg0: java.lang.Object): boolean\l
++ spliterator(): java.util.Spliterator\l
++ forEach(arg0: java.util.function.Consumer): void\l
++ getMap(): java.util.concurrent.ConcurrentHashMap\l
+}" 
+];
+ConcurrentHashMapValuesView [
+ shape="record",
+ label="{ConcurrentHashMapValuesView | |+ contains(arg0: java.lang.Object): boolean\l
++ remove(arg0: java.lang.Object): boolean\l
++ iterator(): java.util.Iterator\l
++ add(arg0: java.lang.Object): boolean\l
++ addAll(arg0: java.util.Collection): boolean\l
++ spliterator(): java.util.Spliterator\l
++ forEach(arg0: java.util.function.Consumer): void\l
+}" 
+];
+ConcurrentHashMapEntrySetView [
+ shape="record",
+ label="{ConcurrentHashMapEntrySetView | |+ contains(arg0: java.lang.Object): boolean\l
++ remove(arg0: java.lang.Object): boolean\l
++ iterator(): java.util.Iterator\l
++ add(arg0: java.util.MapEntry): boolean\l
++ addAll(arg0: java.util.Collection): boolean\l
++ hashCode(): int\l
++ equals(arg0: java.lang.Object): boolean\l
++ spliterator(): java.util.Spliterator\l
++ forEach(arg0: java.util.function.Consumer): void\l
++ add(arg0: java.lang.Object): boolean\l
+}" 
+];
+Unsafe [
+ shape="record",
+ label="{Unsafe | - theUnsafe : Unsafe\l|- registerNatives(): void\l
++ getUnsafe(): sun.misc.Unsafe\l
++ getInt(arg0: java.lang.Object, arg1: long): int\l
++ putInt(arg0: java.lang.Object, arg1: long, arg2: int): void\l
++ getObject(arg0: java.lang.Object, arg1: long): java.lang.Object\l
++ putObject(arg0: java.lang.Object, arg1: long, arg2: java.lang.Object): void\l
++ getBoolean(arg0: java.lang.Object, arg1: long): boolean\l
++ putBoolean(arg0: java.lang.Object, arg1: long, arg2: boolean): void\l
++ getByte(arg0: java.lang.Object, arg1: long): byte\l
++ putByte(arg0: java.lang.Object, arg1: long, arg2: byte): void\l
++ getShort(arg0: java.lang.Object, arg1: long): short\l
++ putShort(arg0: java.lang.Object, arg1: long, arg2: short): void\l
++ getChar(arg0: java.lang.Object, arg1: long): char\l
++ putChar(arg0: java.lang.Object, arg1: long, arg2: char): void\l
++ getLong(arg0: java.lang.Object, arg1: long): long\l
++ putLong(arg0: java.lang.Object, arg1: long, arg2: long): void\l
++ getFloat(arg0: java.lang.Object, arg1: long): float\l
++ putFloat(arg0: java.lang.Object, arg1: long, arg2: float): void\l
++ getDouble(arg0: java.lang.Object, arg1: long): double\l
++ putDouble(arg0: java.lang.Object, arg1: long, arg2: double): void\l
++ getInt(arg0: java.lang.Object, arg1: int): int\l
++ putInt(arg0: java.lang.Object, arg1: int, arg2: int): void\l
++ getObject(arg0: java.lang.Object, arg1: int): java.lang.Object\l
++ putObject(arg0: java.lang.Object, arg1: int, arg2: java.lang.Object): void\l
++ getBoolean(arg0: java.lang.Object, arg1: int): boolean\l
++ putBoolean(arg0: java.lang.Object, arg1: int, arg2: boolean): void\l
++ getByte(arg0: java.lang.Object, arg1: int): byte\l
++ putByte(arg0: java.lang.Object, arg1: int, arg2: byte): void\l
++ getShort(arg0: java.lang.Object, arg1: int): short\l
++ putShort(arg0: java.lang.Object, arg1: int, arg2: short): void\l
++ getChar(arg0: java.lang.Object, arg1: int): char\l
++ putChar(arg0: java.lang.Object, arg1: int, arg2: char): void\l
++ getLong(arg0: java.lang.Object, arg1: int): long\l
++ putLong(arg0: java.lang.Object, arg1: int, arg2: long): void\l
++ getFloat(arg0: java.lang.Object, arg1: int): float\l
++ putFloat(arg0: java.lang.Object, arg1: int, arg2: float): void\l
++ getDouble(arg0: java.lang.Object, arg1: int): double\l
++ putDouble(arg0: java.lang.Object, arg1: int, arg2: double): void\l
++ getByte(arg0: long): byte\l
++ putByte(arg0: long, arg1: byte): void\l
++ getShort(arg0: long): short\l
++ putShort(arg0: long, arg1: short): void\l
++ getChar(arg0: long): char\l
++ putChar(arg0: long, arg1: char): void\l
++ getInt(arg0: long): int\l
++ putInt(arg0: long, arg1: int): void\l
++ getLong(arg0: long): long\l
++ putLong(arg0: long, arg1: long): void\l
++ getFloat(arg0: long): float\l
++ putFloat(arg0: long, arg1: float): void\l
++ getDouble(arg0: long): double\l
++ putDouble(arg0: long, arg1: double): void\l
++ getAddress(arg0: long): long\l
++ putAddress(arg0: long, arg1: long): void\l
++ allocateMemory(arg0: long): long\l
++ reallocateMemory(arg0: long, arg1: long): long\l
++ setMemory(arg0: java.lang.Object, arg1: long, arg2: long, arg3: byte): void\l
++ setMemory(arg0: long, arg1: long, arg2: byte): void\l
++ copyMemory(arg0: java.lang.Object, arg1: long, arg2: java.lang.Object, arg3: long, arg4: long): void\l
++ copyMemory(arg0: long, arg1: long, arg2: long): void\l
++ freeMemory(arg0: long): void\l
++ fieldOffset(arg0: java.lang.reflect.Field): int\l
++ staticFieldBase(arg0: java.lang.Class): java.lang.Object\l
++ staticFieldOffset(arg0: java.lang.reflect.Field): long\l
++ objectFieldOffset(arg0: java.lang.reflect.Field): long\l
++ staticFieldBase(arg0: java.lang.reflect.Field): java.lang.Object\l
++ shouldBeInitialized(arg0: java.lang.Class): boolean\l
++ ensureClassInitialized(arg0: java.lang.Class): void\l
++ arrayBaseOffset(arg0: java.lang.Class): int\l
++ arrayIndexScale(arg0: java.lang.Class): int\l
++ addressSize(): int\l
++ pageSize(): int\l
++ defineClass(arg0: java.lang.String, arg1: byte[], arg2: int, arg3: int, arg4: java.lang.ClassLoader, arg5: java.security.ProtectionDomain): java.lang.Class\l
++ defineAnonymousClass(arg0: java.lang.Class, arg1: byte[], arg2: java.lang.Object[]): java.lang.Class\l
++ allocateInstance(arg0: java.lang.Class): java.lang.Object\l
++ monitorEnter(arg0: java.lang.Object): void\l
++ monitorExit(arg0: java.lang.Object): void\l
++ tryMonitorEnter(arg0: java.lang.Object): boolean\l
++ throwException(arg0: java.lang.Throwable): void\l
++ compareAndSwapObject(arg0: java.lang.Object, arg1: long, arg2: java.lang.Object, arg3: java.lang.Object): boolean\l
++ compareAndSwapInt(arg0: java.lang.Object, arg1: long, arg2: int, arg3: int): boolean\l
++ compareAndSwapLong(arg0: java.lang.Object, arg1: long, arg2: long, arg3: long): boolean\l
++ getObjectVolatile(arg0: java.lang.Object, arg1: long): java.lang.Object\l
++ putObjectVolatile(arg0: java.lang.Object, arg1: long, arg2: java.lang.Object): void\l
++ getIntVolatile(arg0: java.lang.Object, arg1: long): int\l
++ putIntVolatile(arg0: java.lang.Object, arg1: long, arg2: int): void\l
++ getBooleanVolatile(arg0: java.lang.Object, arg1: long): boolean\l
++ putBooleanVolatile(arg0: java.lang.Object, arg1: long, arg2: boolean): void\l
++ getByteVolatile(arg0: java.lang.Object, arg1: long): byte\l
++ putByteVolatile(arg0: java.lang.Object, arg1: long, arg2: byte): void\l
++ getShortVolatile(arg0: java.lang.Object, arg1: long): short\l
++ putShortVolatile(arg0: java.lang.Object, arg1: long, arg2: short): void\l
++ getCharVolatile(arg0: java.lang.Object, arg1: long): char\l
++ putCharVolatile(arg0: java.lang.Object, arg1: long, arg2: char): void\l
++ getLongVolatile(arg0: java.lang.Object, arg1: long): long\l
++ putLongVolatile(arg0: java.lang.Object, arg1: long, arg2: long): void\l
++ getFloatVolatile(arg0: java.lang.Object, arg1: long): float\l
++ putFloatVolatile(arg0: java.lang.Object, arg1: long, arg2: float): void\l
++ getDoubleVolatile(arg0: java.lang.Object, arg1: long): double\l
++ putDoubleVolatile(arg0: java.lang.Object, arg1: long, arg2: double): void\l
++ putOrderedObject(arg0: java.lang.Object, arg1: long, arg2: java.lang.Object): void\l
++ putOrderedInt(arg0: java.lang.Object, arg1: long, arg2: int): void\l
++ putOrderedLong(arg0: java.lang.Object, arg1: long, arg2: long): void\l
++ unpark(arg0: java.lang.Object): void\l
++ park(arg0: boolean, arg1: long): void\l
++ getLoadAverage(arg0: double[], arg1: int): int\l
++ getAndAddInt(arg0: java.lang.Object, arg1: long, arg2: int): int\l
++ getAndAddLong(arg0: java.lang.Object, arg1: long, arg2: long): long\l
++ getAndSetInt(arg0: java.lang.Object, arg1: long, arg2: int): int\l
++ getAndSetLong(arg0: java.lang.Object, arg1: long, arg2: long): long\l
++ getAndSetObject(arg0: java.lang.Object, arg1: long, arg2: java.lang.Object): java.lang.Object\l
++ loadFence(): void\l
++ storeFence(): void\l
++ fullFence(): void\l
+- throwIllegalAccessError(): void\l
+}" 
+];
+HashMapNode [
+ shape="record",
+ label="{HashMapNode | - key : Object\l- value : Object\l- next : HashMapNode\l|+ getKey(): java.lang.Object\l
++ getValue(): java.lang.Object\l
++ toString(): java.lang.String\l
++ hashCode(): int\l
++ setValue(arg0: java.lang.Object): java.lang.Object\l
++ equals(arg0: java.lang.Object): boolean\l
+}" 
+];
+InetAddressInetAddressHolder [
+ shape="record",
+ label="{InetAddressInetAddressHolder | - hostName : String\l|- init(arg0: java.lang.String, arg1: int): void\l
+- getHostName(): java.lang.String\l
+- getAddress(): int\l
+- getFamily(): int\l
 }" 
 ];
 List [
@@ -105,56 +1511,33 @@ List | |+ size(): int\{abstract\}\l
 + spliterator(): java.util.Spliterator\l
 }" 
 ];
-RandomAccess [
+InetAddressCache [
  shape="record",
- label="{\<\<interface\>\>\n
-RandomAccess | |}" 
-];
-Cloneable [
- shape="record",
- label="{\<\<interface\>\>\n
-Cloneable | |}" 
-];
-Serializable [
- shape="record",
- label="{\<\<interface\>\>\n
-Serializable | |}" 
-];
-AbstractCollection [
- shape="record",
- label="{\<\<abstract\>\>\n
-AbstractCollection | |+ iterator(): java.util.Iterator\{abstract\}\l
-+ size(): int\{abstract\}\l
-+ isEmpty(): boolean\l
-+ contains(arg0: java.lang.Object): boolean\l
-+ toArray(): java.lang.Object[]\l
-+ toArray(arg0: java.lang.Object[]): java.lang.Object[]\l
-- finishToArray(arg0: java.lang.Object[], arg1: java.util.Iterator): java.lang.Object[]\l
-- hugeCapacity(arg0: int): int\l
-+ add(arg0: java.lang.Object): boolean\l
-+ remove(arg0: java.lang.Object): boolean\l
-+ containsAll(arg0: java.util.Collection): boolean\l
-+ addAll(arg0: java.util.Collection): boolean\l
-+ removeAll(arg0: java.util.Collection): boolean\l
-+ retainAll(arg0: java.util.Collection): boolean\l
-+ clear(): void\l
-+ toString(): java.lang.String\l
+ label="{InetAddressCache | - cache : LinkedHashMap\l- type : InetAddressCacheType\l|- getPolicy(): int\l
++ put(arg0: java.lang.String, arg1: java.net.InetAddress[]): java.net.InetAddressCache\l
++ get(arg0: java.lang.String): java.net.InetAddressCacheEntry\l
 }" 
 ];
-Object [
+InetAddressImpl [
  shape="record",
- label="{Object | |- registerNatives(): void\l
-+ getClass(): java.lang.Class\l
-+ hashCode(): int\l
+ label="{\<\<interface\>\>\n
+InetAddressImpl | |+ getLocalHostName(): java.lang.String\{abstract\}\l
++ lookupAllHostAddr(arg0: java.lang.String): java.net.InetAddress[]\{abstract\}\l
++ getHostByAddr(arg0: byte[]): java.lang.String\{abstract\}\l
++ anyLocalAddress(): java.net.InetAddress\{abstract\}\l
++ loopbackAddress(): java.net.InetAddress\{abstract\}\l
++ isReachable(arg0: java.net.InetAddress, arg1: int, arg2: java.net.NetworkInterface, arg3: int): boolean\{abstract\}\l
+}" 
+];
+HashtableEntry [
+ shape="record",
+ label="{HashtableEntry | - key : Object\l- value : Object\l- next : HashtableEntry\l|# clone(): java.lang.Object\l
++ getKey(): java.lang.Object\l
++ getValue(): java.lang.Object\l
++ setValue(arg0: java.lang.Object): java.lang.Object\l
 + equals(arg0: java.lang.Object): boolean\l
-# clone(): java.lang.Object\l
++ hashCode(): int\l
 + toString(): java.lang.String\l
-+ notify(): void\l
-+ notifyAll(): void\l
-+ wait(arg0: long): void\l
-+ wait(arg0: long, arg1: int): void\l
-+ wait(): void\l
-# finalize(): void\l
 }" 
 ];
 Collection [
@@ -181,46 +1564,606 @@ Collection | |+ size(): int\{abstract\}\l
 + parallelStream(): java.util.stream.Stream\l
 }" 
 ];
-Iterable [
+Date [
  shape="record",
- label="{\<\<interface\>\>\n
-Iterable | |+ iterator(): java.util.Iterator\{abstract\}\l
-+ forEach(arg0: java.util.function.Consumer): void\l
-+ spliterator(): java.util.Spliterator\l
+ label="{Date | - gcal : BaseCalendar\l- jcal : BaseCalendar\l- cdate : BaseCalendarDate\l- wtb : String\l|+ clone(): java.lang.Object\l
++ UTC(arg0: int, arg1: int, arg2: int, arg3: int, arg4: int, arg5: int): long\l
++ parse(arg0: java.lang.String): long\l
++ getYear(): int\l
++ setYear(arg0: int): void\l
++ getMonth(): int\l
++ setMonth(arg0: int): void\l
++ getDate(): int\l
++ setDate(arg0: int): void\l
++ getDay(): int\l
++ getHours(): int\l
++ setHours(arg0: int): void\l
++ getMinutes(): int\l
++ setMinutes(arg0: int): void\l
++ getSeconds(): int\l
++ setSeconds(arg0: int): void\l
++ getTime(): long\l
+- getTimeImpl(): long\l
++ setTime(arg0: long): void\l
++ before(arg0: java.util.Date): boolean\l
++ after(arg0: java.util.Date): boolean\l
++ equals(arg0: java.lang.Object): boolean\l
+- getMillisOf(arg0: java.util.Date): long\l
++ compareTo(arg0: java.util.Date): int\l
++ hashCode(): int\l
++ toString(): java.lang.String\l
+- convertToAbbr(arg0: java.lang.StringBuilder, arg1: java.lang.String): java.lang.StringBuilder\l
++ toLocaleString(): java.lang.String\l
++ toGMTString(): java.lang.String\l
++ getTimezoneOffset(): int\l
+- getCalendarDate(): sun.util.calendar.BaseCalendarDate\l
+- normalize(): sun.util.calendar.BaseCalendarDate\l
+- normalize(arg0: sun.util.calendar.BaseCalendarDate): sun.util.calendar.BaseCalendarDate\l
+- getCalendarSystem(arg0: int): sun.util.calendar.BaseCalendar\l
+- getCalendarSystem(arg0: long): sun.util.calendar.BaseCalendar\l
+- getCalendarSystem(arg0: sun.util.calendar.BaseCalendarDate): sun.util.calendar.BaseCalendar\l
+- getJulianCalendar(): sun.util.calendar.BaseCalendar\l
+- writeObject(arg0: java.io.ObjectOutputStream): void\l
+- readObject(arg0: java.io.ObjectInputStream): void\l
++ from(arg0: java.time.Instant): java.util.Date\l
++ toInstant(): java.time.Instant\l
++ compareTo(arg0: java.lang.Object): int\l
 }" 
 ];
-ArrayList -> AbstractList [arrowhead="onormal", style="solid"];
+ProviderServiceKey [
+ shape="record",
+ label="{ProviderServiceKey | - type : String\l- algorithm : String\l- originalAlgorithm : String\l|+ hashCode(): int\l
++ equals(arg0: java.lang.Object): boolean\l
+- matches(arg0: java.lang.String, arg1: java.lang.String): boolean\l
+}" 
+];
+LinkedHashMap [
+ shape="record",
+ label="{LinkedHashMap | - head : LinkedHashMapEntry\l- tail : LinkedHashMapEntry\l|- linkNodeLast(arg0: java.util.LinkedHashMapEntry): void\l
+- transferLinks(arg0: java.util.LinkedHashMapEntry, arg1: java.util.LinkedHashMapEntry): void\l
+- reinitialize(): void\l
+- newNode(arg0: int, arg1: java.lang.Object, arg2: java.lang.Object, arg3: java.util.HashMapNode): java.util.HashMapNode\l
+- replacementNode(arg0: java.util.HashMapNode, arg1: java.util.HashMapNode): java.util.HashMapNode\l
+- newTreeNode(arg0: int, arg1: java.lang.Object, arg2: java.lang.Object, arg3: java.util.HashMapNode): java.util.HashMapTreeNode\l
+- replacementTreeNode(arg0: java.util.HashMapNode, arg1: java.util.HashMapNode): java.util.HashMapTreeNode\l
+- afterNodeRemoval(arg0: java.util.HashMapNode): void\l
+- afterNodeInsertion(arg0: boolean): void\l
+- afterNodeAccess(arg0: java.util.HashMapNode): void\l
+- internalWriteEntries(arg0: java.io.ObjectOutputStream): void\l
++ containsValue(arg0: java.lang.Object): boolean\l
++ get(arg0: java.lang.Object): java.lang.Object\l
++ getOrDefault(arg0: java.lang.Object, arg1: java.lang.Object): java.lang.Object\l
++ clear(): void\l
+# removeEldestEntry(arg0: java.util.MapEntry): boolean\l
++ keySet(): java.util.Set\l
++ values(): java.util.Collection\l
++ entrySet(): java.util.Set\l
++ forEach(arg0: java.util.function.BiConsumer): void\l
++ replaceAll(arg0: java.util.function.BiFunction): void\l
+}" 
+];
+InetAddressCacheType [
+ shape="record",
+ label="{InetAddressCacheType | + Positive : InetAddressCacheType\l+ Negative : InetAddressCacheType\l- VALUES : InetAddressCacheType\l|+ values(): java.net.InetAddressCacheType[]\l
++ valueOf(arg0: java.lang.String): java.net.InetAddressCacheType\l
+}" 
+];
+BaseCalendar [
+ shape="record",
+ label="{\<\<abstract\>\>\n
+BaseCalendar | |+ validate(arg0: sun.util.calendar.CalendarDate): boolean\l
++ normalize(arg0: sun.util.calendar.CalendarDate): boolean\l
+- normalizeMonth(arg0: sun.util.calendar.CalendarDate): void\l
++ getYearLength(arg0: sun.util.calendar.CalendarDate): int\l
++ getYearLengthInMonths(arg0: sun.util.calendar.CalendarDate): int\l
++ getMonthLength(arg0: sun.util.calendar.CalendarDate): int\l
+- getMonthLength(arg0: int, arg1: int): int\l
++ getDayOfYear(arg0: sun.util.calendar.CalendarDate): long\l
+- getDayOfYear(arg0: int, arg1: int, arg2: int): long\l
++ getFixedDate(arg0: sun.util.calendar.CalendarDate): long\l
++ getFixedDate(arg0: int, arg1: int, arg2: int, arg3: sun.util.calendar.BaseCalendarDate): long\l
++ getCalendarDateFromFixedDate(arg0: sun.util.calendar.CalendarDate, arg1: long): void\l
++ getDayOfWeek(arg0: sun.util.calendar.CalendarDate): int\l
++ getDayOfWeekFromFixedDate(arg0: long): int\l
++ getYearFromFixedDate(arg0: long): int\l
+- getGregorianYearFromFixedDate(arg0: long): int\l
+# isLeapYear(arg0: sun.util.calendar.CalendarDate): boolean\l
+- isLeapYear(arg0: int): boolean\l
+}" 
+];
+BaseCalendarDate [
+ shape="record",
+ label="{\<\<abstract\>\>\n
+BaseCalendarDate | |+ setNormalizedDate(arg0: int, arg1: int, arg2: int): sun.util.calendar.BaseCalendarDate\l
++ getNormalizedYear(): int\{abstract\}\l
++ setNormalizedYear(arg0: int): void\{abstract\}\l
+# hit(arg0: int): boolean\l
+# hit(arg0: long): boolean\l
+# getCachedYear(): int\l
+# getCachedJan1(): long\l
+# setCache(arg0: int, arg1: long, arg2: int): void\l
+}" 
+];
+LinkedHashMapEntry [
+ shape="record",
+ label="{LinkedHashMapEntry | - before : LinkedHashMapEntry\l- after : LinkedHashMapEntry\l|}" 
+];
+TestClass -> String [arrowhead="vee", style="solid"];
 
-ArrayList -> List [arrowhead="onormal", style="dashed"];
+String -> ObjectStreamField [arrowhead="vee", style="solid"];
 
-ArrayList -> RandomAccess [arrowhead="onormal", style="dashed"];
+String -> Comparator [arrowhead="vee", style="solid"];
 
-ArrayList -> Cloneable [arrowhead="onormal", style="dashed"];
+ObjectStreamField -> String [arrowhead="vee", style="solid"];
 
-ArrayList -> Serializable [arrowhead="onormal", style="dashed"];
+ObjectStreamField -> String [arrowhead="vee", style="solid"];
 
-AbstractList -> AbstractCollection [arrowhead="onormal", style="solid"];
+ObjectStreamField -> Class [arrowhead="vee", style="solid"];
 
-AbstractList -> List [arrowhead="onormal", style="dashed"];
+ObjectStreamField -> Field [arrowhead="vee", style="solid"];
+
+Class -> Constructor [arrowhead="vee", style="solid"];
+
+Class -> Class [arrowhead="vee", style="solid"];
+
+Class -> String [arrowhead="vee", style="solid"];
+
+Class -> ProtectionDomain [arrowhead="vee", style="solid"];
+
+Class -> SoftReference [arrowhead="vee", style="solid"];
+
+Class -> ClassRepository [arrowhead="vee", style="solid"];
+
+Class -> ObjectStreamField [arrowhead="vee", style="solid"];
+
+Class -> ReflectionFactory [arrowhead="vee", style="solid"];
+
+Class -> Object [arrowhead="vee", style="solid"];
+
+Class -> Map [arrowhead="vee", style="solid"];
+
+Class -> ClassAnnotationData [arrowhead="vee", style="solid"];
+
+Class -> AnnotationType [arrowhead="vee", style="solid"];
+
+Class -> ClassValueClassValueMap [arrowhead="vee", style="solid"];
+
+Field -> Class [arrowhead="vee", style="solid"];
+
+Field -> String [arrowhead="vee", style="solid"];
+
+Field -> Class [arrowhead="vee", style="solid"];
+
+Field -> String [arrowhead="vee", style="solid"];
+
+Field -> FieldRepository [arrowhead="vee", style="solid"];
+
+Field -> FieldAccessor [arrowhead="vee", style="solid"];
+
+Field -> FieldAccessor [arrowhead="vee", style="solid"];
+
+Field -> Field [arrowhead="vee", style="solid"];
+
+Field -> Map [arrowhead="vee", style="solid"];
+
+Constructor -> Class [arrowhead="vee", style="solid"];
+
+Constructor -> Class [arrowhead="vee", style="solid"];
+
+Constructor -> Class [arrowhead="vee", style="solid"];
+
+Constructor -> String [arrowhead="vee", style="solid"];
+
+Constructor -> ConstructorRepository [arrowhead="vee", style="solid"];
+
+Constructor -> ConstructorAccessor [arrowhead="vee", style="solid"];
+
+Constructor -> Constructor [arrowhead="vee", style="solid"];
+
+ProtectionDomain -> CodeSource [arrowhead="vee", style="solid"];
+
+ProtectionDomain -> ClassLoader [arrowhead="vee", style="solid"];
+
+ProtectionDomain -> Principal [arrowhead="vee", style="solid"];
+
+ProtectionDomain -> PermissionCollection [arrowhead="vee", style="solid"];
+
+ProtectionDomain -> ProtectionDomainKey [arrowhead="vee", style="solid"];
+
+ProtectionDomain -> Debug [arrowhead="vee", style="solid"];
+
+ProtectionDomain -> Object [arrowhead="onormal", style="solid"];
+
+ClassRepository -> ClassRepository [arrowhead="vee", style="solid"];
+
+ClassRepository -> Type [arrowhead="vee", style="solid"];
+
+ClassRepository -> Type [arrowhead="vee", style="solid"];
+
+ReflectionFactory -> Permission [arrowhead="vee", style="solid"];
+
+ReflectionFactory -> ReflectionFactory [arrowhead="vee", style="solid"];
+
+ReflectionFactory -> LangReflectAccess [arrowhead="vee", style="solid"];
+
+ReflectionFactory -> Object [arrowhead="onormal", style="solid"];
+
+Map -> Object [arrowhead="onormal", style="solid"];
+
+ClassAnnotationData -> Map [arrowhead="vee", style="solid"];
+
+ClassAnnotationData -> Map [arrowhead="vee", style="solid"];
+
+ClassAnnotationData -> Object [arrowhead="onormal", style="solid"];
+
+AnnotationType -> Map [arrowhead="vee", style="solid"];
+
+AnnotationType -> Map [arrowhead="vee", style="solid"];
+
+AnnotationType -> Map [arrowhead="vee", style="solid"];
+
+AnnotationType -> RetentionPolicy [arrowhead="vee", style="solid"];
+
+AnnotationType -> Object [arrowhead="onormal", style="solid"];
+
+ClassValueClassValueMap -> Class [arrowhead="vee", style="solid"];
+
+ClassValueClassValueMap -> ClassValueEntry [arrowhead="vee", style="solid"];
+
+FieldRepository -> Type [arrowhead="vee", style="solid"];
+
+FieldAccessor -> Object [arrowhead="onormal", style="solid"];
+
+ConstructorRepository -> Type [arrowhead="vee", style="solid"];
+
+ConstructorRepository -> Type [arrowhead="vee", style="solid"];
+
+ConstructorAccessor -> Object [arrowhead="onormal", style="solid"];
+
+CodeSource -> URL [arrowhead="vee", style="solid"];
+
+CodeSource -> CodeSigner [arrowhead="vee", style="solid"];
+
+CodeSource -> Certificate [arrowhead="vee", style="solid"];
+
+CodeSource -> SocketPermission [arrowhead="vee", style="solid"];
+
+CodeSource -> CertificateFactory [arrowhead="vee", style="solid"];
+
+CodeSource -> Object [arrowhead="onormal", style="solid"];
+
+ClassLoader -> ClassLoader [arrowhead="vee", style="solid"];
+
+ClassLoader -> ConcurrentHashMap [arrowhead="vee", style="solid"];
+
+ClassLoader -> Map [arrowhead="vee", style="solid"];
+
+ClassLoader -> Certificate [arrowhead="vee", style="solid"];
+
+ClassLoader -> Vector [arrowhead="vee", style="solid"];
+
+ClassLoader -> ProtectionDomain [arrowhead="vee", style="solid"];
+
+ClassLoader -> Set [arrowhead="vee", style="solid"];
+
+ClassLoader -> HashMap [arrowhead="vee", style="solid"];
+
+ClassLoader -> ClassLoader [arrowhead="vee", style="solid"];
+
+ClassLoader -> Vector [arrowhead="vee", style="solid"];
+
+ClassLoader -> Vector [arrowhead="vee", style="solid"];
+
+ClassLoader -> Vector [arrowhead="vee", style="solid"];
+
+ClassLoader -> Stack [arrowhead="vee", style="solid"];
+
+ClassLoader -> String [arrowhead="vee", style="solid"];
+
+ClassLoader -> String [arrowhead="vee", style="solid"];
+
+ClassLoader -> Object [arrowhead="vee", style="solid"];
+
+ClassLoader -> Map [arrowhead="vee", style="solid"];
+
+ClassLoader -> Map [arrowhead="vee", style="solid"];
+
+ClassLoader -> Object [arrowhead="onormal", style="solid"];
+
+Principal -> Object [arrowhead="onormal", style="solid"];
+
+PermissionCollection -> Object [arrowhead="onormal", style="solid"];
+
+ProtectionDomainKey -> ProtectionDomain [arrowhead="vee", style="solid"];
+
+ProtectionDomainKey -> Object [arrowhead="onormal", style="solid"];
+
+Debug -> String [arrowhead="vee", style="solid"];
+
+Debug -> String [arrowhead="vee", style="solid"];
+
+Debug -> Object [arrowhead="onormal", style="solid"];
+
+Type -> Object [arrowhead="onormal", style="solid"];
+
+Permission -> String [arrowhead="vee", style="solid"];
+
+Permission -> Object [arrowhead="onormal", style="solid"];
+
+LangReflectAccess -> Object [arrowhead="onormal", style="solid"];
+
+RetentionPolicy -> RetentionPolicy [arrowhead="vee", style="solid"];
+
+RetentionPolicy -> RetentionPolicy [arrowhead="vee", style="solid"];
+
+RetentionPolicy -> RetentionPolicy [arrowhead="vee", style="solid"];
+
+RetentionPolicy -> RetentionPolicy [arrowhead="vee", style="solid"];
+
+ClassValueEntry -> Object [arrowhead="vee", style="solid"];
+
+ClassValueEntry -> ClassValueEntry [arrowhead="vee", style="solid"];
+
+URL -> String [arrowhead="vee", style="solid"];
+
+URL -> String [arrowhead="vee", style="solid"];
+
+URL -> String [arrowhead="vee", style="solid"];
+
+URL -> String [arrowhead="vee", style="solid"];
+
+URL -> String [arrowhead="vee", style="solid"];
+
+URL -> String [arrowhead="vee", style="solid"];
+
+URL -> String [arrowhead="vee", style="solid"];
+
+URL -> String [arrowhead="vee", style="solid"];
+
+URL -> String [arrowhead="vee", style="solid"];
+
+URL -> InetAddress [arrowhead="vee", style="solid"];
+
+URL -> URLStreamHandler [arrowhead="vee", style="solid"];
+
+URL -> URLStreamHandlerFactory [arrowhead="vee", style="solid"];
+
+URL -> Hashtable [arrowhead="vee", style="solid"];
+
+URL -> Object [arrowhead="vee", style="solid"];
+
+URL -> Object [arrowhead="onormal", style="solid"];
+
+CodeSigner -> CertPath [arrowhead="vee", style="solid"];
+
+CodeSigner -> Timestamp [arrowhead="vee", style="solid"];
+
+CodeSigner -> Object [arrowhead="onormal", style="solid"];
+
+Certificate -> String [arrowhead="vee", style="solid"];
+
+Certificate -> Object [arrowhead="onormal", style="solid"];
+
+SocketPermission -> String [arrowhead="vee", style="solid"];
+
+SocketPermission -> String [arrowhead="vee", style="solid"];
+
+SocketPermission -> String [arrowhead="vee", style="solid"];
+
+SocketPermission -> InetAddress [arrowhead="vee", style="solid"];
+
+SocketPermission -> Debug [arrowhead="vee", style="solid"];
+
+SocketPermission -> String [arrowhead="vee", style="solid"];
+
+SocketPermission -> String [arrowhead="vee", style="solid"];
+
+SocketPermission -> Permission [arrowhead="onormal", style="solid"];
+
+CertificateFactory -> String [arrowhead="vee", style="solid"];
+
+CertificateFactory -> Provider [arrowhead="vee", style="solid"];
+
+CertificateFactory -> CertificateFactorySpi [arrowhead="vee", style="solid"];
+
+CertificateFactory -> Object [arrowhead="onormal", style="solid"];
+
+ConcurrentHashMap -> ObjectStreamField [arrowhead="vee", style="solid"];
+
+ConcurrentHashMap -> ConcurrentHashMapNode [arrowhead="vee", style="solid"];
+
+ConcurrentHashMap -> ConcurrentHashMapNode [arrowhead="vee", style="solid"];
+
+ConcurrentHashMap -> ConcurrentHashMapCounterCell [arrowhead="vee", style="solid"];
+
+ConcurrentHashMap -> ConcurrentHashMapKeySetView [arrowhead="vee", style="solid"];
+
+ConcurrentHashMap -> ConcurrentHashMapValuesView [arrowhead="vee", style="solid"];
+
+ConcurrentHashMap -> ConcurrentHashMapEntrySetView [arrowhead="vee", style="solid"];
+
+ConcurrentHashMap -> Unsafe [arrowhead="vee", style="solid"];
+
+Vector -> Object [arrowhead="vee", style="solid"];
+
+Set -> Object [arrowhead="onormal", style="solid"];
+
+HashMap -> HashMapNode [arrowhead="vee", style="solid"];
+
+HashMap -> Set [arrowhead="vee", style="solid"];
+
+HashMap -> Map [arrowhead="onormal", style="dashed"];
+
+Stack -> Vector [arrowhead="onormal", style="solid"];
+
+InetAddress -> InetAddressInetAddressHolder [arrowhead="vee", style="solid"];
+
+InetAddress -> List [arrowhead="vee", style="solid"];
+
+InetAddress -> String [arrowhead="vee", style="solid"];
+
+InetAddress -> InetAddressCache [arrowhead="vee", style="solid"];
+
+InetAddress -> InetAddressCache [arrowhead="vee", style="solid"];
+
+InetAddress -> InetAddress [arrowhead="vee", style="solid"];
+
+InetAddress -> InetAddressImpl [arrowhead="vee", style="solid"];
+
+InetAddress -> HashMap [arrowhead="vee", style="solid"];
+
+InetAddress -> InetAddress [arrowhead="vee", style="solid"];
+
+InetAddress -> Object [arrowhead="vee", style="solid"];
+
+InetAddress -> Unsafe [arrowhead="vee", style="solid"];
+
+InetAddress -> ObjectStreamField [arrowhead="vee", style="solid"];
+
+InetAddress -> Object [arrowhead="onormal", style="solid"];
+
+URLStreamHandler -> Object [arrowhead="onormal", style="solid"];
+
+URLStreamHandlerFactory -> Object [arrowhead="onormal", style="solid"];
+
+Hashtable -> HashtableEntry [arrowhead="vee", style="solid"];
+
+Hashtable -> Set [arrowhead="vee", style="solid"];
+
+Hashtable -> Set [arrowhead="vee", style="solid"];
+
+Hashtable -> Collection [arrowhead="vee", style="solid"];
+
+Hashtable -> Map [arrowhead="onormal", style="dashed"];
+
+CertPath -> String [arrowhead="vee", style="solid"];
+
+CertPath -> Object [arrowhead="onormal", style="solid"];
+
+Timestamp -> Date [arrowhead="vee", style="solid"];
+
+Timestamp -> CertPath [arrowhead="vee", style="solid"];
+
+Timestamp -> Object [arrowhead="onormal", style="solid"];
+
+Provider -> Debug [arrowhead="vee", style="solid"];
+
+Provider -> String [arrowhead="vee", style="solid"];
+
+Provider -> String [arrowhead="vee", style="solid"];
+
+Provider -> Set [arrowhead="vee", style="solid"];
+
+Provider -> Map [arrowhead="vee", style="solid"];
+
+Provider -> Map [arrowhead="vee", style="solid"];
+
+Provider -> Map [arrowhead="vee", style="solid"];
+
+Provider -> Set [arrowhead="vee", style="solid"];
+
+Provider -> String [arrowhead="vee", style="solid"];
+
+Provider -> String [arrowhead="vee", style="solid"];
+
+Provider -> ProviderServiceKey [arrowhead="vee", style="solid"];
+
+Provider -> Map [arrowhead="vee", style="solid"];
+
+CertificateFactorySpi -> Object [arrowhead="onormal", style="solid"];
+
+ConcurrentHashMapNode -> Object [arrowhead="vee", style="solid"];
+
+ConcurrentHashMapNode -> Object [arrowhead="vee", style="solid"];
+
+ConcurrentHashMapNode -> ConcurrentHashMapNode [arrowhead="vee", style="solid"];
+
+ConcurrentHashMapNode -> Object [arrowhead="onormal", style="solid"];
+
+ConcurrentHashMapCounterCell -> Object [arrowhead="onormal", style="solid"];
+
+ConcurrentHashMapKeySetView -> Object [arrowhead="vee", style="solid"];
+
+ConcurrentHashMapKeySetView -> Set [arrowhead="onormal", style="dashed"];
+
+ConcurrentHashMapValuesView -> Collection [arrowhead="onormal", style="dashed"];
+
+ConcurrentHashMapEntrySetView -> Set [arrowhead="onormal", style="dashed"];
+
+Unsafe -> Unsafe [arrowhead="vee", style="solid"];
+
+Unsafe -> Object [arrowhead="onormal", style="solid"];
+
+HashMapNode -> Object [arrowhead="vee", style="solid"];
+
+HashMapNode -> Object [arrowhead="vee", style="solid"];
+
+HashMapNode -> HashMapNode [arrowhead="vee", style="solid"];
+
+HashMapNode -> Object [arrowhead="onormal", style="solid"];
+
+InetAddressInetAddressHolder -> String [arrowhead="vee", style="solid"];
+
+InetAddressInetAddressHolder -> Object [arrowhead="onormal", style="solid"];
 
 List -> Object [arrowhead="onormal", style="solid"];
 
 List -> Collection [arrowhead="onormal", style="dashed"];
 
-RandomAccess -> Object [arrowhead="onormal", style="solid"];
+InetAddressCache -> LinkedHashMap [arrowhead="vee", style="solid"];
 
-Cloneable -> Object [arrowhead="onormal", style="solid"];
+InetAddressCache -> InetAddressCacheType [arrowhead="vee", style="solid"];
 
-Serializable -> Object [arrowhead="onormal", style="solid"];
+InetAddressCache -> Object [arrowhead="onormal", style="solid"];
 
-AbstractCollection -> Object [arrowhead="onormal", style="solid"];
+InetAddressImpl -> Object [arrowhead="onormal", style="solid"];
 
-AbstractCollection -> Collection [arrowhead="onormal", style="dashed"];
+HashtableEntry -> Object [arrowhead="vee", style="solid"];
+
+HashtableEntry -> Object [arrowhead="vee", style="solid"];
+
+HashtableEntry -> HashtableEntry [arrowhead="vee", style="solid"];
+
+HashtableEntry -> Object [arrowhead="onormal", style="solid"];
 
 Collection -> Object [arrowhead="onormal", style="solid"];
 
-Collection -> Iterable [arrowhead="onormal", style="dashed"];
+Date -> BaseCalendar [arrowhead="vee", style="solid"];
 
-Iterable -> Object [arrowhead="onormal", style="solid"];
+Date -> BaseCalendar [arrowhead="vee", style="solid"];
+
+Date -> BaseCalendarDate [arrowhead="vee", style="solid"];
+
+Date -> String [arrowhead="vee", style="solid"];
+
+Date -> Object [arrowhead="onormal", style="solid"];
+
+ProviderServiceKey -> String [arrowhead="vee", style="solid"];
+
+ProviderServiceKey -> String [arrowhead="vee", style="solid"];
+
+ProviderServiceKey -> String [arrowhead="vee", style="solid"];
+
+ProviderServiceKey -> Object [arrowhead="onormal", style="solid"];
+
+LinkedHashMap -> LinkedHashMapEntry [arrowhead="vee", style="solid"];
+
+LinkedHashMap -> LinkedHashMapEntry [arrowhead="vee", style="solid"];
+
+LinkedHashMap -> HashMap [arrowhead="onormal", style="solid"];
+
+LinkedHashMap -> Map [arrowhead="onormal", style="dashed"];
+
+InetAddressCacheType -> InetAddressCacheType [arrowhead="vee", style="solid"];
+
+InetAddressCacheType -> InetAddressCacheType [arrowhead="vee", style="solid"];
+
+InetAddressCacheType -> InetAddressCacheType [arrowhead="vee", style="solid"];
+
+LinkedHashMapEntry -> LinkedHashMapEntry [arrowhead="vee", style="solid"];
+
+LinkedHashMapEntry -> LinkedHashMapEntry [arrowhead="vee", style="solid"];
+
+LinkedHashMapEntry -> HashMapNode [arrowhead="onormal", style="solid"];
 
 }

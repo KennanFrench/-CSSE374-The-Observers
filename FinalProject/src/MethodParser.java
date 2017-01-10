@@ -37,16 +37,25 @@ public class MethodParser implements Parser {
 			isAbstract = true;
 		else
 			isAbstract = false;
-		String temp =   (Type.getReturnType(method.desc).getClassName());
+		String returnType =  ClassNameHandler.getClassName(Type.getReturnType(method.desc) +"");
 		fullMethodType =  (Type.getReturnType(method.desc).getClassName()).split("/");
 		methodType = fullMethodType[fullMethodType.length - 1];
-		this.uClassList.add(methodType);
+		
+		if(returnType.startsWith("L") || returnType.startsWith("["))
+			System.out.println("hi");
+		if (!returnType.equals("") && !returnType.equals("void"))
+			this.uClassList.add(ClassNameHandler.getDotName(returnType));
 		
 		Type[] types = Type.getArgumentTypes(method.desc);
 		
 		for (int i = 0; i < types.length; i++) {
 			parameters.add(new UMLParam("arg" + i, types[i].getClassName()));
-			this.uClassList.add(types[i].getClassName());
+			String tempClass = ClassNameHandler.getClassName(types[i]+"");
+			if(tempClass.startsWith("L") || tempClass.startsWith("["))
+				System.out.println("hi");
+			
+			if (!tempClass.equals(""))
+				this.uClassList.add(ClassNameHandler.getDotName(tempClass));
 		}
 		
 		this.uMethod = new UMLMethod(name, vis, isAbstract, methodType, parameters);
