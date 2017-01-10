@@ -1,4 +1,3 @@
-
 public class MethodConverter implements Converter {
 
 	private UMLMethod method;

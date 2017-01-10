@@ -34,6 +34,7 @@ public class FieldParser implements Parser {
 		
 		if (!fieldType.equals("") && field != null) {
 			this.uField = new UMLField(vis, field.name, fieldType);
+			//only add to classlist if it starts with L; change this when namechange.removestart gets changed
 			this.uClassList.add(NameChanger.removeEnd(NameChanger.getDotName(fullFieldType)));
 		}
 		

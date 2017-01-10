@@ -1,4 +1,3 @@
-
 public class ConverterFactory {
 
 	public Converter createConverter(UMLElement element, Visibility runViz) {

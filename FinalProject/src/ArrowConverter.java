@@ -1,4 +1,3 @@
-
 public class ArrowConverter implements Converter {
 
 	private UMLArrow arrow;

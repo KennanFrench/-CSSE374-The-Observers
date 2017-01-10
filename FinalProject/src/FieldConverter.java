@@ -1,4 +1,3 @@
-
 public class FieldConverter implements Converter {
 
 	private UMLField field;

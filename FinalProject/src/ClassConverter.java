@@ -1,4 +1,3 @@
-
 public class ClassConverter implements Converter {
 
 	private UMLClass uClass;

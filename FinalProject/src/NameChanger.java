@@ -2,15 +2,19 @@
 public class NameChanger {
 	public static String getNiceName(String slashName)
 	{
-		if(slashName == null)
+		if(slashName == null) {
+			System.out.println("passed getNiceName a null string");
 			return null;
-		String tempArray[] = slashName.split("/"); 
+		}
+		String tempArray[] = slashName.split("/");
 		return tempArray[tempArray.length -1];
 	}
 
 	public static String getDotName(String slashName) {
-		if(slashName == null)
+		if(slashName == null) {
+			System.out.println("passed getDotName a null string");
 			return null;
+		}
 		return slashName.replaceAll("/", ".");
 	}
 
@@ -19,7 +23,10 @@ public static String removeStart(String string) {
 		return null;
 	if(string.startsWith("["))
 		return string.substring(2);
-	return string.substring(1);
+	//if(string.startsWith("L")) {
+		return string.substring(1);
+	//}
+	//return string;
 	}
 
 public static String removeEnd(String dotName) {

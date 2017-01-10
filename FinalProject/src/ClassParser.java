@@ -55,15 +55,23 @@ public class ClassParser implements Parser {
 		for (FieldNode field : fieldNodes) {
 			FieldParser parser = new FieldParser(field);
 			parser.parse();
-			fields.add(parser.getuField());
+			UMLField uField = parser.getuField();
+			fields.add(uField);
 			uClassList.addAll(parser.getuClassList());
+			
+			//NOTE: primitives suck, 
+			//if (name != null && uField.getType() != null) {
+				//this.arrows.add(new UMLArrow(name, uField.getType(), HeadType.OPEN, LineType.SOLID));
+			//}
 		}
 
 		for (MethodNode method : methodNodes) {
 			MethodParser parser = new MethodParser(method);
 			parser.parse();
-			methods.add(parser.getuMethod());
-			//uClassList.addAll(parser.getuClassList());
+			UMLMethod uMethod = parser.getuMethod();
+			methods.add(uMethod);
+
+			uClassList.addAll(parser.getuClassList());
 		}
 		
 		this.uClass = new UMLClass(name, category, fields, methods);

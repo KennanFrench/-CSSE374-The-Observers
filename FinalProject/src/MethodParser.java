@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collection;
 
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
@@ -9,9 +10,11 @@ public class MethodParser implements Parser {
 
 	private MethodNode method;
 	private UMLMethod uMethod;
+	private ArrayList<String> uClassList;
 	
 	public MethodParser(MethodNode method) {
 		this.method = method;
+		this.uClassList = new ArrayList<String>();
 	}
 
 	@Override
@@ -37,11 +40,13 @@ public class MethodParser implements Parser {
 		String temp =   (Type.getReturnType(method.desc).getClassName());
 		fullMethodType =  (Type.getReturnType(method.desc).getClassName()).split("/");
 		methodType = fullMethodType[fullMethodType.length - 1];
+		this.uClassList.add(methodType);
 		
 		Type[] types = Type.getArgumentTypes(method.desc);
 		
 		for (int i = 0; i < types.length; i++) {
 			parameters.add(new UMLParam("arg" + i, types[i].getClassName()));
+			this.uClassList.add(types[i].getClassName());
 		}
 		
 		this.uMethod = new UMLMethod(name, vis, isAbstract, methodType, parameters);
@@ -53,6 +58,10 @@ public class MethodParser implements Parser {
 
 	public UMLMethod getuMethod() {
 		return uMethod;
+	}
+
+	public ArrayList<String> getuClassList() {
+		return this.uClassList;
 	}
 
 }
