@@ -5,29 +5,45 @@ public class UMLArrow implements UMLElement {
 	private LineType lineType;
 	private String start;
 	private String end;
-	private String label;
+	private String headLabel;
+	private String tailLabel;
+	private boolean bidirectional;
 	
 	public UMLArrow(String start, String end, HeadType head, LineType line) {
 		this.start = start;
 		this.end = end;
 		this.headType = head;
 		this.lineType = line;
-		this.label = "";
+		this.headLabel = "";
+		this.tailLabel = "";
+		this.bidirectional = false;
 	}
 
 	public UMLArrow(String label, String start, String end, HeadType head, LineType line) {
-		this.label = label;
+		this.headLabel = label;
+		this.tailLabel = "";
 		this.start = start;
 		this.end = end;
 		this.headType = head;
 		this.lineType = line;
+		this.bidirectional = false;
+	}
+	
+	public UMLArrow(String label, String start, String end, HeadType head, LineType line, boolean bidir) {
+		this.headLabel = label;
+		this.tailLabel = "";
+		this.start = start;
+		this.end = end;
+		this.headType = head;
+		this.lineType = line;
+		this.bidirectional = bidir;
 	}
 	
 	@Override
 	public boolean equals(Object o) {
 		if (o instanceof UMLArrow) {
 			//return true;
-			return this.headType.equals(((UMLArrow) o).getHeadType()) && this.lineType.equals(((UMLArrow) o).getLineType()) && this.start.equals(((UMLArrow) o).getStart()) && this.end.equals(((UMLArrow) o).getEnd()) && this.label.equals(((UMLArrow) o).getLabel());
+			return this.headType.equals(((UMLArrow) o).getHeadType()) && this.lineType.equals(((UMLArrow) o).getLineType()) && this.start.equals(((UMLArrow) o).getStart()) && this.end.equals(((UMLArrow) o).getEnd()) && this.headLabel.equals(((UMLArrow) o).getHeadLabel());
 		}
 		return false;
 	}
@@ -56,10 +72,25 @@ public class UMLArrow implements UMLElement {
 	public void setEnd(String end) {
 		this.end = end;
 	}
-	public String getLabel() {
-		return this.label;
+	public String getHeadLabel() {
+		return this.headLabel;
 	}
 	public void setLabel(String label) {
-		this.label = label;
+		this.headLabel = label;
+	}
+	
+	public boolean getBidirectional() {
+		return this.bidirectional;
+	}
+	public void setBidirectional(boolean bidirectional) {
+		this.bidirectional = bidirectional;
+	}
+
+	public void setTailLabel(String tailLabel) {
+		this.tailLabel = tailLabel;
+	}
+
+	public String getTailLabel() {
+		return this.tailLabel;
 	}
 }

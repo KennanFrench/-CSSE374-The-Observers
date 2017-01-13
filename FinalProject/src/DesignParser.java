@@ -86,16 +86,30 @@ public class DesignParser {
 			
 			ArrayList<String> niceClassNames = ClassNameHandler.getNiceFromDotArray(classes);
 			//arrowList.addAll(parser.getArrows());
+			boolean addArrow;
 			ArrayList<UMLElement> parserArrows = parser.getArrows();
 			for (UMLElement arrow : parserArrows) {
+				addArrow = true;
 				if (!arrowList.contains(arrow)) {
-					if (this.drawRecursive) {
-						arrowList.add(arrow);
-					} else {
-						if (niceClassNames.contains(((UMLArrow) arrow).getStart()) && niceClassNames.contains(((UMLArrow) arrow).getEnd())) {
-							arrowList.add(arrow);
+					// Make bidirectionals
+					for(int i = 0; i < this.arrowList.size(); i++) {
+						UMLArrow thisArrow = (UMLArrow) this.arrowList.get(i); 
+						if (((UMLArrow) arrow).getStart().equals(thisArrow.getEnd()) && ((UMLArrow) arrow).getEnd().equals(thisArrow.getStart()) && ((UMLArrow) arrow).getHeadType().equals(thisArrow.getHeadType()) && ((UMLArrow) arrow).getLineType().equals(thisArrow.getLineType())) {
+							thisArrow.setBidirectional(true);
+							thisArrow.setTailLabel(((UMLArrow) arrow).getHeadLabel());
+							addArrow = false;
 						}
 					}
+					if (addArrow) {
+						if (this.drawRecursive) {
+							arrowList.add(arrow);
+						} else {
+							if (niceClassNames.contains(((UMLArrow) arrow).getStart()) && niceClassNames.contains(((UMLArrow) arrow).getEnd())) {
+								arrowList.add(arrow);
+							}
+						}
+					}
+
 				}
 			}
 		}

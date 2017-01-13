@@ -12,7 +12,16 @@ public class ArrowConverter implements Converter {
 	@Override
 	public void convert() {
 		this.graphVizRep.append(this.arrow.getStart() + " -> " + this.arrow.getEnd() + " ");
-		this.graphVizRep.append("[" + "arrowhead=\"" + this.arrow.getHeadType().getGraphVizRep() + "\", style=\"" + this.arrow.getLineType().getGraphVizRep() + "\"];\n");
+		this.graphVizRep.append("[" + "arrowhead=\"" + this.arrow.getHeadType().getGraphVizRep() + "\", style=\"" + this.arrow.getLineType().getGraphVizRep() + "\"");
+		if (!this.arrow.getHeadLabel().equals(""))
+			this.graphVizRep.append(", headlabel = \"" + this.arrow.getHeadLabel() + "\"");
+		
+		if (this.arrow.getBidirectional())
+			this.graphVizRep.append(", dir = \"both\", arrowtail = \"" +  this.arrow.getHeadType().getGraphVizRep() + "\"");
+		
+		this.graphVizRep.append(", taillabel = \"" + this.arrow.getTailLabel() + "\"");
+
+		this.graphVizRep.append("];\n");
 	}
 
 	@Override

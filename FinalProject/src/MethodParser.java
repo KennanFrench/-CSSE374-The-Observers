@@ -42,8 +42,8 @@ public class MethodParser implements Parser {
 		fullMethodType =  (Type.getReturnType(method.desc).getClassName()).split("/");
 		methodType = fullMethodType[fullMethodType.length - 1];
 		
-		if(returnType.startsWith("L") || returnType.startsWith("["))
-			System.out.println("hi");
+		/*if(returnType.startsWith("L") || returnType.startsWith("["))
+			System.out.println("hi"); */
 		if (!returnType.equals("") && !returnType.equals("void"))
 			this.uClassList.add(ClassNameHandler.getDotName(returnType));
 		
@@ -58,11 +58,18 @@ public class MethodParser implements Parser {
 			if (!tempClass.equals(""))
 				this.uClassList.add(ClassNameHandler.getDotName(tempClass));
 		}
-		
+
+		// first is itself, so remove
+		boolean ignoreFirst = true;
 		if (method.localVariables != null) {
 			for (Object localVar : method.localVariables) {
-				String localType = ClassNameHandler.getClassName(((LocalVariableNode) localVar).desc + "");
-				this.uClassList.add(ClassNameHandler.getDotName(localType));
+				if (!ignoreFirst) {
+					String localType = ClassNameHandler.getClassName(((LocalVariableNode) localVar).desc + "");
+					this.uClassList.add(ClassNameHandler.getDotName(localType));
+				}
+				else
+					ignoreFirst = false;
+
 			}
 		}
 		
