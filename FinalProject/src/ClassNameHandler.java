@@ -1,18 +1,29 @@
+import java.util.ArrayList;
 
 public class ClassNameHandler {
-	public static String getNiceName(String slashName)
+	public static String getNiceFromSlash(String slashName)
 	{
 		if(slashName == null) {
-			System.out.println("passed getNiceName a null string");
+			//System.out.println("passed getNiceName a null string");
 			return null;
 		}
 		String tempArray[] = slashName.split("/");
 		return tempArray[tempArray.length -1];
 	}
+	
+	public static String getNiceFromDot(String dotName)
+	{
+		if(dotName == null) {
+			//System.out.println("passed getNiceName a null string");
+			return null;
+		}
+		String tempArray[] = dotName.split("\\.");
+		return tempArray[tempArray.length -1];
+	}
 
 	public static String getDotName(String slashName) {
 		if(slashName == null) {
-			System.out.println("passed getDotName a null string");
+			//System.out.println("passed getDotName a null string");
 			return null;
 		}
 		return slashName.replaceAll("/", ".");
@@ -59,6 +70,14 @@ public class ClassNameHandler {
 		index++;
 		String temp = ClassNameHandler.removeEnd(original.substring(index));
 		return temp;
+	}
+	
+	public static ArrayList<String> getNiceFromDotArray(ArrayList<String> dots) {
+		ArrayList<String> niceNames = new ArrayList<String>();
+		for (String dot : dots) {
+			niceNames.add(ClassNameHandler.getNiceFromDot(dot));
+		}
+		return niceNames;
 	}
 	
 }

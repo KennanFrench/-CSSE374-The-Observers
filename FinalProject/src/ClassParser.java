@@ -33,7 +33,7 @@ public class ClassParser implements Parser {
 		ArrayList<UMLField> fields = new ArrayList<UMLField>();
 		ArrayList<UMLMethod> methods = new ArrayList<UMLMethod>();
 
-		name = ClassNameHandler.getNiceName(this.node.name);
+		name = ClassNameHandler.getNiceFromSlash(this.node.name);
 		
 		//System.out.println("public? "
 		//		+ ((classNode.access & Opcodes.ACC_PUBLIC) > 0));
@@ -71,13 +71,26 @@ public class ClassParser implements Parser {
 			UMLMethod uMethod = parser.getuMethod();
 			methods.add(uMethod);
 
-			/*uClassList.addAll(parser.getuClassList());*/
+			ArrayList<String> parserClassList = parser.getuClassList();
+			uClassList.addAll(parserClassList);
+			
+			for (String className : parserClassList) {
+				boolean addArrow = true;
+				for (UMLElement arrow : this.arrows) {
+					if (((UMLArrow) arrow).getStart().equals(name) && ((UMLArrow) arrow).getEnd().equals(className) && ((UMLArrow) arrow).getHeadType().equals(HeadType.OPEN) && ((UMLArrow) arrow).getLineType().equals(LineType.SOLID)) {
+						addArrow = false;
+					}
+				}
+				if (addArrow) {
+					this.arrows.add(new UMLArrow(name, ClassNameHandler.getNiceFromDot(className), HeadType.OPEN, LineType.DASHED));
+				}
+			}
 		}
 		
 		this.uClass = new UMLClass(name, category, fields, methods);
 		
 		// Create UMLArrows
-		String tempName = ClassNameHandler.getNiceName(this.node.superName);
+		String tempName = ClassNameHandler.getNiceFromSlash(this.node.superName);
 		String dot = ClassNameHandler.getDotName(this.node.superName);
 		
 		// TODO HERE need to only add arrows (And below) if not in list
@@ -88,7 +101,7 @@ public class ClassParser implements Parser {
 		
 		for (int i = 0; i < this.node.interfaces.size(); i++) {
 			String interName = this.node.interfaces.get(i) + "";
-			tempName = ClassNameHandler.getNiceName(this.node.interfaces.get(i) + "");
+			tempName = ClassNameHandler.getNiceFromSlash(this.node.interfaces.get(i) + "");
 			String dotName = ClassNameHandler.getDotName(interName);
 			if (this.classList.contains(dotName)) {
 				arrows.add(new UMLArrow(this.uClass.getName(), tempName, HeadType.CLOSED, LineType.DASHED));

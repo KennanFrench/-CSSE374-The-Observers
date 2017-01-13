@@ -76,15 +76,28 @@ public class DesignParser {
 			ArrayList<String> tempList = parser.getuClassList();
 			classList.add(parser.getuClass());
 			
-			for (String x : tempList){
-				   if (!classes.contains(x)) {
+			for (String x : tempList) {
+				   if (!classes.contains(x) && this.drawRecursive) {
 					   classes.add(x);
 					   size++;
 				   }
 			}
 			j++;
 			
-			arrowList.addAll(parser.getArrows());			
+			ArrayList<String> niceClassNames = ClassNameHandler.getNiceFromDotArray(classes);
+			//arrowList.addAll(parser.getArrows());
+			ArrayList<UMLElement> parserArrows = parser.getArrows();
+			for (UMLElement arrow : parserArrows) {
+				if (!arrowList.contains(arrow)) {
+					if (this.drawRecursive) {
+						arrowList.add(arrow);
+					} else {
+						if (niceClassNames.contains(((UMLArrow) arrow).getStart()) && niceClassNames.contains(((UMLArrow) arrow).getEnd())) {
+							arrowList.add(arrow);
+						}
+					}
+				}
+			}
 		}
 				
 

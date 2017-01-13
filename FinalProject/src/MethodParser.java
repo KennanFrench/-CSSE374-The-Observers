@@ -4,6 +4,7 @@ import java.util.Collection;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.tree.LocalVariableNode;
 import org.objectweb.asm.tree.MethodNode;
 
 public class MethodParser implements Parser {
@@ -56,6 +57,13 @@ public class MethodParser implements Parser {
 			
 			if (!tempClass.equals(""))
 				this.uClassList.add(ClassNameHandler.getDotName(tempClass));
+		}
+		
+		if (method.localVariables != null) {
+			for (Object localVar : method.localVariables) {
+				String localType = ClassNameHandler.getClassName(((LocalVariableNode) localVar).desc + "");
+				this.uClassList.add(ClassNameHandler.getDotName(localType));
+			}
 		}
 		
 		this.uMethod = new UMLMethod(name, vis, isAbstract, methodType, parameters);

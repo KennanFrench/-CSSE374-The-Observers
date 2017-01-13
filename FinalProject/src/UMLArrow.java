@@ -1,4 +1,4 @@
-
+import org.objectweb.asm.Type;
 
 public class UMLArrow implements UMLElement {
 	private HeadType headType;
@@ -21,6 +21,15 @@ public class UMLArrow implements UMLElement {
 		this.end = end;
 		this.headType = head;
 		this.lineType = line;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof UMLArrow) {
+			//return true;
+			return this.headType.equals(((UMLArrow) o).getHeadType()) && this.lineType.equals(((UMLArrow) o).getLineType()) && this.start.equals(((UMLArrow) o).getStart()) && this.end.equals(((UMLArrow) o).getEnd()) && this.label.equals(((UMLArrow) o).getLabel());
+		}
+		return false;
 	}
 		
 	public HeadType getHeadType() {
@@ -46,5 +55,11 @@ public class UMLArrow implements UMLElement {
 	}
 	public void setEnd(String end) {
 		this.end = end;
+	}
+	public String getLabel() {
+		return this.label;
+	}
+	public void setLabel(String label) {
+		this.label = label;
 	}
 }
