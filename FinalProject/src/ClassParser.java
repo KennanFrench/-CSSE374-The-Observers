@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import org.objectweb.asm.Opcodes;
@@ -53,7 +55,7 @@ public class ClassParser implements Parser {
 		List<MethodNode> methodNodes = this.node.methods;
 		
 		for (FieldNode field : fieldNodes) {
-			/*ArrayList<String> collectionClasses = new ArrayList<String>();
+			ArrayList<String> collectionClasses = new ArrayList<String>();
 			if (field.signature != null)
 				collectionClasses = this.getCollectionClasses(field.signature);
 			collectionClasses = getCleanList(collectionClasses);
@@ -65,7 +67,7 @@ public class ClassParser implements Parser {
 					this.arrows.add(new UMLArrow(" 1..* ", ClassNameHandler.getNiceFromDot(name), ClassNameHandler.getNiceFromDot(collClass), HeadType.OPEN, LineType.SOLID));
 				}
 
-			}*/
+			}
 			
 			
 			FieldParser parser = new FieldParser(field);
@@ -75,13 +77,13 @@ public class ClassParser implements Parser {
 			uClassList.addAll(parser.getuClassList());
 			
 			//NOTE: primitives suck, 
-			if (name != null && uField!= null && uField.getType() != null) {
+			if (name != null && !name.equals("") && uField!= null && uField.getType() != null && !uField.getType().equals("")) {
 				this.arrows.add(new UMLArrow(name, uField.getType(), HeadType.OPEN, LineType.SOLID));
 			}
 		}
 
 		for (MethodNode method : methodNodes) {
-			/*String returnType =  ClassNameHandler.getClassName(Type.getReturnType(method.desc) +"");
+			String returnType =  ClassNameHandler.getClassName(Type.getReturnType(method.desc) +"");
 			ArrayList<String> collectionClasses = new ArrayList<String>();
 			if (method.signature != null && !returnType.equals(""))
 				collectionClasses = this.getCollectionClasses(method.signature);
@@ -93,6 +95,7 @@ public class ClassParser implements Parser {
 					String collClass = collectionClasses.get(i);
 					boolean addArrow = false;
 					for (UMLElement arrow : this.arrows) {
+						// Does this work?
 						if (!(((UMLArrow) arrow).getStart().equals(name) && ((UMLArrow) arrow).getEnd().equals(collClass) && ((UMLArrow) arrow).getHeadType().equals(HeadType.OPEN) && ((UMLArrow) arrow).getLineType().equals(LineType.SOLID))) {
 							addArrow = true;
 						}
@@ -100,7 +103,7 @@ public class ClassParser implements Parser {
 					if (addArrow)
 						this.arrows.add(new UMLArrow(" 1..* ", ClassNameHandler.getNiceFromDot(name), ClassNameHandler.getNiceFromDot(collClass), HeadType.OPEN, LineType.DASHED));
 				}
-			}*/
+			}
 			
 			
 			MethodParser parser = new MethodParser(method);
@@ -115,6 +118,8 @@ public class ClassParser implements Parser {
 				boolean addArrow = true;
 				//boolean bidirectional = false;
 				for (UMLElement arrow : this.arrows) {
+					// Does this work?
+
 					if (((UMLArrow) arrow).getStart().equals(name) && ((UMLArrow) arrow).getEnd().equals(className) && ((UMLArrow) arrow).getHeadType().equals(HeadType.OPEN) && ((UMLArrow) arrow).getLineType().equals(LineType.SOLID)) {
 						addArrow = false;
 					}
@@ -157,17 +162,24 @@ public class ClassParser implements Parser {
 	}
 
 	public ArrayList<String> getCollectionClasses(String signature){
-		ArrayList<String> collectionClasses = new ArrayList<String>();
+		if (signature.contains("ObjectR") && !signature.contains("URL") && !signature.contains("CRL"))
+			System.out.println("break here");
 
+		ArrayList<String> collectionClasses = new ArrayList<String>();
+		if(signature.equals(""))
+			return collectionClasses;
+		
 		int indexSemi;
 		// base cases
 		if (!signature.contains("<")) {
 			indexSemi = signature.indexOf(';');
 			if(indexSemi != signature.length()-1) {
 				int closeBracket =  signature.indexOf('>');
+				// Remove errors, no closing bracket?
+				if (indexSemi + 1 > closeBracket)
+					return collectionClasses;
 				
-				collectionClasses.add(signature.substring(0, indexSemi+1));
-				collectionClasses.add(signature.substring(indexSemi+1, closeBracket));
+				collectionClasses.addAll(getInnerClasses(signature.substring(0, closeBracket)));
 				collectionClasses.addAll(getCollectionClasses(signature.substring(closeBracket+1)));
 				return collectionClasses;
 			}
@@ -177,14 +189,33 @@ public class ClassParser implements Parser {
 		
 		int openBracketIndex = signature.indexOf("<");
 		int closeBracketIndex = signature.indexOf(">");
-		String current = signature.substring(0, openBracketIndex);
-		collectionClasses.add(current);
-		collectionClasses.addAll(getCollectionClasses(signature.substring(openBracketIndex+1, closeBracketIndex+1)));
+		if (openBracketIndex < closeBracketIndex) {
+			String current = signature.substring(0, openBracketIndex);
+			if (current.contains(";"))
+			{
+				collectionClasses.addAll(getInnerClasses(current));
+			}
+			else
+				collectionClasses.add(current);
+
+			collectionClasses.addAll(getCollectionClasses(signature.substring(openBracketIndex+1, closeBracketIndex+1)));
+		}
+		else {
+			System.out.println("break here");
+		}
 		collectionClasses.addAll(getCollectionClasses(signature.substring(closeBracketIndex+1)));
+
+		if (openBracketIndex+1 > closeBracketIndex+1)
+			System.out.println("break here");
 
 		return collectionClasses;
 	}
 	
+	private ArrayList<String> getInnerClasses(String current) {
+		ArrayList<String> toReturn = new ArrayList<String>(Arrays.asList(current.split(";")));
+		return toReturn;
+	}
+
 	public ArrayList<String> getCleanList(ArrayList<String> dirtyList) {
 		ArrayList<String> cleanList = new ArrayList<String>();
 		
@@ -192,8 +223,29 @@ public class ClassParser implements Parser {
 			dirty = dirty.replaceAll(";", "");
 			dirty = dirty.replaceAll("<", "");
 			dirty = dirty.replaceAll(">", "");
-			if(!dirty.equals(""))
-				cleanList.add(ClassNameHandler.removeStart(ClassNameHandler.removeEnd(ClassNameHandler.getDotName(dirty))));
+			dirty = dirty.replaceAll(":", "");
+			dirty = dirty.replaceAll("-", "");
+			dirty = dirty.replaceAll("\\+", "");
+			dirty = dirty.replaceAll("\\*", "");
+
+			int openIndex = dirty.indexOf('(');
+			int closeIndex = dirty.indexOf(')');
+			
+			if (openIndex < 0 || closeIndex < 0)
+				dirty = dirty.replaceAll("[()]","");
+			else {
+				StringBuffer dirtyB = new StringBuffer(dirty);
+				dirtyB.delete(openIndex, closeIndex+1);
+				dirty = dirtyB.toString();
+			}
+
+				
+
+			if(!dirty.equals("")) {
+				String toAdd = ClassNameHandler.removeStart(ClassNameHandler.removeEnd(ClassNameHandler.getDotName(dirty)));
+				if(!toAdd.equals(""))
+					cleanList.add(toAdd);
+			}
 		}
 		
 		return cleanList;

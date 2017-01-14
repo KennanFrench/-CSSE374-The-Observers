@@ -30,14 +30,27 @@ public class ClassNameHandler {
 	}
 
 	public static String removeStart(String string) {
+		if (string.contains("T_"))
+			return "";
 		if(string == null)
 			return null;
-		if(string.startsWith("["))
-			return string.substring(2);
-		//if(string.startsWith("L")) {
-			return string.substring(1);
-		//}
-		//return string;
+		int indexL = string.indexOf("L");
+		if (indexL < 0 )
+			return "";
+		return string.substring(indexL+1);
+		/*if(string.startsWith("["))
+			string = string.substring(1);
+		if(string.startsWith("T")) {
+			string = string.substring(1);
+		}
+		if(string.startsWith("E")) {
+			string = string.substring(1);
+		}
+		
+		if(string.startsWith("L")) {
+			string = string.substring(1);
+		}
+		return string;*/
 		}
 	
 	

@@ -55,7 +55,7 @@ public class MethodParser implements Parser {
 			if(tempClass.startsWith("L") || tempClass.startsWith("["))
 				System.out.println("hi");
 			
-			if (!tempClass.equals(""))
+			if (tempClass != null && !tempClass.equals(""))
 				this.uClassList.add(ClassNameHandler.getDotName(tempClass));
 		}
 
@@ -65,7 +65,8 @@ public class MethodParser implements Parser {
 			for (Object localVar : method.localVariables) {
 				if (!ignoreFirst) {
 					String localType = ClassNameHandler.getClassName(((LocalVariableNode) localVar).desc + "");
-					this.uClassList.add(ClassNameHandler.getDotName(localType));
+					if (localType != null && !localType.equals(""))
+						this.uClassList.add(ClassNameHandler.getDotName(localType));
 				}
 				else
 					ignoreFirst = false;

@@ -65,53 +65,60 @@ public class DesignParser {
 		size = classes.size();
 
 		while(j < size) {
-			ClassReader reader = new ClassReader(classes.get(j));
-			ClassNode classNode = new ClassNode();
-			reader.accept(classNode, ClassReader.EXPAND_FRAMES);
-			//System.out.println("Extends: " + classNode.superName);
-			//System.out.println("Implements: " + classNode.interfaces);
+			if (!classes.get(j).equals("")) {
+				String temp = classes.get(j);
+				ClassReader reader = new ClassReader(classes.get(j));
+				ClassNode classNode = new ClassNode();
+				reader.accept(classNode, ClassReader.EXPAND_FRAMES);
+				//System.out.println("Extends: " + classNode.superName);
+				//System.out.println("Implements: " + classNode.interfaces);
 
-			ClassParser parser = new ClassParser(classNode, classes);
-			parser.parse();
-			ArrayList<String> tempList = parser.getuClassList();
-			classList.add(parser.getuClass());
-			
-			for (String x : tempList) {
-				   if (!classes.contains(x) && this.drawRecursive) {
-					   classes.add(x);
-					   size++;
-				   }
-			}
-			j++;
-			
-			ArrayList<String> niceClassNames = ClassNameHandler.getNiceFromDotArray(classes);
-			//arrowList.addAll(parser.getArrows());
-			boolean addArrow;
-			ArrayList<UMLElement> parserArrows = parser.getArrows();
-			for (UMLElement arrow : parserArrows) {
-				addArrow = true;
-				if (!arrowList.contains(arrow)) {
-					// Make bidirectionals
-					for(int i = 0; i < this.arrowList.size(); i++) {
-						UMLArrow thisArrow = (UMLArrow) this.arrowList.get(i); 
-						if (((UMLArrow) arrow).getStart().equals(thisArrow.getEnd()) && ((UMLArrow) arrow).getEnd().equals(thisArrow.getStart()) && ((UMLArrow) arrow).getHeadType().equals(thisArrow.getHeadType()) && ((UMLArrow) arrow).getLineType().equals(thisArrow.getLineType())) {
-							thisArrow.setBidirectional(true);
-							thisArrow.setTailLabel(((UMLArrow) arrow).getHeadLabel());
-							addArrow = false;
-						}
-					}
-					if (addArrow) {
-						if (this.drawRecursive) {
-							arrowList.add(arrow);
-						} else {
-							if (niceClassNames.contains(((UMLArrow) arrow).getStart()) && niceClassNames.contains(((UMLArrow) arrow).getEnd())) {
-								arrowList.add(arrow);
+				ClassParser parser = new ClassParser(classNode, classes);
+				parser.parse();
+				ArrayList<String> tempList = parser.getuClassList();
+				classList.add(parser.getuClass());
+				
+				for (String x : tempList) {
+					   if (!classes.contains(x) && this.drawRecursive) {
+						   classes.add(x);
+						   size++;
+					   }
+				}
+				j++;
+				
+				ArrayList<String> niceClassNames = ClassNameHandler.getNiceFromDotArray(classes);
+				//arrowList.addAll(parser.getArrows());
+				boolean addArrow;
+				ArrayList<UMLElement> parserArrows = parser.getArrows();
+				for (UMLElement arrow : parserArrows) {
+					addArrow = true;
+					if (!arrowList.contains(arrow)) {
+						// Make bidirectionals
+						for(int i = 0; i < this.arrowList.size(); i++) {
+							UMLArrow thisArrow = (UMLArrow) this.arrowList.get(i); 
+							if (((UMLArrow) arrow).getStart().equals(thisArrow.getEnd()) && ((UMLArrow) arrow).getEnd().equals(thisArrow.getStart()) && ((UMLArrow) arrow).getHeadType().equals(thisArrow.getHeadType()) && ((UMLArrow) arrow).getLineType().equals(thisArrow.getLineType())) {
+								thisArrow.setBidirectional(true);
+								thisArrow.setTailLabel(((UMLArrow) arrow).getHeadLabel());
+								addArrow = false;
 							}
 						}
-					}
+						if (addArrow) {
+							if (this.drawRecursive) {
+								arrowList.add(arrow);
+							} else {
+								if (niceClassNames.contains(((UMLArrow) arrow).getStart()) && niceClassNames.contains(((UMLArrow) arrow).getEnd())) {
+									arrowList.add(arrow);
+								}
+							}
+						}
 
+					}
 				}
 			}
+			// empty string... shouldn't happen, but might
+			else 
+				j++;
+			
 		}
 				
 

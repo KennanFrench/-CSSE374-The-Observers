@@ -23,6 +23,7 @@ ClassParser [
  shape="record",
  label="{ClassParser | - node : ClassNode\l- uClassList : ArrayList\l- arrows : ArrayList\l- classList : ArrayList\l- uClass : UMLClass\l|+ parse(): void\l
 + getCollectionClasses(arg0: java.lang.String): java.util.ArrayList\l
+- getInnerClasses(arg0: java.lang.String): java.util.ArrayList\l
 + getCleanList(arg0: java.util.ArrayList): java.util.ArrayList\l
 + getNode(): org.objectweb.asm.tree.ClassNode\l
 + getuClassList(): java.util.ArrayList\l
@@ -231,6 +232,8 @@ ClassConverter -> UMLMethod [arrowhead="vee", style="dashed", taillabel = ""];
 
 ClassConverter -> Converter [arrowhead="onormal", style="dashed", taillabel = ""];
 
+ClassParser -> UMLElement [arrowhead="vee", style="solid", headlabel = " 1..* ", taillabel = ""];
+
 ClassParser -> UMLClass [arrowhead="vee", style="solid", taillabel = ""];
 
 ClassParser -> Category [arrowhead="vee", style="dashed", taillabel = ""];
@@ -243,7 +246,7 @@ ClassParser -> MethodParser [arrowhead="vee", style="dashed", taillabel = ""];
 
 ClassParser -> UMLMethod [arrowhead="vee", style="dashed", taillabel = ""];
 
-ClassParser -> UMLElement [arrowhead="vee", style="dashed", taillabel = ""];
+ClassParser -> UMLElement [arrowhead="vee", style="dashed", headlabel = " 1..* ", taillabel = ""];
 
 ClassParser -> Parser [arrowhead="onormal", style="dashed", taillabel = ""];
 
@@ -257,13 +260,15 @@ ConverterFactory -> UMLElement [arrowhead="vee", style="dashed", taillabel = ""]
 
 ConverterFactory -> Visibility [arrowhead="vee", style="dashed", taillabel = ""];
 
+DesignConverter -> UMLElement [arrowhead="vee", style="solid", headlabel = " 1..* ", taillabel = ""];
+
 DesignConverter -> Visibility [arrowhead="vee", style="solid", taillabel = ""];
 
 DesignConverter -> ConverterFactory [arrowhead="vee", style="dashed", taillabel = ""];
 
-DesignConverter -> UMLElement [arrowhead="vee", style="dashed", taillabel = ""];
-
 DesignConverter -> Converter [arrowhead="vee", style="dashed", taillabel = ""];
+
+DesignParser -> UMLElement [arrowhead="vee", style="solid", headlabel = " 1..* ", taillabel = ""];
 
 DesignParser -> Visibility [arrowhead="vee", style="solid", taillabel = ""];
 
@@ -271,9 +276,9 @@ DesignParser -> CommandLineParser [arrowhead="vee", style="dashed", taillabel = 
 
 DesignParser -> ClassParser [arrowhead="vee", style="dashed", taillabel = ""];
 
-DesignParser -> UMLElement [arrowhead="vee", style="dashed", taillabel = ""];
-
 DesignParser -> UMLArrow [arrowhead="vee", style="dashed", taillabel = ""];
+
+DesignParser -> UMLElement [arrowhead="vee", style="dashed", headlabel = " 1..* ", taillabel = ""];
 
 FieldParser -> UMLField [arrowhead="vee", style="solid", taillabel = ""];
 
@@ -303,6 +308,14 @@ UMLArrow -> UMLElement [arrowhead="onormal", style="dashed", taillabel = ""];
 
 UMLClass -> Category [arrowhead="vee", style="solid", taillabel = ""];
 
+UMLClass -> UMLField [arrowhead="vee", style="solid", headlabel = " 1..* ", taillabel = ""];
+
+UMLClass -> UMLMethod [arrowhead="vee", style="solid", headlabel = " 1..* ", taillabel = ""];
+
+UMLClass -> UMLField [arrowhead="vee", style="dashed", headlabel = " 1..* ", taillabel = ""];
+
+UMLClass -> UMLMethod [arrowhead="vee", style="dashed", headlabel = " 1..* ", taillabel = ""];
+
 UMLClass -> UMLElement [arrowhead="onormal", style="dashed", taillabel = ""];
 
 UMLField -> Visibility [arrowhead="vee", style="solid", taillabel = ""];
@@ -310,6 +323,10 @@ UMLField -> Visibility [arrowhead="vee", style="solid", taillabel = ""];
 UMLField -> UMLElement [arrowhead="onormal", style="dashed", taillabel = ""];
 
 UMLMethod -> Visibility [arrowhead="vee", style="solid", taillabel = ""];
+
+UMLMethod -> UMLParam [arrowhead="vee", style="solid", headlabel = " 1..* ", taillabel = ""];
+
+UMLMethod -> UMLParam [arrowhead="vee", style="dashed", headlabel = " 1..* ", taillabel = ""];
 
 UMLMethod -> UMLElement [arrowhead="onormal", style="dashed", taillabel = ""];
 
