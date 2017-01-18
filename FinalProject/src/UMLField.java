@@ -1,6 +1,6 @@
 
 
-public class UMLField implements UMLElement {
+public class UMLField implements IUMLElement {
 	private Visibility visibility;
 	private String name;
 	private String type;

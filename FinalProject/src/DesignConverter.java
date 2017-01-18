@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
 public class DesignConverter {
-	ArrayList<UMLElement> design;
+	ArrayList<IUMLElement> design;
 	Visibility runViz;
 	String diagramName;
 	String graphVisRep;
 	
-	public DesignConverter(ArrayList<UMLElement> design, Visibility runViz, String diagramName) {
+	public DesignConverter(ArrayList<IUMLElement> design, Visibility runViz, String diagramName) {
 		this.design = design;
 		this.runViz = runViz;
 		this.diagramName = diagramName;
@@ -18,7 +18,7 @@ public class DesignConverter {
 		
 		runningString.append("digraph " + this.diagramName + "{\nrankdir=BT;");
 		
-		for (UMLElement element : this.design) {
+		for (IUMLElement element : this.design) {
 			IConverter converter = factory.createConverter(element, this.runViz);
 			converter.convert();
 			runningString.append("\n");

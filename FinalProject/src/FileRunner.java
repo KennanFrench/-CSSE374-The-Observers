@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class FileRunner implements GraphVizRunner {
+public class FileRunner implements IGraphVizRunner {
 
 	@Override
 	public void run(DesignConverter c, String filename) {

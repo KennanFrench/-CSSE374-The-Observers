@@ -7,7 +7,7 @@ import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.LocalVariableNode;
 import org.objectweb.asm.tree.MethodNode;
 
-public class MethodParser implements Parser {
+public class MethodParser implements IParser {
 
 	private MethodNode method;
 	private UMLMethod uMethod;

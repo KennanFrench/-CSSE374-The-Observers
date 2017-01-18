@@ -1,5 +1,5 @@
 
-public class PrintRunner implements GraphVizRunner {
+public class PrintRunner implements IGraphVizRunner {
 
 	@Override
 	public void run(DesignConverter c, String filename) {

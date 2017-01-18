@@ -5,3 +5,6 @@
 /DesignDetector.class
 /SingletonDetector.class
 /TestDetector.class
+/IGraphVizRunner.class
+/IParser.class
+/IUMLElement.class

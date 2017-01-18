@@ -1,6 +1,6 @@
 
 
-public class UMLParam implements UMLElement {
+public class UMLParam implements IUMLElement {
 	private String name;
 	private String type;
 	

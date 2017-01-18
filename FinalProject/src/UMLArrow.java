@@ -1,6 +1,6 @@
 import org.objectweb.asm.Type;
 
-public class UMLArrow implements UMLElement {
+public class UMLArrow implements IUMLElement {
 	private HeadType headType;
 	private LineType lineType;
 	private String start;

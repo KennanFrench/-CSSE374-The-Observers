@@ -5,7 +5,7 @@ import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
 
-public class FieldParser implements Parser {
+public class FieldParser implements IParser {
 
 	private FieldNode field;
 	private UMLField uField;

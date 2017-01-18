@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class CommandLineParser implements Parser{
+public class CommandLineParser implements IParser{
 
 	private ArrayList<String> args;
 	//private final ArrayList<String> MULTIWORDARGS = new ArrayList<String>();

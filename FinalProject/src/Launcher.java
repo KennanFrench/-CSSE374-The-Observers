@@ -26,7 +26,7 @@ public class Launcher {
 		
 		parser.runParser(args);
 		
-		ArrayList<UMLElement> design = (ArrayList<UMLElement>) parser.getClassList().clone();
+		ArrayList<IUMLElement> design = (ArrayList<IUMLElement>) parser.getClassList().clone();
 		design.addAll(parser.getArrowList());
 		
 		ArrayList<AbstractDetector> detectors = new ArrayList<AbstractDetector>();

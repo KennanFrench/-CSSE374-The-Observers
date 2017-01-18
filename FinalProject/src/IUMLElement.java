@@ -1,6 +1,6 @@
 
 
-public interface UMLElement {
+public interface IUMLElement {
 	@Override
 	public boolean equals(Object o);
 }

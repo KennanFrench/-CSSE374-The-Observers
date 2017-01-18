@@ -21,14 +21,14 @@ import org.objectweb.asm.tree.VarInsnNode;
 // Similar for dependency arrows (with return and types in methods)
 public class DesignParser {
 	
-	private ArrayList<UMLElement> classList;
-	private ArrayList<UMLElement> arrowList;
+	private ArrayList<IUMLElement> classList;
+	private ArrayList<IUMLElement> arrowList;
 	private Visibility runVis;
 	private boolean drawRecursive;
 	
 	public DesignParser() {
-		this.classList = new ArrayList<UMLElement>();
-		this.arrowList = new ArrayList<UMLElement>();
+		this.classList = new ArrayList<IUMLElement>();
+		this.arrowList = new ArrayList<IUMLElement>();
 	}
 	
 	public void runParser(String[] args) throws IOException {
@@ -107,8 +107,8 @@ public class DesignParser {
 				ArrayList<String> niceClassNames = ClassNameHandler.getNiceFromDotArray(classes);
 				//arrowList.addAll(parser.getArrows());
 				boolean addArrow;
-				ArrayList<UMLElement> parserArrows = parser.getArrows();
-				for (UMLElement arrow : parserArrows) {
+				ArrayList<IUMLElement> parserArrows = parser.getArrows();
+				for (IUMLElement arrow : parserArrows) {
 					addArrow = true;
 					if (!arrowList.contains(arrow)) {
 						// Make bidirectionals
@@ -254,11 +254,11 @@ public class DesignParser {
 		}
 	}
 
-	public ArrayList<UMLElement> getClassList() {
+	public ArrayList<IUMLElement> getClassList() {
 		return this.classList;
 	}
 
-	public ArrayList<UMLElement> getArrowList() {
+	public ArrayList<IUMLElement> getArrowList() {
 		return this.arrowList;
 	}
 

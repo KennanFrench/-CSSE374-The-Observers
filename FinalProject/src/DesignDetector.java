@@ -5,7 +5,7 @@ public class DesignDetector {
 //	private ArrayList<UMLElement> classes;
 //	private ArrayList<UMLElement> arrows;
 	
-	public DesignDetector(ArrayList<AbstractDetector> detectors, ArrayList<UMLElement> classes, ArrayList<UMLElement> arrows) {
+	public DesignDetector(ArrayList<AbstractDetector> detectors, ArrayList<IUMLElement> classes, ArrayList<IUMLElement> arrows) {
 		this.detectors = detectors;
 //		this.classes = classes;
 //		this.arrows = arrows;

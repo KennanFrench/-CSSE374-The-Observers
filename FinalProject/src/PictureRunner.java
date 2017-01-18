@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-public class PictureRunner implements GraphVizRunner {
+public class PictureRunner implements IGraphVizRunner {
 
 	@Override
 	public void run(DesignConverter c, String filename) {

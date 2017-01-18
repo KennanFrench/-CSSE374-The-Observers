@@ -1,7 +1,7 @@
 
 import java.util.ArrayList;
 
-public class UMLMethod implements UMLElement {
+public class UMLMethod implements IUMLElement {
 	private String name;
 	private Visibility visibility;
 	private boolean isAbstract;

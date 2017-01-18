@@ -9,17 +9,17 @@ import org.objectweb.asm.tree.ClassNode;
 import org.objectweb.asm.tree.FieldNode;
 import org.objectweb.asm.tree.MethodNode;
 
-public class ClassParser implements Parser {
+public class ClassParser implements IParser {
 	
 	private ClassNode node;
 	private ArrayList<String> uClassList;
-	private ArrayList<UMLElement> arrows;
+	private ArrayList<IUMLElement> arrows;
 	private ArrayList<String> classList;
 	private UMLClass uClass;
 	
 	public ClassParser(ClassNode node, ArrayList<String> classList) {
 		this.node = node;
-		this.arrows = new ArrayList<UMLElement>();
+		this.arrows = new ArrayList<IUMLElement>();
 		this.classList = classList;
 		this.uClassList = new ArrayList<String>();
 		//for (int i = 0; i < classList.size(); i++) {
@@ -94,7 +94,7 @@ public class ClassParser implements Parser {
 				if (i != 0) {
 					String collClass = collectionClasses.get(i);
 					boolean addArrow = false;
-					for (UMLElement arrow : this.arrows) {
+					for (IUMLElement arrow : this.arrows) {
 						// Does this work?
 						if (!(((UMLArrow) arrow).getStart().equals(name) && ((UMLArrow) arrow).getEnd().equals(collClass) && ((UMLArrow) arrow).getHeadType().equals(HeadType.OPEN) && ((UMLArrow) arrow).getLineType().equals(LineType.SOLID))) {
 							addArrow = true;
@@ -117,7 +117,7 @@ public class ClassParser implements Parser {
 			for (String className : parserClassList) {
 				boolean addArrow = true;
 				//boolean bidirectional = false;
-				for (UMLElement arrow : this.arrows) {
+				for (IUMLElement arrow : this.arrows) {
 					// Does this work?
 
 					if (((UMLArrow) arrow).getStart().equals(name) && ((UMLArrow) arrow).getEnd().equals(className) && ((UMLArrow) arrow).getHeadType().equals(HeadType.OPEN) && ((UMLArrow) arrow).getLineType().equals(LineType.SOLID)) {
@@ -259,11 +259,11 @@ public class ClassParser implements Parser {
 		return uClassList;
 	}
 	
-	public UMLElement getuClass() {
+	public IUMLElement getuClass() {
 		return this.uClass;
 	}
 
-	public ArrayList<UMLElement> getArrows() {
+	public ArrayList<IUMLElement> getArrows() {
 		return arrows;
 	}
 
