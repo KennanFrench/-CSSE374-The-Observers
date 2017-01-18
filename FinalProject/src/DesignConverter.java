@@ -19,7 +19,7 @@ public class DesignConverter {
 		runningString.append("digraph " + this.diagramName + "{\nrankdir=BT;");
 		
 		for (UMLElement element : this.design) {
-			Converter converter = factory.createConverter(element, this.runViz);
+			IConverter converter = factory.createConverter(element, this.runViz);
 			converter.convert();
 			runningString.append("\n");
 			runningString.append(converter.getGraphVizRep());

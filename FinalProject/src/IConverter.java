@@ -1,5 +1,5 @@
 
-public interface Converter {
+public interface IConverter {
 	
 	public void convert();
 	

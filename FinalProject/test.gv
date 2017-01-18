@@ -1,347 +1,54 @@
 digraph ILoveThisProject{
 rankdir=BT;
-ArrowConverter [
+ArrayList [
  shape="record",
- label="{ArrowConverter | - arrow : UMLArrow\l- vis : Visibility\l- graphVizRep : StringBuilder\l|+ convert(): void\l
-+ getGraphVizRep(): java.lang.String\l
-+ getVis(): Visibility\l
+ label="{ArrayList | - EMPTY_ELEMENTDATA : Object\l- DEFAULTCAPACITY_EMPTY_ELEMENTDATA : Object\l- elementData : Object\l|+ trimToSize(): void\l
++ ensureCapacity(arg0: int): void\l
+- ensureCapacityInternal(arg0: int): void\l
+- ensureExplicitCapacity(arg0: int): void\l
+- grow(arg0: int): void\l
+- hugeCapacity(arg0: int): int\l
++ size(): int\l
++ isEmpty(): boolean\l
++ contains(arg0: java.lang.Object): boolean\l
++ indexOf(arg0: java.lang.Object): int\l
++ lastIndexOf(arg0: java.lang.Object): int\l
++ clone(): java.lang.Object\l
++ toArray(): java.lang.Object[]\l
++ toArray(arg0: java.lang.Object[]): java.lang.Object[]\l
+- elementData(arg0: int): java.lang.Object\l
++ get(arg0: int): java.lang.Object\l
++ set(arg0: int, arg1: java.lang.Object): java.lang.Object\l
++ add(arg0: java.lang.Object): boolean\l
++ add(arg0: int, arg1: java.lang.Object): void\l
++ remove(arg0: int): java.lang.Object\l
++ remove(arg0: java.lang.Object): boolean\l
+- fastRemove(arg0: int): void\l
++ clear(): void\l
++ addAll(arg0: java.util.Collection): boolean\l
++ addAll(arg0: int, arg1: java.util.Collection): boolean\l
+# removeRange(arg0: int, arg1: int): void\l
+- rangeCheck(arg0: int): void\l
+- rangeCheckForAdd(arg0: int): void\l
+- outOfBoundsMsg(arg0: int): java.lang.String\l
++ removeAll(arg0: java.util.Collection): boolean\l
++ retainAll(arg0: java.util.Collection): boolean\l
+- batchRemove(arg0: java.util.Collection, arg1: boolean): boolean\l
+- writeObject(arg0: java.io.ObjectOutputStream): void\l
+- readObject(arg0: java.io.ObjectInputStream): void\l
++ listIterator(arg0: int): java.util.ListIterator\l
++ listIterator(): java.util.ListIterator\l
++ iterator(): java.util.Iterator\l
++ subList(arg0: int, arg1: int): java.util.List\l
+- subListRangeCheck(arg0: int, arg1: int, arg2: int): void\l
++ forEach(arg0: java.util.function.Consumer): void\l
++ spliterator(): java.util.Spliterator\l
++ removeIf(arg0: java.util.function.Predicate): boolean\l
++ replaceAll(arg0: java.util.function.UnaryOperator): void\l
++ sort(arg0: java.util.Comparator): void\l
+- access100(arg0: java.util.ArrayList): int\l
 }" 
 ];
-Category [
- shape="record",
- label="{Category | + CLASS : Category\l+ ABSTRACT : Category\l+ INTERFACE : Category\l- ENUMVALUES : Category\l|+ values(): Category[]\l
-+ valueOf(arg0: java.lang.String): Category\l
-}" 
-];
-ClassConverter [
- shape="record",
- label="{ClassConverter | - uClass : UMLClass\l- graphVizRep : StringBuilder\l- runViz : Visibility\l|+ convert(): void\l
-+ getGraphVizRep(): java.lang.String\l
-}" 
-];
-ClassParser [
- shape="record",
- label="{ClassParser | - node : ClassNode\l- uClassList : ArrayList\l- arrows : ArrayList\l- classList : ArrayList\l- uClass : UMLClass\l|+ parse(): void\l
-+ getCollectionClasses(arg0: java.lang.String): java.util.ArrayList\l
-- getInnerClasses(arg0: java.lang.String): java.util.ArrayList\l
-+ getCleanList(arg0: java.util.ArrayList): java.util.ArrayList\l
-+ getNode(): org.objectweb.asm.tree.ClassNode\l
-+ getuClassList(): java.util.ArrayList\l
-+ getuClass(): UMLElement\l
-+ getArrows(): java.util.ArrayList\l
-}" 
-];
-CommandLineParser [
- shape="record",
- label="{CommandLineParser | - args : ArrayList\l- classList : ArrayList\l- runVis : Visibility\l|+ parse(): void\l
-- parseDashDash(arg0: java.lang.String): void\l
-- parseDash(arg0: java.lang.String): void\l
-+ getClassList(): java.util.ArrayList\l
-+ getRunVis(): Visibility\l
-+ getDrawRecursive(): boolean\l
-}" 
-];
-Converter [
- shape="record",
- label="{\<\<interface\>\>\n
-Converter | |+ convert(): void\{abstract\}\l
-+ getGraphVizRep(): java.lang.String\{abstract\}\l
-}" 
-];
-ConverterFactory [
- shape="record",
- label="{ConverterFactory | |+ createConverter(arg0: UMLElement, arg1: Visibility): Converter\l
-}" 
-];
-DesignConverter [
- shape="record",
- label="{DesignConverter | - design : ArrayList\l- runViz : Visibility\l- diagramName : String\l- graphVisRep : String\l|+ convert(): void\l
-+ getGraphVizRep(): java.lang.String\l
-}" 
-];
-DesignParser [
- shape="record",
- label="{DesignParser | - classList : ArrayList\l- arrowList : ArrayList\l- runVis : Visibility\l|+ runParser(arg0: java.lang.String[]): void\l
-- printClass(arg0: org.objectweb.asm.tree.ClassNode): void\l
-- printFields(arg0: org.objectweb.asm.tree.ClassNode): void\l
-- printMethods(arg0: org.objectweb.asm.tree.ClassNode): void\l
-- printInstructions(arg0: org.objectweb.asm.tree.MethodNode): void\l
-+ getClassList(): java.util.ArrayList\l
-+ getArrowList(): java.util.ArrayList\l
-+ getRunVis(): Visibility\l
-}" 
-];
-FieldParser [
- shape="record",
- label="{FieldParser | - field : FieldNode\l- uField : UMLField\l- uClassList : ArrayList\l|+ parse(): void\l
-+ getField(): org.objectweb.asm.tree.FieldNode\l
-+ getuField(): UMLField\l
-+ getuClassList(): java.util.ArrayList\l
-}" 
-];
-HeadType [
- shape="record",
- label="{HeadType | + OPEN : HeadType\l+ CLOSED : HeadType\l+ FILLED : HeadType\l+ DIAMOND : HeadType\l- ENUMVALUES : HeadType\l|+ getGraphVizRep(): java.lang.String\l
-+ values(): HeadType[]\l
-+ valueOf(arg0: java.lang.String): HeadType\l
-}" 
-];
-Launcher [
- shape="record",
- label="{Launcher | |+ main(arg0: java.lang.String[]): void\l
-}" 
-];
-LineType [
- shape="record",
- label="{LineType | + SOLID : LineType\l+ DASHED : LineType\l+ DOTTED : LineType\l- ENUMVALUES : LineType\l|+ getGraphVizRep(): java.lang.String\l
-+ values(): LineType[]\l
-+ valueOf(arg0: java.lang.String): LineType\l
-}" 
-];
-MethodParser [
- shape="record",
- label="{MethodParser | - method : MethodNode\l- uMethod : UMLMethod\l- uClassList : ArrayList\l|+ parse(): void\l
-+ getMethod(): org.objectweb.asm.tree.MethodNode\l
-+ getuMethod(): UMLMethod\l
-+ getuClassList(): java.util.ArrayList\l
-}" 
-];
-UMLArrow [
- shape="record",
- label="{UMLArrow | - headType : HeadType\l- lineType : LineType\l- start : String\l- end : String\l- headLabel : String\l- tailLabel : String\l|+ equals(arg0: java.lang.Object): boolean\l
-+ getHeadType(): HeadType\l
-+ setHeadType(arg0: HeadType): void\l
-+ getLineType(): LineType\l
-+ setLineType(arg0: LineType): void\l
-+ getStart(): java.lang.String\l
-+ setStart(arg0: java.lang.String): void\l
-+ getEnd(): java.lang.String\l
-+ setEnd(arg0: java.lang.String): void\l
-+ getHeadLabel(): java.lang.String\l
-+ setLabel(arg0: java.lang.String): void\l
-+ getBidirectional(): boolean\l
-+ setBidirectional(arg0: boolean): void\l
-+ setTailLabel(arg0: java.lang.String): void\l
-+ getTailLabel(): java.lang.String\l
-}" 
-];
-UMLClass [
- shape="record",
- label="{UMLClass | - name : String\l- category : Category\l- fields : ArrayList\l- methods : ArrayList\l|+ getName(): java.lang.String\l
-+ setName(arg0: java.lang.String): void\l
-+ getCategory(): Category\l
-+ setCategory(arg0: Category): void\l
-+ getFields(): java.util.ArrayList\l
-+ setFields(arg0: java.util.ArrayList): void\l
-+ getMethods(): java.util.ArrayList\l
-+ setMethods(arg0: java.util.ArrayList): void\l
-}" 
-];
-UMLElement [
- shape="record",
- label="{\<\<interface\>\>\n
-UMLElement | |+ equals(arg0: java.lang.Object): boolean\{abstract\}\l
-}" 
-];
-UMLField [
- shape="record",
- label="{UMLField | - visibility : Visibility\l- name : String\l- type : String\l|+ getVisibility(): Visibility\l
-+ setVisibility(arg0: Visibility): void\l
-+ getName(): java.lang.String\l
-+ setName(arg0: java.lang.String): void\l
-+ getType(): java.lang.String\l
-+ setType(arg0: java.lang.String): void\l
-}" 
-];
-UMLMethod [
- shape="record",
- label="{UMLMethod | - name : String\l- visibility : Visibility\l- type : String\l- parameters : ArrayList\l|+ getName(): java.lang.String\l
-+ setName(arg0: java.lang.String): void\l
-+ getVisibility(): Visibility\l
-+ setVisibility(arg0: Visibility): void\l
-+ isAbstract(): boolean\l
-+ setAbstract(arg0: boolean): void\l
-+ getType(): java.lang.String\l
-+ setType(arg0: java.lang.String): void\l
-+ getParameters(): java.util.ArrayList\l
-+ setParameters(arg0: java.util.ArrayList): void\l
-}" 
-];
-UMLParam [
- shape="record",
- label="{UMLParam | - name : String\l- type : String\l|+ getName(): java.lang.String\l
-+ getType(): java.lang.String\l
-}" 
-];
-Visibility [
- shape="record",
- label="{Visibility | + PRIVATE : Visibility\l+ PROTECTED : Visibility\l+ PUBLIC : Visibility\l- ENUMVALUES : Visibility\l|+ getVisibilityCode(): java.lang.String\l
-+ values(): Visibility[]\l
-+ valueOf(arg0: java.lang.String): Visibility\l
-}" 
-];
-FieldConverter [
- shape="record",
- label="{FieldConverter | - field : UMLField\l- graphVizRep : String\l|+ convert(): void\l
-+ getGraphVizRep(): java.lang.String\l
-}" 
-];
-MethodConverter [
- shape="record",
- label="{MethodConverter | - method : UMLMethod\l- graphVizRep : StringBuilder\l|+ convert(): void\l
-+ getGraphVizRep(): java.lang.String\l
-}" 
-];
-Parser [
- shape="record",
- label="{\<\<interface\>\>\n
-Parser | |+ parse(): void\{abstract\}\l
-}" 
-];
-ClassNameHandler [
- shape="record",
- label="{ClassNameHandler | |+ getNiceFromSlash(arg0: java.lang.String): java.lang.String\l
-+ getNiceFromDot(arg0: java.lang.String): java.lang.String\l
-+ getDotName(arg0: java.lang.String): java.lang.String\l
-+ removeStart(arg0: java.lang.String): java.lang.String\l
-+ removeEnd(arg0: java.lang.String): java.lang.String\l
-+ getDescriptor(arg0: java.lang.String): java.lang.String\l
-+ getClassName(arg0: java.lang.String): java.lang.String\l
-+ getNiceFromDotArray(arg0: java.util.ArrayList): java.util.ArrayList\l
-}" 
-];
-ArrowConverter -> UMLArrow [arrowhead="vee", style="solid", taillabel = ""];
-
-ArrowConverter -> Visibility [arrowhead="vee", style="solid", taillabel = ""];
-
-ArrowConverter -> Converter [arrowhead="onormal", style="dashed", taillabel = ""];
-
-Category -> Category [arrowhead="vee", style="solid", taillabel = ""];
-
-ClassConverter -> UMLClass [arrowhead="vee", style="solid", taillabel = ""];
-
-ClassConverter -> Visibility [arrowhead="vee", style="solid", taillabel = ""];
-
-ClassConverter -> FieldConverter [arrowhead="vee", style="dashed", taillabel = ""];
-
-ClassConverter -> UMLField [arrowhead="vee", style="dashed", taillabel = ""];
-
-ClassConverter -> MethodConverter [arrowhead="vee", style="dashed", taillabel = ""];
-
-ClassConverter -> UMLMethod [arrowhead="vee", style="dashed", taillabel = ""];
-
-ClassConverter -> Converter [arrowhead="onormal", style="dashed", taillabel = ""];
-
-ClassParser -> UMLElement [arrowhead="vee", style="solid", headlabel = " 1..* ", taillabel = ""];
-
-ClassParser -> UMLClass [arrowhead="vee", style="solid", taillabel = ""];
-
-ClassParser -> Category [arrowhead="vee", style="dashed", taillabel = ""];
-
-ClassParser -> FieldParser [arrowhead="vee", style="dashed", taillabel = ""];
-
-ClassParser -> UMLField [arrowhead="vee", style="dashed", taillabel = ""];
-
-ClassParser -> MethodParser [arrowhead="vee", style="dashed", taillabel = ""];
-
-ClassParser -> UMLMethod [arrowhead="vee", style="dashed", taillabel = ""];
-
-ClassParser -> UMLElement [arrowhead="vee", style="dashed", headlabel = " 1..* ", taillabel = ""];
-
-ClassParser -> Parser [arrowhead="onormal", style="dashed", taillabel = ""];
-
-CommandLineParser -> Visibility [arrowhead="vee", style="solid", taillabel = ""];
-
-CommandLineParser -> Parser [arrowhead="onormal", style="dashed", taillabel = ""];
-
-ConverterFactory -> Converter [arrowhead="vee", style="dashed", taillabel = ""];
-
-ConverterFactory -> UMLElement [arrowhead="vee", style="dashed", taillabel = ""];
-
-ConverterFactory -> Visibility [arrowhead="vee", style="dashed", taillabel = ""];
-
-DesignConverter -> UMLElement [arrowhead="vee", style="solid", headlabel = " 1..* ", taillabel = ""];
-
-DesignConverter -> Visibility [arrowhead="vee", style="solid", taillabel = ""];
-
-DesignConverter -> ConverterFactory [arrowhead="vee", style="dashed", taillabel = ""];
-
-DesignConverter -> Converter [arrowhead="vee", style="dashed", taillabel = ""];
-
-DesignParser -> UMLElement [arrowhead="vee", style="solid", headlabel = " 1..* ", taillabel = ""];
-
-DesignParser -> Visibility [arrowhead="vee", style="solid", taillabel = ""];
-
-DesignParser -> CommandLineParser [arrowhead="vee", style="dashed", taillabel = ""];
-
-DesignParser -> ClassParser [arrowhead="vee", style="dashed", taillabel = ""];
-
-DesignParser -> UMLArrow [arrowhead="vee", style="dashed", taillabel = ""];
-
-DesignParser -> UMLElement [arrowhead="vee", style="dashed", headlabel = " 1..* ", taillabel = ""];
-
-FieldParser -> UMLField [arrowhead="vee", style="solid", taillabel = ""];
-
-FieldParser -> Visibility [arrowhead="vee", style="dashed", taillabel = ""];
-
-FieldParser -> Parser [arrowhead="onormal", style="dashed", taillabel = ""];
-
-HeadType -> HeadType [arrowhead="vee", style="solid", taillabel = ""];
-
-Launcher -> DesignParser [arrowhead="vee", style="dashed", taillabel = ""];
-
-Launcher -> DesignConverter [arrowhead="vee", style="dashed", taillabel = ""];
-
-LineType -> LineType [arrowhead="vee", style="solid", taillabel = ""];
-
-MethodParser -> UMLMethod [arrowhead="vee", style="solid", taillabel = ""];
-
-MethodParser -> Visibility [arrowhead="vee", style="dashed", taillabel = ""];
-
-MethodParser -> Parser [arrowhead="onormal", style="dashed", taillabel = ""];
-
-UMLArrow -> HeadType [arrowhead="vee", style="solid", taillabel = ""];
-
-UMLArrow -> LineType [arrowhead="vee", style="solid", taillabel = ""];
-
-UMLArrow -> UMLElement [arrowhead="onormal", style="dashed", taillabel = ""];
-
-UMLClass -> Category [arrowhead="vee", style="solid", taillabel = ""];
-
-UMLClass -> UMLField [arrowhead="vee", style="solid", headlabel = " 1..* ", taillabel = ""];
-
-UMLClass -> UMLMethod [arrowhead="vee", style="solid", headlabel = " 1..* ", taillabel = ""];
-
-UMLClass -> UMLField [arrowhead="vee", style="dashed", headlabel = " 1..* ", taillabel = ""];
-
-UMLClass -> UMLMethod [arrowhead="vee", style="dashed", headlabel = " 1..* ", taillabel = ""];
-
-UMLClass -> UMLElement [arrowhead="onormal", style="dashed", taillabel = ""];
-
-UMLField -> Visibility [arrowhead="vee", style="solid", taillabel = ""];
-
-UMLField -> UMLElement [arrowhead="onormal", style="dashed", taillabel = ""];
-
-UMLMethod -> Visibility [arrowhead="vee", style="solid", taillabel = ""];
-
-UMLMethod -> UMLParam [arrowhead="vee", style="solid", headlabel = " 1..* ", taillabel = ""];
-
-UMLMethod -> UMLParam [arrowhead="vee", style="dashed", headlabel = " 1..* ", taillabel = ""];
-
-UMLMethod -> UMLElement [arrowhead="onormal", style="dashed", taillabel = ""];
-
-UMLParam -> UMLElement [arrowhead="onormal", style="dashed", taillabel = ""];
-
-Visibility -> Visibility [arrowhead="vee", style="solid", taillabel = ""];
-
-FieldConverter -> UMLField [arrowhead="vee", style="solid", taillabel = ""];
-
-FieldConverter -> Converter [arrowhead="onormal", style="dashed", taillabel = ""];
-
-MethodConverter -> UMLMethod [arrowhead="vee", style="solid", taillabel = ""];
-
-MethodConverter -> UMLParam [arrowhead="vee", style="dashed", taillabel = ""];
-
-MethodConverter -> Converter [arrowhead="onormal", style="dashed", taillabel = ""];
+ArrayList -> ArrayList [arrowhead="vee", style="dashed", taillabel = ""];
 
 }

@@ -1,4 +1,4 @@
-public class ClassConverter implements Converter {
+public class ClassConverter implements IConverter {
 
 	private UMLClass uClass;
 	private StringBuilder graphVizRep; 

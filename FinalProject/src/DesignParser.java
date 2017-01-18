@@ -1,6 +1,10 @@
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.Opcodes;
@@ -29,11 +33,25 @@ public class DesignParser {
 	
 	public void runParser(String[] args) throws IOException {
 		
-		
 		//***Use method.localvariables
 		CommandLineParser clParser = new CommandLineParser(args);
 		clParser.parse();
 		ArrayList<String> classes = clParser.getClassList();
+		
+		String settingsPath = clParser.getSettingsPath();
+		Properties settings = getSettings(settingsPath);
+		String whitelist = settings.getProperty("whitelist");
+		String blacklist = settings.getProperty("blacklist");
+		boolean recursiveSetting = Boolean.parseBoolean(settings.getProperty("recursive"));
+		boolean syntheticSetting = Boolean.parseBoolean(settings.getProperty("synthetic"));
+		Visibility visibilitySetting = Visibility.parseVisibility(settings.getProperty("visibility"));
+		
+		ArrayList<String> separatedWhitelist = new ArrayList<String>(Arrays.asList(whitelist.split(" ")));
+		ArrayList<String> separatedBlacklist = new ArrayList<String>(Arrays.asList(blacklist.split(" ")));
+		
+		
+		classes.addAll(separatedWhitelist);
+		
 		this.runVis = clParser.getRunVis();
 		this.drawRecursive = clParser.getDrawRecursive();
 		
@@ -123,7 +141,25 @@ public class DesignParser {
 				
 
 	}
-
+	
+	public static Properties getSettings(String path) {
+		String localPath = path;
+		if (path.equals("") || path == null) {
+			localPath = "config.properties";
+		} else {
+			localPath = path;
+		}
+		Properties settings = new Properties();
+		InputStream settingsFile = null;
+		try {
+			settingsFile = new FileInputStream(localPath);
+			settings.load(settingsFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return settings;
+	}
+	
 
 	// Unused, just for reference
 	private static void printClass(ClassNode classNode) {

@@ -1,4 +1,4 @@
-public class FieldConverter implements Converter {
+public class FieldConverter implements IConverter {
 
 	private UMLField field;
 	private String graphVizRep; 

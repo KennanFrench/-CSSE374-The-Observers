@@ -1,4 +1,4 @@
-public class ArrowConverter implements Converter {
+public class ArrowConverter implements IConverter {
 
 	private UMLArrow arrow;
 	private Visibility vis;

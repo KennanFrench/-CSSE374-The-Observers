@@ -1,6 +1,9 @@
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class Launcher {
 	/**
@@ -23,8 +26,14 @@ public class Launcher {
 		
 		parser.runParser(args);
 		
-		ArrayList<UMLElement> design = parser.getClassList();
+		ArrayList<UMLElement> design = (ArrayList<UMLElement>) parser.getClassList().clone();
 		design.addAll(parser.getArrowList());
+		
+		ArrayList<AbstractDetector> detectors = new ArrayList<AbstractDetector>();
+		detectors.add(new TestDetector(parser.getClassList(), parser.getArrowList()));
+		DesignDetector detector = new DesignDetector(detectors, parser.getClassList(), parser.getArrowList());
+		detector.runDetectors();
+		
 		DesignConverter converter = new DesignConverter(design, parser.getRunVis(), "ILoveThisProject");
 		converter.convert();
 		

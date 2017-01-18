@@ -1,4 +1,4 @@
-public class MethodConverter implements Converter {
+public class MethodConverter implements IConverter {
 
 	private UMLMethod method;
 	private StringBuilder graphVizRep;

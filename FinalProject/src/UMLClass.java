@@ -7,6 +7,7 @@ public class UMLClass implements UMLElement {
 	private Category category;
 	private ArrayList<UMLField> fields;
 	private ArrayList<UMLMethod> methods;
+	private String color;
 	
 	public UMLClass(String name, Category category, ArrayList<UMLField> fields, ArrayList<UMLMethod> methods) {
 		super();
@@ -46,6 +47,14 @@ public class UMLClass implements UMLElement {
 
 	public void setMethods(ArrayList<UMLMethod> methods) {
 		this.methods = methods;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 
 }

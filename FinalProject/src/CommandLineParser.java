@@ -9,11 +9,13 @@ public class CommandLineParser implements Parser{
 	private ArrayList<String> classList;
 	private Visibility runVis;
 	private boolean drawRecursive;
+	private String settingsPath;
 	
 	public CommandLineParser(String[] args) {
 		this.args = new ArrayList<String>(Arrays.asList(args));
 		this.runVis = Visibility.PRIVATE;
 		this.drawRecursive = false;
+		this.settingsPath = "";
 	}
 	
 	@Override
@@ -39,6 +41,8 @@ public class CommandLineParser implements Parser{
 			this.runVis = Visibility.PROTECTED;
 		} else if (arg.equalsIgnoreCase("--private")) {
 			this.runVis = Visibility.PRIVATE;
+		} else if (arg.startsWith("--settingsfile")) {
+			this.settingsPath = arg.substring(arg.indexOf('=') + 1);
 		}
 	}
 	
@@ -58,6 +62,10 @@ public class CommandLineParser implements Parser{
 
 	public boolean getDrawRecursive() {
 		return drawRecursive;
+	}
+	
+	public String getSettingsPath() {
+		return this.settingsPath;
 	}
 
 }

@@ -13,6 +13,15 @@ public enum Visibility {
 		// Potentially add default code
 		
 	}
+	
+	public static Visibility parseVisibility(String vis) {
+		if (vis.equalsIgnoreCase("protected")) {
+			return Visibility.PROTECTED;
+		} else if (vis.equalsIgnoreCase("public")) {
+			return Visibility.PUBLIC;
+		}
+		return Visibility.PRIVATE;
+	}
 }
 
 
