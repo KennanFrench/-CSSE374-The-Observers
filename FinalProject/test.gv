@@ -2,6 +2,7 @@ digraph ILoveThisProject{
 rankdir=BT;
 ArrayList [
  shape="record",
+ color="red"
  label="{ArrayList | - EMPTY_ELEMENTDATA : Object\l- DEFAULTCAPACITY_EMPTY_ELEMENTDATA : Object\l- elementData : Object\l|+ trimToSize(): void\l
 + ensureCapacity(arg0: int): void\l
 - ensureCapacityInternal(arg0: int): void\l

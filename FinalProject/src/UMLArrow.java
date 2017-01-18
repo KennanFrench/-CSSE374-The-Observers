@@ -7,6 +7,7 @@ public class UMLArrow implements UMLElement {
 	private String end;
 	private String headLabel;
 	private String tailLabel;
+	private String color;
 	private boolean bidirectional;
 	
 	public UMLArrow(String start, String end, HeadType head, LineType line) {
@@ -16,6 +17,7 @@ public class UMLArrow implements UMLElement {
 		this.lineType = line;
 		this.headLabel = "";
 		this.tailLabel = "";
+		this.color = "";
 		this.bidirectional = false;
 	}
 
@@ -92,5 +94,13 @@ public class UMLArrow implements UMLElement {
 
 	public String getTailLabel() {
 		return this.tailLabel;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 }

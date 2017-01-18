@@ -20,6 +20,8 @@ public class ArrowConverter implements IConverter {
 			this.graphVizRep.append(", dir = \"both\", arrowtail = \"" +  this.arrow.getHeadType().getGraphVizRep() + "\"");
 		
 		this.graphVizRep.append(", taillabel = \"" + this.arrow.getTailLabel() + "\"");
+		
+		this.graphVizRep.append(", color = \"" + this.arrow.getColor() + "\"");
 
 		this.graphVizRep.append("];\n");
 	}

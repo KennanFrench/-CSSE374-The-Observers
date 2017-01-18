@@ -12,7 +12,7 @@ public class ClassConverter implements IConverter {
 	@Override
 	public void convert() {
 		// Create node
-		this.graphVizRep.append(uClass.getName() + " [\n shape=\"record\",\n label=\"{");
+		this.graphVizRep.append(uClass.getName() + " [\n shape=\"record\",\n color=\"" + uClass.getColor() + "\"\n label=\"{");
 		
 		// Label
 		// Give name and type 
