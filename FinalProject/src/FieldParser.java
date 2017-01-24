@@ -33,8 +33,10 @@ public class FieldParser implements IParser {
 		else 
 			 vis = Visibility.PRIVATE;
 		
+		boolean isStatic = (field.access & Opcodes.ACC_STATIC) > 0;
+		
 		if (!fieldType.equals("") && field != null) {
-			this.uField = new UMLField(vis, field.name, fieldType);
+			this.uField = new UMLField(vis, field.name, fieldType, isStatic);
 			//only add to classlist if it starts with L; change this when namechange.removestart gets changed
 			this.uClassList.add(ClassNameHandler.removeEnd(ClassNameHandler.getDotName(fullFieldType)));
 		}

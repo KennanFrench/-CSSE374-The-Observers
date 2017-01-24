@@ -29,8 +29,12 @@ public class Launcher {
 		ArrayList<IUMLElement> design = (ArrayList<IUMLElement>) parser.getClassList().clone();
 		design.addAll(parser.getArrowList());
 		
+		UMLFactory arrListConverter = new UMLFactory();
+		ArrayList<UMLClass> classList = arrListConverter.createClassList(parser.getClassList());
+		ArrayList<UMLArrow> arrowList = arrListConverter.createArrowList(parser.getArrowList());
 		ArrayList<AbstractDetector> detectors = new ArrayList<AbstractDetector>();
-		detectors.add(new TestDetector(parser.getClassList(), parser.getArrowList()));
+//		detectors.add(new TestDetector(classList, arrowList));
+		detectors.add(new SingletonDetector(classList, arrowList));
 		DesignDetector detector = new DesignDetector(detectors, parser.getClassList(), parser.getArrowList());
 		detector.runDetectors();
 		

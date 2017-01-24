@@ -1,28 +1,28 @@
 import java.util.ArrayList;
 
 public abstract class AbstractDetector {
-	protected ArrayList<IUMLElement> classList;
-	protected ArrayList<IUMLElement> arrowList;
+	protected ArrayList<UMLClass> classList;
+	protected ArrayList<UMLArrow> arrowList;
 	
-	public AbstractDetector(ArrayList<IUMLElement> classes, ArrayList<IUMLElement> arrows) {
+	public AbstractDetector(ArrayList<UMLClass> classes, ArrayList<UMLArrow> arrows) {
 		this.classList = classes;
 		this.arrowList = arrows;
 	}
 
 	public abstract void detectPattern();
 	
-	public void setClasses(ArrayList<IUMLElement> classes) {
+	public void setClasses(ArrayList<UMLClass> classes) {
 		this.classList = classes;
 	}
 	
-	public void setArrows(ArrayList<IUMLElement> arrows) {
+	public void setArrows(ArrayList<UMLArrow> arrows) {
 		this.arrowList = arrows;
 	}
 
-	public ArrayList<IUMLElement> getClasses() {
+	public ArrayList<UMLClass> getClasses() {
 		return this.classList;
 	}
-	public ArrayList<IUMLElement> getArrows() {
+	public ArrayList<UMLArrow> getArrows() {
 		return this.arrowList;
 	}
 }

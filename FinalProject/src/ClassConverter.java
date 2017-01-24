@@ -22,6 +22,7 @@ public class ClassConverter implements IConverter {
 			this.graphVizRep.append("\\<\\<interface\\>\\>\\n\n" + uClass.getName());
 		else
 			this.graphVizRep.append(uClass.getName());
+		this.graphVizRep.append(uClass.getStereotype());
 		
 		this.graphVizRep.append(" | ");
 		

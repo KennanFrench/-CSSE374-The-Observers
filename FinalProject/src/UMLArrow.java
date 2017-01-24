@@ -28,6 +28,7 @@ public class UMLArrow implements IUMLElement {
 		this.end = end;
 		this.headType = head;
 		this.lineType = line;
+		this.color = "";
 		this.bidirectional = false;
 	}
 	
@@ -38,6 +39,7 @@ public class UMLArrow implements IUMLElement {
 		this.end = end;
 		this.headType = head;
 		this.lineType = line;
+		this.color = "";
 		this.bidirectional = bidir;
 	}
 	

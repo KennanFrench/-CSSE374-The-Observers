@@ -4,12 +4,14 @@ public class UMLField implements IUMLElement {
 	private Visibility visibility;
 	private String name;
 	private String type;
+	private boolean isStatic;
 	
-	public UMLField(Visibility vis, String name, String type)
+	public UMLField(Visibility vis, String name, String type, boolean isStatic)
 	{
 		this.visibility = vis;
 		this.name = name;
 		this.type = type;
+		this.isStatic = isStatic;
 	}
 
 	public Visibility getVisibility() {
@@ -34,6 +36,14 @@ public class UMLField implements IUMLElement {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public boolean isStatic() {
+		return isStatic;
+	}
+
+	public void setStatic(boolean isStatic) {
+		this.isStatic = isStatic;
 	}
 }
 

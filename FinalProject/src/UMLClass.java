@@ -8,6 +8,7 @@ public class UMLClass implements IUMLElement {
 	private ArrayList<UMLField> fields;
 	private ArrayList<UMLMethod> methods;
 	private String color;
+	private String stereotype;
 	
 	public UMLClass(String name, Category category, ArrayList<UMLField> fields, ArrayList<UMLMethod> methods) {
 		super();
@@ -15,6 +16,7 @@ public class UMLClass implements IUMLElement {
 		this.category = category;
 		this.fields = fields;
 		this.methods = methods;
+		this.stereotype = "";
 	}
 
 	public String getName() {
@@ -55,6 +57,14 @@ public class UMLClass implements IUMLElement {
 
 	public void setColor(String color) {
 		this.color = color;
+	}
+
+	public String getStereotype() {
+		return stereotype;
+	}
+
+	public void setStereotype(String stereotype) {
+		this.stereotype = stereotype;
 	}
 
 }

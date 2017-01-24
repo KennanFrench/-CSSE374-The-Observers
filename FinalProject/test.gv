@@ -1,55 +1,97 @@
 digraph ILoveThisProject{
 rankdir=BT;
-ArrayList [
+DummySingleton [
  shape="record",
- color="red"
- label="{ArrayList | - EMPTY_ELEMENTDATA : Object\l- DEFAULTCAPACITY_EMPTY_ELEMENTDATA : Object\l- elementData : Object\l|+ trimToSize(): void\l
-+ ensureCapacity(arg0: int): void\l
-- ensureCapacityInternal(arg0: int): void\l
-- ensureExplicitCapacity(arg0: int): void\l
-- grow(arg0: int): void\l
-- hugeCapacity(arg0: int): int\l
-+ size(): int\l
-+ isEmpty(): boolean\l
-+ contains(arg0: java.lang.Object): boolean\l
-+ indexOf(arg0: java.lang.Object): int\l
-+ lastIndexOf(arg0: java.lang.Object): int\l
-+ clone(): java.lang.Object\l
-+ toArray(): java.lang.Object[]\l
-+ toArray(arg0: java.lang.Object[]): java.lang.Object[]\l
-- elementData(arg0: int): java.lang.Object\l
-+ get(arg0: int): java.lang.Object\l
-+ set(arg0: int, arg1: java.lang.Object): java.lang.Object\l
-+ add(arg0: java.lang.Object): boolean\l
-+ add(arg0: int, arg1: java.lang.Object): void\l
-+ remove(arg0: int): java.lang.Object\l
-+ remove(arg0: java.lang.Object): boolean\l
-- fastRemove(arg0: int): void\l
-+ clear(): void\l
-+ addAll(arg0: java.util.Collection): boolean\l
-+ addAll(arg0: int, arg1: java.util.Collection): boolean\l
-# removeRange(arg0: int, arg1: int): void\l
-- rangeCheck(arg0: int): void\l
-- rangeCheckForAdd(arg0: int): void\l
-- outOfBoundsMsg(arg0: int): java.lang.String\l
-+ removeAll(arg0: java.util.Collection): boolean\l
-+ retainAll(arg0: java.util.Collection): boolean\l
-- batchRemove(arg0: java.util.Collection, arg1: boolean): boolean\l
-- writeObject(arg0: java.io.ObjectOutputStream): void\l
-- readObject(arg0: java.io.ObjectInputStream): void\l
-+ listIterator(arg0: int): java.util.ListIterator\l
-+ listIterator(): java.util.ListIterator\l
-+ iterator(): java.util.Iterator\l
-+ subList(arg0: int, arg1: int): java.util.List\l
-- subListRangeCheck(arg0: int, arg1: int, arg2: int): void\l
-+ forEach(arg0: java.util.function.Consumer): void\l
-+ spliterator(): java.util.Spliterator\l
-+ removeIf(arg0: java.util.function.Predicate): boolean\l
-+ replaceAll(arg0: java.util.function.UnaryOperator): void\l
-+ sort(arg0: java.util.Comparator): void\l
-- access100(arg0: java.util.ArrayList): int\l
+ color="blue"
+ label="{DummySingleton\n\<\<Singleton\>\>\n | - instance : DummySingleton\l|+ getInstance(): DummySingleton\l
 }" 
 ];
-ArrayList -> ArrayList [arrowhead="vee", style="dashed", taillabel = ""];
+String [
+ shape="record",
+ color="null"
+ label="{String | - serialPersistentFields : ObjectStreamField\l+ CASE_INSENSITIVE_ORDER : Comparator\l|- checkBounds(arg0: byte[], arg1: int, arg2: int): void\l
++ length(): int\l
++ isEmpty(): boolean\l
++ charAt(arg0: int): char\l
++ codePointAt(arg0: int): int\l
++ codePointBefore(arg0: int): int\l
++ codePointCount(arg0: int, arg1: int): int\l
++ offsetByCodePoints(arg0: int, arg1: int): int\l
+- getChars(arg0: char[], arg1: int): void\l
++ getChars(arg0: int, arg1: int, arg2: char[], arg3: int): void\l
++ getBytes(arg0: int, arg1: int, arg2: byte[], arg3: int): void\l
++ getBytes(arg0: java.lang.String): byte[]\l
++ getBytes(arg0: java.nio.charset.Charset): byte[]\l
++ getBytes(): byte[]\l
++ equals(arg0: java.lang.Object): boolean\l
++ contentEquals(arg0: java.lang.StringBuffer): boolean\l
+- nonSyncContentEquals(arg0: java.lang.AbstractStringBuilder): boolean\l
++ contentEquals(arg0: java.lang.CharSequence): boolean\l
++ equalsIgnoreCase(arg0: java.lang.String): boolean\l
++ compareTo(arg0: java.lang.String): int\l
++ compareToIgnoreCase(arg0: java.lang.String): int\l
++ regionMatches(arg0: int, arg1: java.lang.String, arg2: int, arg3: int): boolean\l
++ regionMatches(arg0: boolean, arg1: int, arg2: java.lang.String, arg3: int, arg4: int): boolean\l
++ startsWith(arg0: java.lang.String, arg1: int): boolean\l
++ startsWith(arg0: java.lang.String): boolean\l
++ endsWith(arg0: java.lang.String): boolean\l
++ hashCode(): int\l
++ indexOf(arg0: int): int\l
++ indexOf(arg0: int, arg1: int): int\l
+- indexOfSupplementary(arg0: int, arg1: int): int\l
++ lastIndexOf(arg0: int): int\l
++ lastIndexOf(arg0: int, arg1: int): int\l
+- lastIndexOfSupplementary(arg0: int, arg1: int): int\l
++ indexOf(arg0: java.lang.String): int\l
++ indexOf(arg0: java.lang.String, arg1: int): int\l
+- indexOf(arg0: char[], arg1: int, arg2: int, arg3: java.lang.String, arg4: int): int\l
+- indexOf(arg0: char[], arg1: int, arg2: int, arg3: char[], arg4: int, arg5: int, arg6: int): int\l
++ lastIndexOf(arg0: java.lang.String): int\l
++ lastIndexOf(arg0: java.lang.String, arg1: int): int\l
+- lastIndexOf(arg0: char[], arg1: int, arg2: int, arg3: java.lang.String, arg4: int): int\l
+- lastIndexOf(arg0: char[], arg1: int, arg2: int, arg3: char[], arg4: int, arg5: int, arg6: int): int\l
++ substring(arg0: int): java.lang.String\l
++ substring(arg0: int, arg1: int): java.lang.String\l
++ subSequence(arg0: int, arg1: int): java.lang.CharSequence\l
++ concat(arg0: java.lang.String): java.lang.String\l
++ replace(arg0: char, arg1: char): java.lang.String\l
++ matches(arg0: java.lang.String): boolean\l
++ contains(arg0: java.lang.CharSequence): boolean\l
++ replaceFirst(arg0: java.lang.String, arg1: java.lang.String): java.lang.String\l
++ replaceAll(arg0: java.lang.String, arg1: java.lang.String): java.lang.String\l
++ replace(arg0: java.lang.CharSequence, arg1: java.lang.CharSequence): java.lang.String\l
++ split(arg0: java.lang.String, arg1: int): java.lang.String[]\l
++ split(arg0: java.lang.String): java.lang.String[]\l
++ join(arg0: java.lang.CharSequence, arg1: java.lang.CharSequence[]): java.lang.String\l
++ join(arg0: java.lang.CharSequence, arg1: java.lang.Iterable): java.lang.String\l
++ toLowerCase(arg0: java.util.Locale): java.lang.String\l
++ toLowerCase(): java.lang.String\l
++ toUpperCase(arg0: java.util.Locale): java.lang.String\l
++ toUpperCase(): java.lang.String\l
++ trim(): java.lang.String\l
++ toString(): java.lang.String\l
++ toCharArray(): char[]\l
++ format(arg0: java.lang.String, arg1: java.lang.Object[]): java.lang.String\l
++ format(arg0: java.util.Locale, arg1: java.lang.String, arg2: java.lang.Object[]): java.lang.String\l
++ valueOf(arg0: java.lang.Object): java.lang.String\l
++ valueOf(arg0: char[]): java.lang.String\l
++ valueOf(arg0: char[], arg1: int, arg2: int): java.lang.String\l
++ copyValueOf(arg0: char[], arg1: int, arg2: int): java.lang.String\l
++ copyValueOf(arg0: char[]): java.lang.String\l
++ valueOf(arg0: boolean): java.lang.String\l
++ valueOf(arg0: char): java.lang.String\l
++ valueOf(arg0: int): java.lang.String\l
++ valueOf(arg0: long): java.lang.String\l
++ valueOf(arg0: float): java.lang.String\l
++ valueOf(arg0: double): java.lang.String\l
++ intern(): java.lang.String\l
++ compareTo(arg0: java.lang.Object): int\l
+}" 
+];
+DummySingleton -> DummySingleton [arrowhead="vee", style="solid", taillabel = "", color = ""];
+
+String -> String [arrowhead="vee", style="solid", headlabel = " 1..* ", taillabel = "", color = ""];
+
+String -> String [arrowhead="vee", style="dashed", taillabel = "", color = ""];
 
 }

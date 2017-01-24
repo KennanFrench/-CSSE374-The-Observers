@@ -74,7 +74,9 @@ public class MethodParser implements IParser {
 			}
 		}
 		
-		this.uMethod = new UMLMethod(name, vis, isAbstract, methodType, parameters);
+		boolean isStatic = (method.access & Opcodes.ACC_STATIC) > 0;
+		
+		this.uMethod = new UMLMethod(name, vis, isAbstract, methodType, parameters, isStatic);
 	}
 
 	public MethodNode getMethod() {
