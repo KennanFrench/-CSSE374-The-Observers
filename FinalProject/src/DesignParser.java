@@ -25,20 +25,20 @@ public class DesignParser {
 	private ArrayList<IUMLElement> arrowList;
 	private Visibility runVis;
 	private boolean drawRecursive;
+	private CommandLineParser clParser;
 	
-	public DesignParser() {
+	public DesignParser(CommandLineParser clParser) {
 		this.classList = new ArrayList<IUMLElement>();
 		this.arrowList = new ArrayList<IUMLElement>();
+		this.clParser = clParser;
 	}
 	
 	public void runParser(String[] args) throws IOException {
 		
 		//***Use method.localvariables
-		CommandLineParser clParser = new CommandLineParser(args);
-		clParser.parse();
-		ArrayList<String> classes = clParser.getClassList();
+		ArrayList<String> classes = this.clParser.getClassList();
 		
-		String settingsPath = clParser.getSettingsPath();
+		String settingsPath = this.clParser.getSettingsPath();
 		Properties settings = getSettings(settingsPath);
 		String whitelist = settings.getProperty("whitelist");
 		String blacklist = settings.getProperty("blacklist");
@@ -47,13 +47,29 @@ public class DesignParser {
 		Visibility visibilitySetting = Visibility.parseVisibility(settings.getProperty("visibility"));
 		
 		ArrayList<String> separatedWhitelist = new ArrayList<String>(Arrays.asList(whitelist.split(" ")));
-		ArrayList<String> separatedBlacklist = new ArrayList<String>(Arrays.asList(blacklist.split(" ")));
+		String separatedBlacklist = blacklist.replaceAll(" ", "|");
+		separatedBlacklist = separatedBlacklist.replaceAll("\\.", "\\.");
+		separatedBlacklist = "(" + separatedBlacklist + ").*";
+		if (separatedBlacklist.equals("().*")) {
+			separatedBlacklist = "a^";
+		}
 		
 		
+		while (separatedWhitelist.contains("")) {
+			separatedWhitelist.remove("");
+		}
+
 		classes.addAll(separatedWhitelist);
 		
-		this.runVis = clParser.getRunVis();
-		this.drawRecursive = clParser.getDrawRecursive();
+		this.runVis = this.clParser.getRunVis();
+		if (this.runVis == null) {
+			this.runVis = visibilitySetting;
+		}
+
+		this.drawRecursive = this.clParser.getDrawRecursive();
+		if (!this.drawRecursive) {
+			this.drawRecursive = recursiveSetting;
+		}
 		
 		//move this to a different method once we figure out how recursive to make it
 		int size = classes.size();
@@ -66,13 +82,15 @@ public class DesignParser {
 				ClassNode classNode = new ClassNode();
 				reader.accept(classNode, ClassReader.EXPAND_FRAMES);
 				
-				if (!classes.contains(ClassNameHandler.getDotName(classNode.superName)) && classNode.superName != null) {
-					classes.add(ClassNameHandler.getDotName(classNode.superName));
+				String dotName = ClassNameHandler.getDotName(classNode.superName);
+				if (!classes.contains(dotName) && classNode.superName != null && !dotName.matches(separatedBlacklist) && !dotName.equals("")) {
+					classes.add(dotName);
 					size++;
 				}
 				for (int i = 0; i < classNode.interfaces.size(); i++) {
-					if (!classes.contains(ClassNameHandler.getDotName(classNode.interfaces.get(i)+""))) {
-						classes.add(ClassNameHandler.getDotName(classNode.interfaces.get(i)+""));
+					dotName = ClassNameHandler.getDotName(classNode.interfaces.get(i)+"");
+					if (!classes.contains(dotName) && !dotName.matches(separatedBlacklist) && !dotName.equals("")) {
+						classes.add(dotName);
 						size++;
 					}
 				}
@@ -91,13 +109,16 @@ public class DesignParser {
 				//System.out.println("Extends: " + classNode.superName);
 				//System.out.println("Implements: " + classNode.interfaces);
 
-				ClassParser parser = new ClassParser(classNode, classes);
+				ClassParser parser = new ClassParser(classNode, classes, syntheticSetting);
 				parser.parse();
 				ArrayList<String> tempList = parser.getuClassList();
-				classList.add(parser.getuClass());
+				UMLClass current = (UMLClass) parser.getuClass();
+				if (!current.getName().matches(separatedBlacklist)) {
+				classList.add(current);
+				}
 				
 				for (String x : tempList) {
-					   if (!classes.contains(x) && this.drawRecursive) {
+					   if (!classes.contains(x) && this.drawRecursive && !x.matches(separatedBlacklist) && !x.equals("")) {
 						   classes.add(x);
 						   size++;
 					   }
@@ -137,6 +158,18 @@ public class DesignParser {
 			else 
 				j++;
 			
+		}
+		
+		j = 0;
+		size = arrowList.size();
+		ArrayList<String> classNiceNames = ClassNameHandler.getNiceFromDotArray(classes);
+		while (j < size) {
+			if (!classNiceNames.contains(((UMLArrow) arrowList.get(j)).getStart()) || !classNiceNames.contains(((UMLArrow) arrowList.get(j)).getEnd())) {
+				arrowList.remove(j);
+				size--;
+				j--;
+			}
+			j++;
 		}
 				
 

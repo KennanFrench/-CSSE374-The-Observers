@@ -2,6 +2,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -14,15 +15,27 @@ public class Launcher {
 	 *            java example.DesignParser java.lang.String
 	 * @throws IOException
 	 * @throws ClassNotFoundException
+	 * @throws SecurityException 
+	 * @throws NoSuchMethodException 
+	 * @throws InvocationTargetException 
+	 * @throws IllegalArgumentException 
+	 * @throws IllegalAccessException 
+	 * @throws InstantiationException 
 	 */
 	
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
 
 		// DONE: Learn how to create separate Run Configurations so you can run
 		// this code without changing the arguments each time.
 
-		DesignParser parser = new DesignParser();
+		CommandLineParser clParser = new CommandLineParser(args);
+		clParser.parse();
+		DesignParser parser = new DesignParser(clParser);
+		
+		String settingsPath = clParser.getSettingsPath();
+		Properties settings = DesignParser.getSettings(settingsPath);
+		String[] detectorStrings = settings.getProperty("detectors").split(" ");
 		
 		parser.runParser(args);
 		
@@ -33,8 +46,13 @@ public class Launcher {
 		ArrayList<UMLClass> classList = arrListConverter.createClassList(parser.getClassList());
 		ArrayList<UMLArrow> arrowList = arrListConverter.createArrowList(parser.getArrowList());
 		ArrayList<AbstractDetector> detectors = new ArrayList<AbstractDetector>();
+		for(String s : detectorStrings) {
+			Class<?> detClass = Class.forName(s);
+			detectors.add((AbstractDetector) detClass.getConstructor(ArrayList.class, ArrayList.class).newInstance(classList, arrowList));
+		}
+		
 //		detectors.add(new TestDetector(classList, arrowList));
-		detectors.add(new SingletonDetector(classList, arrowList));
+		//detectors.add(new SingletonDetector(classList, arrowList));
 		DesignDetector detector = new DesignDetector(detectors, parser.getClassList(), parser.getArrowList());
 		detector.runDetectors();
 		

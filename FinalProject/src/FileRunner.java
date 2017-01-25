@@ -7,7 +7,7 @@ public class FileRunner implements IGraphVizRunner {
 	public void run(DesignConverter c, String filename) {
 		try{
 		    PrintWriter writer = new PrintWriter(filename);
-		    writer.print(c.getGraphVizRep().replaceAll("\\$", ""));
+		    writer.print(c.getGraphVizRep());
 		    writer.close();
 		} catch (IOException e) {
 		   System.out.println("Could not write to file " + filename);

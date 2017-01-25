@@ -13,7 +13,7 @@ public class CommandLineParser implements IParser{
 	
 	public CommandLineParser(String[] args) {
 		this.args = new ArrayList<String>(Arrays.asList(args));
-		this.runVis = Visibility.PRIVATE;
+		this.runVis = null;
 		this.drawRecursive = false;
 		this.settingsPath = "";
 	}

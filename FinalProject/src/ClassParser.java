@@ -16,12 +16,14 @@ public class ClassParser implements IParser {
 	private ArrayList<IUMLElement> arrows;
 	private ArrayList<String> classList;
 	private UMLClass uClass;
+	private boolean syntheticSetting;
 	
-	public ClassParser(ClassNode node, ArrayList<String> classList) {
+	public ClassParser(ClassNode node, ArrayList<String> classList, boolean syntheticSetting) {
 		this.node = node;
 		this.arrows = new ArrayList<IUMLElement>();
 		this.classList = classList;
 		this.uClassList = new ArrayList<String>();
+		this.syntheticSetting = syntheticSetting;
 		//for (int i = 0; i < classList.size(); i++) {
 		//	this.classList.set(i, Launcher.getNiceName(classList.get(i)));
 		//}
@@ -109,7 +111,9 @@ public class ClassParser implements IParser {
 			MethodParser parser = new MethodParser(method);
 			parser.parse();
 			UMLMethod uMethod = parser.getuMethod();
-			methods.add(uMethod);
+			if (!uMethod.getName().contains("$") || this.syntheticSetting) {
+				methods.add(uMethod);
+			}
 
 			ArrayList<String> parserClassList = parser.getuClassList();
 			uClassList.addAll(parserClassList);
