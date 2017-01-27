@@ -1,80 +1,180 @@
 digraph ILoveThisProject{
 rankdir=BT;
-AcmeSuperclass [
+EagerChocolateBoiler [
  shape="record",
- color="orange"
- label="{AcmeSuperclass | |+ methodOne(): void\l
-+ methodTwo(): int\l
-+ methodThree(): java.lang.String\l
-+ methodFour(): void\l
-}" 
-];
-CompositionyClass [
- shape="record",
- color="null"
- label="{CompositionyClass | |}" 
-];
-InheritanceyClass [
- shape="record",
- color="orange"
- label="{InheritanceyClass | |+ methodOne(): void\l
-+ methodFive(): int\l
-+ methodSix(): java.lang.String\l
-}" 
-];
-ArrayList [
- shape="record",
- color="null"
- label="{ArrayList | - EMPTY_ELEMENTDATA : Object\l- DEFAULTCAPACITY_EMPTY_ELEMENTDATA : Object\l- elementData : Object\l|+ trimToSize(): void\l
-+ ensureCapacity(arg0: int): void\l
-- ensureCapacityInternal(arg0: int): void\l
-- ensureExplicitCapacity(arg0: int): void\l
-- grow(arg0: int): void\l
-- hugeCapacity(arg0: int): int\l
-+ size(): int\l
+ color="blue"
+ label="{EagerChocolateBoiler\n\<\<Singleton\>\>\n | - uniqueInstance : EagerChocolateBoiler\l|+ getInstance(): EagerChocolateBoiler\l
++ fill(): void\l
++ drain(): void\l
++ boil(): void\l
 + isEmpty(): boolean\l
-+ contains(arg0: java.lang.Object): boolean\l
-+ indexOf(arg0: java.lang.Object): int\l
-+ lastIndexOf(arg0: java.lang.Object): int\l
-+ clone(): java.lang.Object\l
-+ toArray(): java.lang.Object[]\l
-+ toArray(arg0: java.lang.Object[]): java.lang.Object[]\l
-- elementData(arg0: int): java.lang.Object\l
-+ get(arg0: int): java.lang.Object\l
-+ set(arg0: int, arg1: java.lang.Object): java.lang.Object\l
-+ add(arg0: java.lang.Object): boolean\l
-+ add(arg0: int, arg1: java.lang.Object): void\l
-+ remove(arg0: int): java.lang.Object\l
-+ remove(arg0: java.lang.Object): boolean\l
-- fastRemove(arg0: int): void\l
++ isBoiled(): boolean\l
+}" 
+];
+LazyChocolateBoiler [
+ shape="record",
+ color="blue"
+ label="{LazyChocolateBoiler\n\<\<Singleton\>\>\n | - uniqueInstance : LazyChocolateBoiler\l|+ getInstance(): LazyChocolateBoiler\l
++ fill(): void\l
++ drain(): void\l
++ boil(): void\l
++ isEmpty(): boolean\l
++ isBoiled(): boolean\l
+}" 
+];
+Runtime [
+ shape="record",
+ color="blue"
+ label="{Runtime\n\<\<Singleton\>\>\n | - currentRuntime : Runtime\l|+ getRuntime(): java.lang.Runtime\l
++ exit(arg0: int): void\l
++ addShutdownHook(arg0: java.lang.Thread): void\l
++ removeShutdownHook(arg0: java.lang.Thread): boolean\l
++ halt(arg0: int): void\l
++ runFinalizersOnExit(arg0: boolean): void\l
++ exec(arg0: java.lang.String): java.lang.Process\l
++ exec(arg0: java.lang.String, arg1: java.lang.String[]): java.lang.Process\l
++ exec(arg0: java.lang.String, arg1: java.lang.String[], arg2: java.io.File): java.lang.Process\l
++ exec(arg0: java.lang.String[]): java.lang.Process\l
++ exec(arg0: java.lang.String[], arg1: java.lang.String[]): java.lang.Process\l
++ exec(arg0: java.lang.String[], arg1: java.lang.String[], arg2: java.io.File): java.lang.Process\l
++ availableProcessors(): int\l
++ freeMemory(): long\l
++ totalMemory(): long\l
++ maxMemory(): long\l
++ gc(): void\l
+- runFinalization0(): void\l
++ runFinalization(): void\l
++ traceInstructions(arg0: boolean): void\l
++ traceMethodCalls(arg0: boolean): void\l
++ load(arg0: java.lang.String): void\l
+- load0(arg0: java.lang.Class, arg1: java.lang.String): void\l
++ loadLibrary(arg0: java.lang.String): void\l
+- loadLibrary0(arg0: java.lang.Class, arg1: java.lang.String): void\l
++ getLocalizedInputStream(arg0: java.io.InputStream): java.io.InputStream\l
++ getLocalizedOutputStream(arg0: java.io.OutputStream): java.io.OutputStream\l
+}" 
+];
+Desktop [
+ shape="record",
+ color="null"
+ label="{Desktop | - peer : DesktopPeer\l|+ getDesktop(): java.awt.Desktop\l
++ isDesktopSupported(): boolean\l
++ isSupported(arg0: java.awt.Desktop$Action): boolean\l
+- checkFileValidation(arg0: java.io.File): void\l
+- checkActionSupport(arg0: java.awt.Desktop$Action): void\l
+- checkAWTPermission(): void\l
++ open(arg0: java.io.File): void\l
++ edit(arg0: java.io.File): void\l
++ print(arg0: java.io.File): void\l
++ browse(arg0: java.net.URI): void\l
++ mail(): void\l
++ mail(arg0: java.net.URI): void\l
+- checkExec(): void\l
+}" 
+];
+Calendar [
+ shape="record",
+ color="null"
+ label="{\<\<abstract\>\>\n
+Calendar | - zone : TimeZone\l- cachedLocaleData : ConcurrentMap\l- FIELD_NAME : String\l|+ getInstance(): java.util.Calendar\l
++ getInstance(arg0: java.util.TimeZone): java.util.Calendar\l
++ getInstance(arg0: java.util.Locale): java.util.Calendar\l
++ getInstance(arg0: java.util.TimeZone, arg1: java.util.Locale): java.util.Calendar\l
+- createCalendar(arg0: java.util.TimeZone, arg1: java.util.Locale): java.util.Calendar\l
++ getAvailableLocales(): java.util.Locale[]\l
+# computeTime(): void\{abstract\}\l
+# computeFields(): void\{abstract\}\l
++ getTime(): java.util.Date\l
++ setTime(arg0: java.util.Date): void\l
++ getTimeInMillis(): long\l
++ setTimeInMillis(arg0: long): void\l
++ get(arg0: int): int\l
+# internalGet(arg0: int): int\l
+- internalSet(arg0: int, arg1: int): void\l
++ set(arg0: int, arg1: int): void\l
++ set(arg0: int, arg1: int, arg2: int): void\l
++ set(arg0: int, arg1: int, arg2: int, arg3: int, arg4: int): void\l
++ set(arg0: int, arg1: int, arg2: int, arg3: int, arg4: int, arg5: int): void\l
 + clear(): void\l
-+ addAll(arg0: java.util.Collection): boolean\l
-+ addAll(arg0: int, arg1: java.util.Collection): boolean\l
-# removeRange(arg0: int, arg1: int): void\l
-- rangeCheck(arg0: int): void\l
-- rangeCheckForAdd(arg0: int): void\l
-- outOfBoundsMsg(arg0: int): java.lang.String\l
-+ removeAll(arg0: java.util.Collection): boolean\l
-+ retainAll(arg0: java.util.Collection): boolean\l
-- batchRemove(arg0: java.util.Collection, arg1: boolean): boolean\l
++ clear(arg0: int): void\l
++ isSet(arg0: int): boolean\l
++ getDisplayName(arg0: int, arg1: int, arg2: java.util.Locale): java.lang.String\l
++ getDisplayNames(arg0: int, arg1: int, arg2: java.util.Locale): java.util.Map\l
+- getDisplayNamesImpl(arg0: int, arg1: int, arg2: java.util.Locale): java.util.Map\l
+- checkDisplayNameParams(arg0: int, arg1: int, arg2: int, arg3: int, arg4: java.util.Locale, arg5: int): boolean\l
+- getFieldStrings(arg0: int, arg1: int, arg2: java.text.DateFormatSymbols): java.lang.String[]\l
+# complete(): void\l
+- isExternallySet(arg0: int): boolean\l
+- getSetStateFields(): int\l
+- setFieldsComputed(arg0: int): void\l
+- setFieldsNormalized(arg0: int): void\l
+- isPartiallyNormalized(): boolean\l
+- isFullyNormalized(): boolean\l
+- setUnnormalized(): void\l
+- isFieldSet(arg0: int, arg1: int): boolean\l
+- selectFields(): int\l
+- getBaseStyle(arg0: int): int\l
+- toStandaloneStyle(arg0: int): int\l
+- isStandaloneStyle(arg0: int): boolean\l
+- isNarrowStyle(arg0: int): boolean\l
+- isNarrowFormatStyle(arg0: int): boolean\l
+- aggregateStamp(arg0: int, arg1: int): int\l
++ getAvailableCalendarTypes(): java.util.Set\l
++ getCalendarType(): java.lang.String\l
++ equals(arg0: java.lang.Object): boolean\l
++ hashCode(): int\l
++ before(arg0: java.lang.Object): boolean\l
++ after(arg0: java.lang.Object): boolean\l
++ compareTo(arg0: java.util.Calendar): int\l
++ add(arg0: int, arg1: int): void\{abstract\}\l
++ roll(arg0: int, arg1: boolean): void\{abstract\}\l
++ roll(arg0: int, arg1: int): void\l
++ setTimeZone(arg0: java.util.TimeZone): void\l
++ getTimeZone(): java.util.TimeZone\l
+- getZone(): java.util.TimeZone\l
+- setZoneShared(arg0: boolean): void\l
++ setLenient(arg0: boolean): void\l
++ isLenient(): boolean\l
++ setFirstDayOfWeek(arg0: int): void\l
++ getFirstDayOfWeek(): int\l
++ setMinimalDaysInFirstWeek(arg0: int): void\l
++ getMinimalDaysInFirstWeek(): int\l
++ isWeekDateSupported(): boolean\l
++ getWeekYear(): int\l
++ setWeekDate(arg0: int, arg1: int, arg2: int): void\l
++ getWeeksInWeekYear(): int\l
++ getMinimum(arg0: int): int\{abstract\}\l
++ getMaximum(arg0: int): int\{abstract\}\l
++ getGreatestMinimum(arg0: int): int\{abstract\}\l
++ getLeastMaximum(arg0: int): int\{abstract\}\l
++ getActualMinimum(arg0: int): int\l
++ getActualMaximum(arg0: int): int\l
++ clone(): java.lang.Object\l
+- getFieldName(arg0: int): java.lang.String\l
++ toString(): java.lang.String\l
+- appendValue(arg0: java.lang.StringBuilder, arg1: java.lang.String, arg2: boolean, arg3: long): void\l
+- setWeekCountData(arg0: java.util.Locale): void\l
+- updateTime(): void\l
+- compareTo(arg0: long): int\l
+- getMillisOf(arg0: java.util.Calendar): long\l
+- adjustStamp(): void\l
+- invalidateWeekFields(): void\l
 - writeObject(arg0: java.io.ObjectOutputStream): void\l
 - readObject(arg0: java.io.ObjectInputStream): void\l
-+ listIterator(arg0: int): java.util.ListIterator\l
-+ listIterator(): java.util.ListIterator\l
-+ iterator(): java.util.Iterator\l
-+ subList(arg0: int, arg1: int): java.util.List\l
-- subListRangeCheck(arg0: int, arg1: int, arg2: int): void\l
-+ forEach(arg0: java.util.function.Consumer): void\l
-+ spliterator(): java.util.Spliterator\l
-+ removeIf(arg0: java.util.function.Predicate): boolean\l
-+ replaceAll(arg0: java.util.function.UnaryOperator): void\l
-+ sort(arg0: java.util.Comparator): void\l
++ toInstant(): java.time.Instant\l
++ compareTo(arg0: java.lang.Object): int\l
 }" 
 ];
-CompositionyClass -> AcmeSuperclass [arrowhead="onormal", style="solid", taillabel = "", color = ""];
+EagerChocolateBoiler -> EagerChocolateBoiler [arrowhead="vee", style="solid", taillabel = "", color = ""];
 
-InheritanceyClass -> AcmeSuperclass [arrowhead="onormal", style="solid", taillabel = "", color = "orange"];
+LazyChocolateBoiler -> LazyChocolateBoiler [arrowhead="vee", style="solid", taillabel = "", color = ""];
 
-ArrayList -> ArrayList [arrowhead="vee", style="dashed", taillabel = "", color = ""];
+Runtime -> Runtime [arrowhead="vee", style="solid", taillabel = "", color = ""];
+
+Runtime -> Runtime [arrowhead="vee", style="dashed", taillabel = "", color = ""];
+
+Desktop -> Desktop [arrowhead="vee", style="dashed", taillabel = "", color = ""];
+
+Calendar -> Calendar [arrowhead="vee", style="dashed", taillabel = "", color = ""];
 
 }
