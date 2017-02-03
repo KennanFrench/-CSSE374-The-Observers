@@ -97,7 +97,7 @@ public class ClassParser implements IParser {
 					boolean addArrow = false;
 					for (IUMLElement arrow : this.arrows) {
 						// Does this work?
-						if (!(((UMLArrow) arrow).getStart().equals(name) && ((UMLArrow) arrow).getEnd().equals(collClass) && ((UMLArrow) arrow).getHeadType().equals(HeadType.OPEN) && ((UMLArrow) arrow).getLineType().equals(LineType.SOLID))) {
+						if (!(((UMLArrow) arrow).getStart().equals(name) && ((UMLArrow) arrow).getEnd().equals(ClassNameHandler.getNiceFromDot(collClass)) && ((UMLArrow) arrow).getHeadType().equals(HeadType.OPEN) && ((UMLArrow) arrow).getLineType().equals(LineType.SOLID))) {
 							addArrow = true;
 						}
 					}
@@ -123,7 +123,7 @@ public class ClassParser implements IParser {
 				for (IUMLElement arrow : this.arrows) {
 					// Does this work?
 
-					if (((UMLArrow) arrow).getStart().equals(name) && ((UMLArrow) arrow).getEnd().equals(className) && ((UMLArrow) arrow).getHeadType().equals(HeadType.OPEN) && ((UMLArrow) arrow).getLineType().equals(LineType.SOLID)) {
+					if (((UMLArrow) arrow).getStart().equals(name) && ((UMLArrow) arrow).getEnd().equals(ClassNameHandler.getNiceFromDot(className)) && ((UMLArrow) arrow).getHeadType().equals(HeadType.OPEN) && ((UMLArrow) arrow).getLineType().equals(LineType.SOLID)) {
 						addArrow = false;
 					}
 					/*if (((UMLArrow) arrow).getStart().equals(className) && ((UMLArrow) arrow).getEnd().equals(name) && ((UMLArrow) arrow).getHeadType().equals(HeadType.OPEN) && ((UMLArrow) arrow).getLineType().equals(LineType.DASHED)) {
