@@ -30,8 +30,8 @@ public class CompositionDetector extends AbstractDetector {
 			if (start != null && end != null) {
 				if (start.getMethods().size() * 2 > end.getMethods().size()) {
 					arrow.setColor("orange");
-					start.setColor("orange");
-					end.setColor("orange");
+					start.setOutlineColor("orange");
+					end.setOutlineColor("orange");
 				}
 			}
 		}

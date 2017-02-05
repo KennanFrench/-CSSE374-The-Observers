@@ -16,6 +16,10 @@ public class ArrowConverter implements IConverter {
 		if (!this.arrow.getHeadLabel().equals(""))
 			this.graphVizRep.append(", headlabel = \"" + this.arrow.getHeadLabel() + "\"");
 		
+		if (!this.arrow.getMiddleLabel().equals("")) {
+			this.graphVizRep.append(", label = \"" + this.arrow.getMiddleLabel() + "\"");
+		}
+		
 		if (this.arrow.getBidirectional())
 			this.graphVizRep.append(", dir = \"both\", arrowtail = \"" +  this.arrow.getHeadType().getGraphVizRep() + "\"");
 		

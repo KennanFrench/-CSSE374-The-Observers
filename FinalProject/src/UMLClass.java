@@ -7,7 +7,8 @@ public class UMLClass implements IUMLElement {
 	private Category category;
 	private ArrayList<UMLField> fields;
 	private ArrayList<UMLMethod> methods;
-	private String color;
+	private String outlineColor;
+	private String backgroundColor;
 	private String stereotype;
 	
 	public UMLClass(String name, Category category, ArrayList<UMLField> fields, ArrayList<UMLMethod> methods) {
@@ -17,6 +18,7 @@ public class UMLClass implements IUMLElement {
 		this.fields = fields;
 		this.methods = methods;
 		this.stereotype = "";
+		this.backgroundColor = "white";
 	}
 
 	public String getName() {
@@ -51,12 +53,12 @@ public class UMLClass implements IUMLElement {
 		this.methods = methods;
 	}
 
-	public String getColor() {
-		return color;
+	public String getOutlineColor() {
+		return outlineColor;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
+	public void setOutlineColor(String color) {
+		this.outlineColor = color;
 	}
 
 	public String getStereotype() {
@@ -65,6 +67,14 @@ public class UMLClass implements IUMLElement {
 
 	public void setStereotype(String stereotype) {
 		this.stereotype = stereotype;
+	}
+
+	public String getBackgroundColor() {
+		return backgroundColor;
+	}
+
+	public void setBackgroundColor(String backgroundColor) {
+		this.backgroundColor = backgroundColor;
 	}
 
 }

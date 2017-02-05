@@ -7,6 +7,7 @@ public class UMLArrow implements IUMLElement {
 	private String end;
 	private String headLabel;
 	private String tailLabel;
+	private String middleLabel;
 	private String color;
 	private boolean bidirectional;
 	
@@ -17,6 +18,7 @@ public class UMLArrow implements IUMLElement {
 		this.lineType = line;
 		this.headLabel = "";
 		this.tailLabel = "";
+		this.middleLabel = "";
 		this.color = "";
 		this.bidirectional = false;
 	}
@@ -28,6 +30,7 @@ public class UMLArrow implements IUMLElement {
 		this.end = end;
 		this.headType = head;
 		this.lineType = line;
+		this.middleLabel = "";
 		this.color = "";
 		this.bidirectional = false;
 	}
@@ -39,6 +42,7 @@ public class UMLArrow implements IUMLElement {
 		this.end = end;
 		this.headType = head;
 		this.lineType = line;
+		this.middleLabel = "";
 		this.color = "";
 		this.bidirectional = bidir;
 	}
@@ -104,5 +108,13 @@ public class UMLArrow implements IUMLElement {
 
 	public void setColor(String color) {
 		this.color = color;
+	}
+
+	public String getMiddleLabel() {
+		return middleLabel;
+	}
+
+	public void setMiddleLabel(String middleLabel) {
+		this.middleLabel = middleLabel;
 	}
 }

@@ -12,7 +12,7 @@ public class SingletonDetector extends AbstractDetector {
 	public void detectPattern() {
 		for (UMLClass currentClass : this.classList) {
 			if (isSingleton(currentClass)) {
-				currentClass.setColor("blue");
+				currentClass.setOutlineColor("blue");
 				currentClass.setStereotype("\\n\\<\\<Singleton\\>\\>\\n");
 			}
 		}

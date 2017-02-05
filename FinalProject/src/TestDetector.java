@@ -10,7 +10,7 @@ public class TestDetector extends AbstractDetector {
 	public void detectPattern() {
 		for (UMLClass currentClass : this.classList) {
 			if (currentClass.getName().contains("a")) {
-				currentClass.setColor("red");
+				currentClass.setOutlineColor("red");
 			}
 		}	
 	}

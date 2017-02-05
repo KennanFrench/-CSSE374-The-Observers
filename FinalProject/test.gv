@@ -1,508 +1,56 @@
 digraph ILoveThisProject{
 rankdir=BT;
-Component [
+DummyAdaptee [
  shape="record",
- color="red"
- label="{\<\<abstract\>\>\n
-Component | - log : PlatformLogger\l- eventLog : PlatformLogger\l- focusLog : PlatformLogger\l- mixingLog : PlatformLogger\l- peer : ComponentPeer\l- parent : Container\l- appContext : AppContext\l- foreground : Color\l- background : Color\l- font : Font\l- peerFont : Font\l- cursor : Cursor\l- locale : Locale\l- graphicsConfig : GraphicsConfiguration\l- bufferStrategy : BufferStrategy\l- dropTarget : DropTarget\l- popups : Vector\l- name : String\l- focusTraversalKeys : Set\l- focusTraversalKeyPropertyNames : String\l- LOCK : Object\l- acc : AccessControlContext\l- minSize : Dimension\l- prefSize : Dimension\l- maxSize : Dimension\l- componentOrientation : ComponentOrientation\l- componentListener : ComponentListener\l- focusListener : FocusListener\l- hierarchyListener : HierarchyListener\l- hierarchyBoundsListener : HierarchyBoundsListener\l- keyListener : KeyListener\l- mouseListener : MouseListener\l- mouseMotionListener : MouseMotionListener\l- mouseWheelListener : MouseWheelListener\l- inputMethodListener : InputMethodListener\l- windowClosingException : RuntimeException\l- actionListenerK : String\l- adjustmentListenerK : String\l- componentListenerK : String\l- containerListenerK : String\l- focusListenerK : String\l- itemListenerK : String\l- keyListenerK : String\l- mouseListenerK : String\l- mouseMotionListenerK : String\l- mouseWheelListenerK : String\l- textListenerK : String\l- ownedWindowK : String\l- windowListenerK : String\l- inputMethodListenerK : String\l- hierarchyListenerK : String\l- hierarchyBoundsListenerK : String\l- windowStateListenerK : String\l- windowFocusListenerK : String\l- changeSupport : PropertyChangeSupport\l- objectLock : Object\l- compoundShape : Region\l- mixingCutoutRegion : Region\l- eventCache : EventQueueItem\l- coalesceMap : Map\l- coalesceEventsParams : Class\l- requestFocusController : RequestFocusController\l# accessibleContext : AccessibleContext\l|- getObjectLock(): java.lang.Object\l
-- getAccessControlContext(): java.security.AccessControlContext\l
-- getBoundsOp(): int\l
-- setBoundsOp(arg0: int): void\l
-- initializeFocusTraversalKeys(): void\l
-- constructComponentName(): java.lang.String\l
-+ getName(): java.lang.String\l
-+ setName(arg0: java.lang.String): void\l
-+ getParent(): java.awt.Container\l
-- getParent_NoClientCode(): java.awt.Container\l
-- getContainer(): java.awt.Container\l
-+ getPeer(): java.awt.peer.ComponentPeer\l
-+ setDropTarget(arg0: java.awt.dnd.DropTarget): void\l
-+ getDropTarget(): java.awt.dnd.DropTarget\l
-+ getGraphicsConfiguration(): java.awt.GraphicsConfiguration\l
-- getGraphicsConfiguration_NoClientCode(): java.awt.GraphicsConfiguration\l
-- setGraphicsConfiguration(arg0: java.awt.GraphicsConfiguration): void\l
-- updateGraphicsData(arg0: java.awt.GraphicsConfiguration): boolean\l
-- checkGD(arg0: java.lang.String): void\l
-+ getTreeLock(): java.lang.Object\l
-- checkTreeLock(): void\l
-+ getToolkit(): java.awt.Toolkit\l
-- getToolkitImpl(): java.awt.Toolkit\l
-+ isValid(): boolean\l
-+ isDisplayable(): boolean\l
-+ isVisible(): boolean\l
-- isVisible_NoClientCode(): boolean\l
-- isRecursivelyVisible(): boolean\l
-- getRecursivelyVisibleBounds(): java.awt.Rectangle\l
-- pointRelativeToComponent(arg0: java.awt.Point): java.awt.Point\l
-- findUnderMouseInWindow(arg0: java.awt.PointerInfo): java.awt.Component\l
-+ getMousePosition(): java.awt.Point\l
-- isSameOrAncestorOf(arg0: java.awt.Component, arg1: boolean): boolean\l
-+ isShowing(): boolean\l
-+ isEnabled(): boolean\l
-- isEnabledImpl(): boolean\l
-+ setEnabled(arg0: boolean): void\l
-+ enable(): void\l
-+ enable(arg0: boolean): void\l
-+ disable(): void\l
-+ isDoubleBuffered(): boolean\l
-+ enableInputMethods(arg0: boolean): void\l
-+ setVisible(arg0: boolean): void\l
-+ show(): void\l
-+ show(arg0: boolean): void\l
-- containsFocus(): boolean\l
-- clearMostRecentFocusOwnerOnHide(): void\l
-- clearCurrentFocusCycleRootOnHide(): void\l
-+ hide(): void\l
-+ getForeground(): java.awt.Color\l
-+ setForeground(arg0: java.awt.Color): void\l
-+ isForegroundSet(): boolean\l
-+ getBackground(): java.awt.Color\l
-+ setBackground(arg0: java.awt.Color): void\l
-+ isBackgroundSet(): boolean\l
-+ getFont(): java.awt.Font\l
-- getFont_NoClientCode(): java.awt.Font\l
-+ setFont(arg0: java.awt.Font): void\l
-+ isFontSet(): boolean\l
-+ getLocale(): java.util.Locale\l
-+ setLocale(arg0: java.util.Locale): void\l
-+ getColorModel(): java.awt.image.ColorModel\l
-+ getLocation(): java.awt.Point\l
-+ getLocationOnScreen(): java.awt.Point\l
-- getLocationOnScreen_NoTreeLock(): java.awt.Point\l
-+ location(): java.awt.Point\l
-- location_NoClientCode(): java.awt.Point\l
-+ setLocation(arg0: int, arg1: int): void\l
-+ move(arg0: int, arg1: int): void\l
-+ setLocation(arg0: java.awt.Point): void\l
-+ getSize(): java.awt.Dimension\l
-+ size(): java.awt.Dimension\l
-+ setSize(arg0: int, arg1: int): void\l
-+ resize(arg0: int, arg1: int): void\l
-+ setSize(arg0: java.awt.Dimension): void\l
-+ resize(arg0: java.awt.Dimension): void\l
-+ getBounds(): java.awt.Rectangle\l
-+ bounds(): java.awt.Rectangle\l
-+ setBounds(arg0: int, arg1: int, arg2: int, arg3: int): void\l
-+ reshape(arg0: int, arg1: int, arg2: int, arg3: int): void\l
-- repaintParentIfNeeded(arg0: int, arg1: int, arg2: int, arg3: int): void\l
-- reshapeNativePeer(arg0: int, arg1: int, arg2: int, arg3: int, arg4: int): void\l
-- notifyNewBounds(arg0: boolean, arg1: boolean): void\l
-+ setBounds(arg0: java.awt.Rectangle): void\l
-+ getX(): int\l
-+ getY(): int\l
-+ getWidth(): int\l
-+ getHeight(): int\l
-+ getBounds(arg0: java.awt.Rectangle): java.awt.Rectangle\l
-+ getSize(arg0: java.awt.Dimension): java.awt.Dimension\l
-+ getLocation(arg0: java.awt.Point): java.awt.Point\l
-+ isOpaque(): boolean\l
-+ isLightweight(): boolean\l
-+ setPreferredSize(arg0: java.awt.Dimension): void\l
-+ isPreferredSizeSet(): boolean\l
-+ getPreferredSize(): java.awt.Dimension\l
-+ preferredSize(): java.awt.Dimension\l
-+ setMinimumSize(arg0: java.awt.Dimension): void\l
-+ isMinimumSizeSet(): boolean\l
-+ getMinimumSize(): java.awt.Dimension\l
-+ minimumSize(): java.awt.Dimension\l
-+ setMaximumSize(arg0: java.awt.Dimension): void\l
-+ isMaximumSizeSet(): boolean\l
-+ getMaximumSize(): java.awt.Dimension\l
-+ getAlignmentX(): float\l
-+ getAlignmentY(): float\l
-+ getBaseline(arg0: int, arg1: int): int\l
-+ getBaselineResizeBehavior(): java.awt.Component$BaselineResizeBehavior\l
-+ doLayout(): void\l
-+ layout(): void\l
-+ validate(): void\l
-+ invalidate(): void\l
-- invalidateParent(): void\l
-- invalidateIfValid(): void\l
-+ revalidate(): void\l
-- revalidateSynchronously(): void\l
-+ getGraphics(): java.awt.Graphics\l
-- getGraphics_NoClientCode(): java.awt.Graphics\l
-+ getFontMetrics(arg0: java.awt.Font): java.awt.FontMetrics\l
-+ setCursor(arg0: java.awt.Cursor): void\l
-- updateCursorImmediately(): void\l
-+ getCursor(): java.awt.Cursor\l
-- getCursor_NoClientCode(): java.awt.Cursor\l
-+ isCursorSet(): boolean\l
-+ paint(arg0: java.awt.Graphics): void\l
-+ update(arg0: java.awt.Graphics): void\l
-+ paintAll(arg0: java.awt.Graphics): void\l
-- lightweightPaint(arg0: java.awt.Graphics): void\l
-- paintHeavyweightComponents(arg0: java.awt.Graphics): void\l
-+ repaint(): void\l
-+ repaint(arg0: long): void\l
-+ repaint(arg0: int, arg1: int, arg2: int, arg3: int): void\l
-+ repaint(arg0: long, arg1: int, arg2: int, arg3: int, arg4: int): void\l
-+ print(arg0: java.awt.Graphics): void\l
-+ printAll(arg0: java.awt.Graphics): void\l
-- lightweightPrint(arg0: java.awt.Graphics): void\l
-- printHeavyweightComponents(arg0: java.awt.Graphics): void\l
-- getInsets_NoClientCode(): java.awt.Insets\l
-+ imageUpdate(arg0: java.awt.Image, arg1: int, arg2: int, arg3: int, arg4: int, arg5: int): boolean\l
-+ createImage(arg0: java.awt.image.ImageProducer): java.awt.Image\l
-+ createImage(arg0: int, arg1: int): java.awt.Image\l
-+ createVolatileImage(arg0: int, arg1: int): java.awt.image.VolatileImage\l
-+ createVolatileImage(arg0: int, arg1: int, arg2: java.awt.ImageCapabilities): java.awt.image.VolatileImage\l
-+ prepareImage(arg0: java.awt.Image, arg1: java.awt.image.ImageObserver): boolean\l
-+ prepareImage(arg0: java.awt.Image, arg1: int, arg2: int, arg3: java.awt.image.ImageObserver): boolean\l
-+ checkImage(arg0: java.awt.Image, arg1: java.awt.image.ImageObserver): int\l
-+ checkImage(arg0: java.awt.Image, arg1: int, arg2: int, arg3: java.awt.image.ImageObserver): int\l
-- createBufferStrategy(arg0: int): void\l
-- createBufferStrategy(arg0: int, arg1: java.awt.BufferCapabilities): void\l
-- getBufferStrategy(): java.awt.image.BufferStrategy\l
-- getBackBuffer(): java.awt.Image\l
-+ setIgnoreRepaint(arg0: boolean): void\l
-+ getIgnoreRepaint(): boolean\l
-+ contains(arg0: int, arg1: int): boolean\l
-+ inside(arg0: int, arg1: int): boolean\l
-+ contains(arg0: java.awt.Point): boolean\l
-+ getComponentAt(arg0: int, arg1: int): java.awt.Component\l
-+ locate(arg0: int, arg1: int): java.awt.Component\l
-+ getComponentAt(arg0: java.awt.Point): java.awt.Component\l
-+ deliverEvent(arg0: java.awt.Event): void\l
-+ dispatchEvent(arg0: java.awt.AWTEvent): void\l
-- dispatchEventImpl(arg0: java.awt.AWTEvent): void\l
-- autoProcessMouseWheel(arg0: java.awt.event.MouseWheelEvent): void\l
-- dispatchMouseWheelToAncestor(arg0: java.awt.event.MouseWheelEvent): boolean\l
-- checkWindowClosingException(): boolean\l
-- areInputMethodsEnabled(): boolean\l
-- eventEnabled(arg0: java.awt.AWTEvent): boolean\l
-- eventTypeEnabled(arg0: int): boolean\l
-+ postEvent(arg0: java.awt.Event): boolean\l
-+ addComponentListener(arg0: java.awt.event.ComponentListener): void\l
-+ removeComponentListener(arg0: java.awt.event.ComponentListener): void\l
-+ getComponentListeners(): java.awt.event.ComponentListener[]\l
-+ addFocusListener(arg0: java.awt.event.FocusListener): void\l
-+ removeFocusListener(arg0: java.awt.event.FocusListener): void\l
-+ getFocusListeners(): java.awt.event.FocusListener[]\l
-+ addHierarchyListener(arg0: java.awt.event.HierarchyListener): void\l
-+ removeHierarchyListener(arg0: java.awt.event.HierarchyListener): void\l
-+ getHierarchyListeners(): java.awt.event.HierarchyListener[]\l
-+ addHierarchyBoundsListener(arg0: java.awt.event.HierarchyBoundsListener): void\l
-+ removeHierarchyBoundsListener(arg0: java.awt.event.HierarchyBoundsListener): void\l
-- numListening(arg0: long): int\l
-- countHierarchyMembers(): int\l
-- createHierarchyEvents(arg0: int, arg1: java.awt.Component, arg2: java.awt.Container, arg3: long, arg4: boolean): int\l
-+ getHierarchyBoundsListeners(): java.awt.event.HierarchyBoundsListener[]\l
-- adjustListeningChildrenOnParent(arg0: long, arg1: int): void\l
-+ addKeyListener(arg0: java.awt.event.KeyListener): void\l
-+ removeKeyListener(arg0: java.awt.event.KeyListener): void\l
-+ getKeyListeners(): java.awt.event.KeyListener[]\l
-+ addMouseListener(arg0: java.awt.event.MouseListener): void\l
-+ removeMouseListener(arg0: java.awt.event.MouseListener): void\l
-+ getMouseListeners(): java.awt.event.MouseListener[]\l
-+ addMouseMotionListener(arg0: java.awt.event.MouseMotionListener): void\l
-+ removeMouseMotionListener(arg0: java.awt.event.MouseMotionListener): void\l
-+ getMouseMotionListeners(): java.awt.event.MouseMotionListener[]\l
-+ addMouseWheelListener(arg0: java.awt.event.MouseWheelListener): void\l
-+ removeMouseWheelListener(arg0: java.awt.event.MouseWheelListener): void\l
-+ getMouseWheelListeners(): java.awt.event.MouseWheelListener[]\l
-+ addInputMethodListener(arg0: java.awt.event.InputMethodListener): void\l
-+ removeInputMethodListener(arg0: java.awt.event.InputMethodListener): void\l
-+ getInputMethodListeners(): java.awt.event.InputMethodListener[]\l
-+ getListeners(arg0: java.lang.Class): java.util.EventListener[]\l
-+ getInputMethodRequests(): java.awt.im.InputMethodRequests\l
-+ getInputContext(): java.awt.im.InputContext\l
-# enableEvents(arg0: long): void\l
-# disableEvents(arg0: long): void\l
-- checkCoalescing(): boolean\l
-- isCoalesceEventsOverriden(arg0: java.lang.Class): boolean\l
-- isCoalescingEnabled(): boolean\l
-# coalesceEvents(arg0: java.awt.AWTEvent, arg1: java.awt.AWTEvent): java.awt.AWTEvent\l
-# processEvent(arg0: java.awt.AWTEvent): void\l
-# processComponentEvent(arg0: java.awt.event.ComponentEvent): void\l
-# processFocusEvent(arg0: java.awt.event.FocusEvent): void\l
-# processKeyEvent(arg0: java.awt.event.KeyEvent): void\l
-# processMouseEvent(arg0: java.awt.event.MouseEvent): void\l
-# processMouseMotionEvent(arg0: java.awt.event.MouseEvent): void\l
-# processMouseWheelEvent(arg0: java.awt.event.MouseWheelEvent): void\l
-- postsOldMouseEvents(): boolean\l
-# processInputMethodEvent(arg0: java.awt.event.InputMethodEvent): void\l
-# processHierarchyEvent(arg0: java.awt.event.HierarchyEvent): void\l
-# processHierarchyBoundsEvent(arg0: java.awt.event.HierarchyEvent): void\l
-+ handleEvent(arg0: java.awt.Event): boolean\l
-+ mouseDown(arg0: java.awt.Event, arg1: int, arg2: int): boolean\l
-+ mouseDrag(arg0: java.awt.Event, arg1: int, arg2: int): boolean\l
-+ mouseUp(arg0: java.awt.Event, arg1: int, arg2: int): boolean\l
-+ mouseMove(arg0: java.awt.Event, arg1: int, arg2: int): boolean\l
-+ mouseEnter(arg0: java.awt.Event, arg1: int, arg2: int): boolean\l
-+ mouseExit(arg0: java.awt.Event, arg1: int, arg2: int): boolean\l
-+ keyDown(arg0: java.awt.Event, arg1: int): boolean\l
-+ keyUp(arg0: java.awt.Event, arg1: int): boolean\l
-+ action(arg0: java.awt.Event, arg1: java.lang.Object): boolean\l
-+ addNotify(): void\l
-+ removeNotify(): void\l
-+ gotFocus(arg0: java.awt.Event, arg1: java.lang.Object): boolean\l
-+ lostFocus(arg0: java.awt.Event, arg1: java.lang.Object): boolean\l
-+ isFocusTraversable(): boolean\l
-+ isFocusable(): boolean\l
-+ setFocusable(arg0: boolean): void\l
-- isFocusTraversableOverridden(): boolean\l
-+ setFocusTraversalKeys(arg0: int, arg1: java.util.Set): void\l
-+ getFocusTraversalKeys(arg0: int): java.util.Set\l
-- setFocusTraversalKeys_NoIDCheck(arg0: int, arg1: java.util.Set): void\l
-- getFocusTraversalKeys_NoIDCheck(arg0: int): java.util.Set\l
-+ areFocusTraversalKeysSet(arg0: int): boolean\l
-+ setFocusTraversalKeysEnabled(arg0: boolean): void\l
-+ getFocusTraversalKeysEnabled(): boolean\l
-+ requestFocus(): void\l
-- requestFocus(arg0: sun.awt.CausedFocusEvent$Cause): boolean\l
-# requestFocus(arg0: boolean): boolean\l
-- requestFocus(arg0: boolean, arg1: sun.awt.CausedFocusEvent$Cause): boolean\l
-+ requestFocusInWindow(): boolean\l
-- requestFocusInWindow(arg0: sun.awt.CausedFocusEvent$Cause): boolean\l
-# requestFocusInWindow(arg0: boolean): boolean\l
-- requestFocusInWindow(arg0: boolean, arg1: sun.awt.CausedFocusEvent$Cause): boolean\l
-- requestFocusHelper(arg0: boolean, arg1: boolean): boolean\l
-- requestFocusHelper(arg0: boolean, arg1: boolean, arg2: sun.awt.CausedFocusEvent$Cause): boolean\l
-- isRequestFocusAccepted(arg0: boolean, arg1: boolean, arg2: sun.awt.CausedFocusEvent$Cause): boolean\l
-- setRequestFocusController(arg0: sun.awt.RequestFocusController): void\l
-+ getFocusCycleRootAncestor(): java.awt.Container\l
-+ isFocusCycleRoot(arg0: java.awt.Container): boolean\l
-- getTraversalRoot(): java.awt.Container\l
-+ transferFocus(): void\l
-+ nextFocus(): void\l
-- transferFocus(arg0: boolean): boolean\l
-- getNextFocusCandidate(): java.awt.Component\l
-+ transferFocusBackward(): void\l
-- transferFocusBackward(arg0: boolean): boolean\l
-+ transferFocusUpCycle(): void\l
-+ hasFocus(): boolean\l
-+ isFocusOwner(): boolean\l
-- setAutoFocusTransferOnDisposal(arg0: boolean): void\l
-- isAutoFocusTransferOnDisposal(): boolean\l
-+ add(arg0: java.awt.PopupMenu): void\l
-+ remove(arg0: java.awt.MenuComponent): void\l
-# paramString(): java.lang.String\l
-+ toString(): java.lang.String\l
-+ list(): void\l
-+ list(arg0: java.io.PrintStream): void\l
-+ list(arg0: java.io.PrintStream, arg1: int): void\l
-+ list(arg0: java.io.PrintWriter): void\l
-+ list(arg0: java.io.PrintWriter, arg1: int): void\l
-- getNativeContainer(): java.awt.Container\l
-+ addPropertyChangeListener(arg0: java.beans.PropertyChangeListener): void\l
-+ removePropertyChangeListener(arg0: java.beans.PropertyChangeListener): void\l
-+ getPropertyChangeListeners(): java.beans.PropertyChangeListener[]\l
-+ addPropertyChangeListener(arg0: java.lang.String, arg1: java.beans.PropertyChangeListener): void\l
-+ removePropertyChangeListener(arg0: java.lang.String, arg1: java.beans.PropertyChangeListener): void\l
-+ getPropertyChangeListeners(arg0: java.lang.String): java.beans.PropertyChangeListener[]\l
-# firePropertyChange(arg0: java.lang.String, arg1: java.lang.Object, arg2: java.lang.Object): void\l
-# firePropertyChange(arg0: java.lang.String, arg1: boolean, arg2: boolean): void\l
-# firePropertyChange(arg0: java.lang.String, arg1: int, arg2: int): void\l
-+ firePropertyChange(arg0: java.lang.String, arg1: byte, arg2: byte): void\l
-+ firePropertyChange(arg0: java.lang.String, arg1: char, arg2: char): void\l
-+ firePropertyChange(arg0: java.lang.String, arg1: short, arg2: short): void\l
-+ firePropertyChange(arg0: java.lang.String, arg1: long, arg2: long): void\l
-+ firePropertyChange(arg0: java.lang.String, arg1: float, arg2: float): void\l
-+ firePropertyChange(arg0: java.lang.String, arg1: double, arg2: double): void\l
-- doSwingSerialization(): void\l
-- writeObject(arg0: java.io.ObjectOutputStream): void\l
-- readObject(arg0: java.io.ObjectInputStream): void\l
-+ setComponentOrientation(arg0: java.awt.ComponentOrientation): void\l
-+ getComponentOrientation(): java.awt.ComponentOrientation\l
-+ applyComponentOrientation(arg0: java.awt.ComponentOrientation): void\l
-- canBeFocusOwner(): boolean\l
-- canBeFocusOwnerRecursively(): boolean\l
-- relocateComponent(): void\l
-- getContainingWindow(): java.awt.Window\l
-- initIDs(): void\l
-+ getAccessibleContext(): javax.accessibility.AccessibleContext\l
-- getAccessibleIndexInParent(): int\l
-- getAccessibleStateSet(): javax.accessibility.AccessibleStateSet\l
-- isInstanceOf(arg0: java.lang.Object, arg1: java.lang.String): boolean\l
-- areBoundsValid(): boolean\l
-- applyCompoundShape(arg0: sun.java2d.pipe.Region): void\l
-- getAppliedShape(): sun.java2d.pipe.Region\l
-- getLocationOnWindow(): java.awt.Point\l
-- getNormalShape(): sun.java2d.pipe.Region\l
-- getOpaqueShape(): sun.java2d.pipe.Region\l
-- getSiblingIndexAbove(): int\l
-- getHWPeerAboveMe(): java.awt.peer.ComponentPeer\l
-- getSiblingIndexBelow(): int\l
-- isNonOpaqueForMixing(): boolean\l
-- calculateCurrentShape(): sun.java2d.pipe.Region\l
-- applyCurrentShape(): void\l
-- subtractAndApplyShape(arg0: sun.java2d.pipe.Region): void\l
-- applyCurrentShapeBelowMe(): void\l
-- subtractAndApplyShapeBelowMe(): void\l
-- mixOnShowing(): void\l
-- mixOnHiding(arg0: boolean): void\l
-- mixOnReshaping(): void\l
-- mixOnZOrderChanging(arg0: int, arg1: int): void\l
-- mixOnValidating(): void\l
-- isMixingNeeded(): boolean\l
-- updateZOrder(): void\l
+ color="null",
+ style="filled",
+ fillcolor="red"
+ label="{DummyAdaptee\n\<\<adaptee\>\>\n | |+ m(): int\l
 }" 
 ];
-Container [
+DummyAdapter1 [
  shape="record",
- color="red"
- label="{Container | - log : PlatformLogger\l- eventLog : PlatformLogger\l- EMPTY_ARRAY : Component\l- component : List\l- layoutMgr : LayoutManager\l- dispatcher : LightweightDispatcher\l- focusTraversalPolicy : FocusTraversalPolicy\l- printingThreads : Set\l- containerListener : ContainerListener\l- preserveBackgroundColor : Color\l- mixingLog : PlatformLogger\l- serialPersistentFields : ObjectStreamField\l- modalComp : Component\l- modalAppContext : AppContext\l|- initIDs(): void\l
-- initializeFocusTraversalKeys(): void\l
-+ getComponentCount(): int\l
-+ countComponents(): int\l
-+ getComponent(arg0: int): java.awt.Component\l
-+ getComponents(): java.awt.Component[]\l
-- getComponents_NoClientCode(): java.awt.Component[]\l
-- getComponentsSync(): java.awt.Component[]\l
-+ getInsets(): java.awt.Insets\l
-+ insets(): java.awt.Insets\l
-+ add(arg0: java.awt.Component): java.awt.Component\l
-+ add(arg0: java.lang.String, arg1: java.awt.Component): java.awt.Component\l
-+ add(arg0: java.awt.Component, arg1: int): java.awt.Component\l
-- checkAddToSelf(arg0: java.awt.Component): void\l
-- checkNotAWindow(arg0: java.awt.Component): void\l
-- checkAdding(arg0: java.awt.Component, arg1: int): void\l
-- removeDelicately(arg0: java.awt.Component, arg1: java.awt.Container, arg2: int): boolean\l
-- canContainFocusOwner(arg0: java.awt.Component): boolean\l
-- hasHeavyweightDescendants(): boolean\l
-- hasLightweightDescendants(): boolean\l
-- getHeavyweightContainer(): java.awt.Container\l
-- isRemoveNotifyNeeded(arg0: java.awt.Component, arg1: java.awt.Container, arg2: java.awt.Container): boolean\l
-+ setComponentZOrder(arg0: java.awt.Component, arg1: int): void\l
-- reparentTraverse(arg0: java.awt.peer.ContainerPeer, arg1: java.awt.Container): void\l
-- reparentChild(arg0: java.awt.Component): void\l
-- addDelicately(arg0: java.awt.Component, arg1: java.awt.Container, arg2: int): void\l
-+ getComponentZOrder(arg0: java.awt.Component): int\l
-+ add(arg0: java.awt.Component, arg1: java.lang.Object): void\l
-+ add(arg0: java.awt.Component, arg1: java.lang.Object, arg2: int): void\l
-# addImpl(arg0: java.awt.Component, arg1: java.lang.Object, arg2: int): void\l
-- updateGraphicsData(arg0: java.awt.GraphicsConfiguration): boolean\l
-- checkGD(arg0: java.lang.String): void\l
-+ remove(arg0: int): void\l
-+ remove(arg0: java.awt.Component): void\l
-+ removeAll(): void\l
-- numListening(arg0: long): int\l
-- adjustListeningChildren(arg0: long, arg1: int): void\l
-- adjustDescendants(arg0: int): void\l
-- adjustDecendantsOnParent(arg0: int): void\l
-- countHierarchyMembers(): int\l
-- getListenersCount(arg0: int, arg1: boolean): int\l
-- createHierarchyEvents(arg0: int, arg1: java.awt.Component, arg2: java.awt.Container, arg3: long, arg4: boolean): int\l
-- createChildHierarchyEvents(arg0: int, arg1: long, arg2: boolean): void\l
-+ getLayout(): java.awt.LayoutManager\l
-+ setLayout(arg0: java.awt.LayoutManager): void\l
-+ doLayout(): void\l
-+ layout(): void\l
-+ isValidateRoot(): boolean\l
-- invalidateParent(): void\l
-+ invalidate(): void\l
-+ validate(): void\l
-- validateUnconditionally(): void\l
-# validateTree(): void\l
-- invalidateTree(): void\l
-+ setFont(arg0: java.awt.Font): void\l
-+ getPreferredSize(): java.awt.Dimension\l
-+ preferredSize(): java.awt.Dimension\l
-+ getMinimumSize(): java.awt.Dimension\l
-+ minimumSize(): java.awt.Dimension\l
-+ getMaximumSize(): java.awt.Dimension\l
-+ getAlignmentX(): float\l
-+ getAlignmentY(): float\l
-+ paint(arg0: java.awt.Graphics): void\l
-+ update(arg0: java.awt.Graphics): void\l
-+ print(arg0: java.awt.Graphics): void\l
-+ paintComponents(arg0: java.awt.Graphics): void\l
-- lightweightPaint(arg0: java.awt.Graphics): void\l
-- paintHeavyweightComponents(arg0: java.awt.Graphics): void\l
-+ printComponents(arg0: java.awt.Graphics): void\l
-- lightweightPrint(arg0: java.awt.Graphics): void\l
-- printHeavyweightComponents(arg0: java.awt.Graphics): void\l
-+ addContainerListener(arg0: java.awt.event.ContainerListener): void\l
-+ removeContainerListener(arg0: java.awt.event.ContainerListener): void\l
-+ getContainerListeners(): java.awt.event.ContainerListener[]\l
-+ getListeners(arg0: java.lang.Class): java.util.EventListener[]\l
-- eventEnabled(arg0: java.awt.AWTEvent): boolean\l
-# processEvent(arg0: java.awt.AWTEvent): void\l
-# processContainerEvent(arg0: java.awt.event.ContainerEvent): void\l
-- dispatchEventImpl(arg0: java.awt.AWTEvent): void\l
-- dispatchEventToSelf(arg0: java.awt.AWTEvent): void\l
-- getMouseEventTarget(arg0: int, arg1: int, arg2: boolean): java.awt.Component\l
-- getDropTargetEventTarget(arg0: int, arg1: int, arg2: boolean): java.awt.Component\l
-- getMouseEventTarget(arg0: int, arg1: int, arg2: boolean, arg3: java.awt.Container$EventTargetFilter, arg4: boolean): java.awt.Component\l
-- getMouseEventTargetImpl(arg0: int, arg1: int, arg2: boolean, arg3: java.awt.Container$EventTargetFilter, arg4: boolean, arg5: boolean): java.awt.Component\l
-- proxyEnableEvents(arg0: long): void\l
-+ deliverEvent(arg0: java.awt.Event): void\l
-+ getComponentAt(arg0: int, arg1: int): java.awt.Component\l
-+ locate(arg0: int, arg1: int): java.awt.Component\l
-+ getComponentAt(arg0: java.awt.Point): java.awt.Component\l
-+ getMousePosition(arg0: boolean): java.awt.Point\l
-- isSameOrAncestorOf(arg0: java.awt.Component, arg1: boolean): boolean\l
-+ findComponentAt(arg0: int, arg1: int): java.awt.Component\l
-- findComponentAt(arg0: int, arg1: int, arg2: boolean): java.awt.Component\l
-- findComponentAtImpl(arg0: int, arg1: int, arg2: boolean): java.awt.Component\l
-- getChildAt(arg0: java.awt.Component, arg1: int, arg2: int, arg3: boolean): java.awt.Component\l
-+ findComponentAt(arg0: java.awt.Point): java.awt.Component\l
-+ addNotify(): void\l
-+ removeNotify(): void\l
-+ isAncestorOf(arg0: java.awt.Component): boolean\l
-- startLWModal(): void\l
-- stopLWModal(): void\l
-# paramString(): java.lang.String\l
-+ list(arg0: java.io.PrintStream, arg1: int): void\l
-+ list(arg0: java.io.PrintWriter, arg1: int): void\l
-+ setFocusTraversalKeys(arg0: int, arg1: java.util.Set): void\l
-+ getFocusTraversalKeys(arg0: int): java.util.Set\l
-+ areFocusTraversalKeysSet(arg0: int): boolean\l
-+ isFocusCycleRoot(arg0: java.awt.Container): boolean\l
-- findTraversalRoot(): java.awt.Container\l
-- containsFocus(): boolean\l
-- isParentOf(arg0: java.awt.Component): boolean\l
-- clearMostRecentFocusOwnerOnHide(): void\l
-- clearCurrentFocusCycleRootOnHide(): void\l
-- getTraversalRoot(): java.awt.Container\l
-+ setFocusTraversalPolicy(arg0: java.awt.FocusTraversalPolicy): void\l
-+ getFocusTraversalPolicy(): java.awt.FocusTraversalPolicy\l
-+ isFocusTraversalPolicySet(): boolean\l
-+ setFocusCycleRoot(arg0: boolean): void\l
-+ isFocusCycleRoot(): boolean\l
-+ setFocusTraversalPolicyProvider(arg0: boolean): void\l
-+ isFocusTraversalPolicyProvider(): boolean\l
-+ transferFocusDownCycle(): void\l
-- preProcessKeyEvent(arg0: java.awt.event.KeyEvent): void\l
-- postProcessKeyEvent(arg0: java.awt.event.KeyEvent): void\l
-- postsOldMouseEvents(): boolean\l
-+ applyComponentOrientation(arg0: java.awt.ComponentOrientation): void\l
-+ addPropertyChangeListener(arg0: java.beans.PropertyChangeListener): void\l
-+ addPropertyChangeListener(arg0: java.lang.String, arg1: java.beans.PropertyChangeListener): void\l
-- writeObject(arg0: java.io.ObjectOutputStream): void\l
-- readObject(arg0: java.io.ObjectInputStream): void\l
-- getAccessibleAt(arg0: java.awt.Point): javax.accessibility.Accessible\l
-- getAccessibleChildrenCount(): int\l
-- getAccessibleChild(arg0: int): javax.accessibility.Accessible\l
-- increaseComponentCount(arg0: java.awt.Component): void\l
-- decreaseComponentCount(arg0: java.awt.Component): void\l
-- getTopmostComponentIndex(): int\l
-- getBottommostComponentIndex(): int\l
-- getOpaqueShape(): sun.java2d.pipe.Region\l
-- recursiveSubtractAndApplyShape(arg0: sun.java2d.pipe.Region): void\l
-- recursiveSubtractAndApplyShape(arg0: sun.java2d.pipe.Region, arg1: int): void\l
-- recursiveSubtractAndApplyShape(arg0: sun.java2d.pipe.Region, arg1: int, arg2: int): void\l
-- recursiveApplyCurrentShape(): void\l
-- recursiveApplyCurrentShape(arg0: int): void\l
-- recursiveApplyCurrentShape(arg0: int, arg1: int): void\l
-- recursiveShowHeavyweightChildren(): void\l
-- recursiveHideHeavyweightChildren(): void\l
-- recursiveRelocateHeavyweightChildren(arg0: java.awt.Point): void\l
-- isRecursivelyVisibleUpToHeavyweightContainer(): boolean\l
-- mixOnShowing(): void\l
-- mixOnHiding(arg0: boolean): void\l
-- mixOnReshaping(): void\l
-- mixOnZOrderChanging(arg0: int, arg1: int): void\l
-- mixOnValidating(): void\l
+ color="null",
+ style="filled",
+ fillcolor="red"
+ label="{DummyAdapter1\n\<\<adaptor\>\>\n | - a : DummyAdaptee\l|+ method(): int\l
 }" 
 ];
-Component -> Container [arrowhead="vee", style="solid", dir = "both", arrowtail = "vee", taillabel = "", color = "red"];
+DummyAdapter2 [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{DummyAdapter2 | - a : DummyAdaptee\l|+ getStr(): java.lang.String\l
++ getInt(): int\l
+}" 
+];
+DummyTargetClass [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{DummyTargetClass | |+ getStr(): java.lang.String\l
++ getInt(): int\l
++ getChar(): char\l
++ getBool(): boolean\l
+}" 
+];
+DummyTargetInterface [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="red"
+ label="{\<\<interface\>\>\n
+DummyTargetInterface\n\<\<target\>\>\n | |+ method(): int\{abstract\}\l
+}" 
+];
+DummyAdapter1 -> DummyAdaptee [arrowhead="vee", style="solid", label = "\n\<\<adapts\>\>", taillabel = "", color = ""];
 
-Component -> Component [arrowhead="vee", style="dashed", taillabel = "", color = ""];
+DummyAdapter1 -> DummyTargetInterface [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
 
-Container -> Container [arrowhead="vee", style="dashed", taillabel = "", color = ""];
+DummyAdapter2 -> DummyAdaptee [arrowhead="vee", style="solid", taillabel = "", color = ""];
 
-Container -> Component [arrowhead="onormal", style="solid", taillabel = "", color = ""];
+DummyAdapter2 -> DummyTargetClass [arrowhead="onormal", style="solid", taillabel = "", color = ""];
 
 }
