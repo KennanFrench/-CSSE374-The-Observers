@@ -1,56 +1,55 @@
 digraph ILoveThisProject{
 rankdir=BT;
-DummyAdaptee [
+Decorator [
  shape="record",
  color="null",
  style="filled",
- fillcolor="red"
- label="{DummyAdaptee\n\<\<adaptee\>\>\n | |+ m(): int\l
+ fillcolor="green"
+ label="{\<\<abstract\>\>\n
+Decorator\n\<\<decorator\>\>\n\<\<bad\>\>\n | # decorated : TextProcessor\l|+ transform(): java.lang.String\l
 }" 
 ];
-DummyAdapter1 [
+SwitchProcessor [
  shape="record",
  color="null",
  style="filled",
- fillcolor="red"
- label="{DummyAdapter1\n\<\<adaptor\>\>\n | - a : DummyAdaptee\l|+ method(): int\l
+ fillcolor="green"
+ label="{SwitchProcessor\n\<\<decorator\>\>\n | - transformerUsed : Transformer\l|+ transform(): java.lang.String\l
+- switchTransformer(): void\l
 }" 
 ];
-DummyAdapter2 [
+TextProcessor [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="green"
+ label="{TextProcessor\n\<\<component\>\>\n | # text : String\l# transformer : Transformer\l|+ getText(): java.lang.String\l
++ setText(arg0: java.lang.String): void\l
++ find(arg0: java.lang.String): int\l
++ transform(): java.lang.String\l
+}" 
+];
+Transformer [
  shape="record",
  color="null",
  style="filled",
  fillcolor="white"
- label="{DummyAdapter2 | - a : DummyAdaptee\l|+ getStr(): java.lang.String\l
-+ getInt(): int\l
-}" 
-];
-DummyTargetClass [
- shape="record",
- color="null",
- style="filled",
- fillcolor="white"
- label="{DummyTargetClass | |+ getStr(): java.lang.String\l
-+ getInt(): int\l
-+ getChar(): char\l
-+ getBool(): boolean\l
-}" 
-];
-DummyTargetInterface [
- shape="record",
- color="null",
- style="filled",
- fillcolor="red"
  label="{\<\<interface\>\>\n
-DummyTargetInterface\n\<\<target\>\>\n | |+ method(): int\{abstract\}\l
+Transformer | |+ transform(arg0: java.lang.String): java.lang.String\{abstract\}\l
 }" 
 ];
-DummyAdapter1 -> DummyAdaptee [arrowhead="vee", style="solid", label = "\n\<\<adapts\>\>", taillabel = "", color = ""];
+Decorator -> TextProcessor [arrowhead="vee", style="solid", label = "\<\<decorates\>\>", taillabel = "", color = ""];
 
-DummyAdapter1 -> DummyTargetInterface [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+Decorator -> Transformer [arrowhead="vee", style="dashed", taillabel = "", color = ""];
 
-DummyAdapter2 -> DummyAdaptee [arrowhead="vee", style="solid", taillabel = "", color = ""];
+Decorator -> TextProcessor [arrowhead="onormal", style="solid", taillabel = "", color = ""];
 
-DummyAdapter2 -> DummyTargetClass [arrowhead="onormal", style="solid", taillabel = "", color = ""];
+SwitchProcessor -> Transformer [arrowhead="vee", style="solid", taillabel = "", color = ""];
+
+SwitchProcessor -> TextProcessor [arrowhead="vee", style="dashed", taillabel = "", color = ""];
+
+SwitchProcessor -> Decorator [arrowhead="onormal", style="solid", taillabel = "", color = ""];
+
+TextProcessor -> Transformer [arrowhead="vee", style="solid", taillabel = "", color = ""];
 
 }

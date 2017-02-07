@@ -17,5 +17,15 @@ public class UMLFactory {
 		}
 		return out;
 	}
+	
+	public UMLClass getClassFromName(String name, ArrayList<UMLClass> classList) {
+		for (UMLClass current : classList) {
+			if (current.getName().equals(name)) {
+				return current;
+			}
+		}
+		System.out.println("uh oh");
+		return null;
+	}
 
 }

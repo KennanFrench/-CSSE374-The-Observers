@@ -13,6 +13,8 @@ public class AdaptorDetector extends AbstractDetector {
 		ArrayList<String> fields = new ArrayList<>();
 		ArrayList<UMLArrow> inheritances = new ArrayList<>();
 		ArrayList<UMLArrow> associations = new ArrayList<>();
+		
+		UMLFactory uFact = new UMLFactory();
 
 		for (UMLArrow arrow : this.arrowList) {
 			if (arrow.getHeadType() == HeadType.CLOSED) {
@@ -48,8 +50,8 @@ public class AdaptorDetector extends AbstractDetector {
 		
 		for (UMLArrow arrow : inheritances) {
 			int overrides = 0;
-			UMLClass child = getClassFromName(arrow.getStart());
-			UMLClass parent = getClassFromName(arrow.getEnd());
+			UMLClass child = uFact.getClassFromName(arrow.getStart(), this.classList);
+			UMLClass parent = uFact.getClassFromName(arrow.getEnd(), this.classList);
 			for (UMLMethod childMethod : child.getMethods()) {
 				for (UMLMethod parentMethod : parent.getMethods()) {
 					if (childMethod.getName().equals(parentMethod.getName())) {
@@ -105,19 +107,19 @@ public class AdaptorDetector extends AbstractDetector {
 		}
 		
 		for (String name : children) {
-			UMLClass child = getClassFromName(name);
+			UMLClass child = uFact.getClassFromName(name, this.classList);
 			child.setBackgroundColor("red");
 			child.setStereotype(child.getStereotype() + "\\n\\<\\<adaptor\\>\\>\\n");
 		}
 		
 		for (String name : parents) {
-			UMLClass parent = getClassFromName(name);
+			UMLClass parent = uFact.getClassFromName(name, this.classList);
 			parent.setBackgroundColor("red");
 			parent.setStereotype(parent.getStereotype() + "\\n\\<\\<target\\>\\>\\n");
 		}
 		
 		for (String name : fields) {
-			UMLClass field = getClassFromName(name);
+			UMLClass field = uFact.getClassFromName(name, this.classList);
 			field.setBackgroundColor("red");
 			field.setStereotype(field.getStereotype() + "\\n\\<\\<adaptee\\>\\>\\n");
 		}
@@ -127,14 +129,4 @@ public class AdaptorDetector extends AbstractDetector {
 		}
 	}
 	
-	private UMLClass getClassFromName(String name) {
-		for (UMLClass current : this.classList) {
-			if (current.getName().equals(name)) {
-				return current;
-			}
-		}
-		System.out.println("uh oh");
-		return null;
-	}
-
 }
