@@ -1,55 +1,357 @@
 digraph ILoveThisProject{
 rankdir=BT;
-Decorator [
+DynamicPizzaStore [
  shape="record",
  color="null",
  style="filled",
- fillcolor="green"
+ fillcolor="white"
+ label="{DynamicPizzaStore | - pizzaMetaFactory : PizzaMetaFactory\l|+ execute(arg0: java.lang.String[]): void\l
+- takeOrder(arg0: java.util.Scanner): boolean\l
++ main(arg0: java.lang.String[]): void\l
+}" 
+];
+NYPizzaStore [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{NYPizzaStore | - pizzaFactory : IFactory\l|+ execute(arg0: java.lang.String[]): void\l
++ main(arg0: java.lang.String[]): void\l
+}" 
+];
+AbstractPizzaFactory [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
  label="{\<\<abstract\>\>\n
-Decorator\n\<\<decorator\>\>\n\<\<bad\>\>\n | # decorated : TextProcessor\l|+ transform(): java.lang.String\l
-}" 
+AbstractPizzaFactory | |}" 
 ];
-SwitchProcessor [
+ChicagoPizzaFactory [
  shape="record",
  color="null",
  style="filled",
- fillcolor="green"
- label="{SwitchProcessor\n\<\<decorator\>\>\n | - transformerUsed : Transformer\l|+ transform(): java.lang.String\l
-- switchTransformer(): void\l
+ fillcolor="white"
+ label="{ChicagoPizzaFactory | |# createSpecial(arg0: java.lang.Class, arg1: java.lang.String): java.lang.Object\l
 }" 
 ];
-TextProcessor [
+NYPizzaFactory [
  shape="record",
  color="null",
  style="filled",
- fillcolor="green"
- label="{TextProcessor\n\<\<component\>\>\n | # text : String\l# transformer : Transformer\l|+ getText(): java.lang.String\l
-+ setText(arg0: java.lang.String): void\l
-+ find(arg0: java.lang.String): int\l
-+ transform(): java.lang.String\l
+ fillcolor="white"
+ label="{NYPizzaFactory | |# createSpecial(arg0: java.lang.Class, arg1: java.lang.String): java.lang.Object\l
 }" 
 ];
-Transformer [
+PizzaMetaFactory [
+ shape="record",
+ color="purple",
+ style="filled",
+ fillcolor="white"
+ label="{PizzaMetaFactory | |}" 
+];
+BlackOlives [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{BlackOlives | |+ toString(): java.lang.String\l
+}" 
+];
+Cheese [
  shape="record",
  color="null",
  style="filled",
  fillcolor="white"
  label="{\<\<interface\>\>\n
-Transformer | |+ transform(arg0: java.lang.String): java.lang.String\{abstract\}\l
+Cheese | |+ toString(): java.lang.String\{abstract\}\l
 }" 
 ];
-Decorator -> TextProcessor [arrowhead="vee", style="solid", label = "\<\<decorates\>\>", taillabel = "", color = ""];
+Clams [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{\<\<interface\>\>\n
+Clams | |+ toString(): java.lang.String\{abstract\}\l
+}" 
+];
+Dough [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{\<\<interface\>\>\n
+Dough | |+ toString(): java.lang.String\{abstract\}\l
+}" 
+];
+Eggplant [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{Eggplant | |+ toString(): java.lang.String\l
+}" 
+];
+FreshClams [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{FreshClams | |+ toString(): java.lang.String\l
+}" 
+];
+FrozenClams [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{FrozenClams | |+ toString(): java.lang.String\l
+}" 
+];
+Garlic [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{Garlic | |+ toString(): java.lang.String\l
+}" 
+];
+MarinaraSauce [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{MarinaraSauce | |+ toString(): java.lang.String\l
+}" 
+];
+MozzarellaCheese [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{MozzarellaCheese | |+ toString(): java.lang.String\l
+}" 
+];
+CheesePizza [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{CheesePizza | |}" 
+];
+ClamPizza [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{ClamPizza | - clam : Clams\l|+ toString(): java.lang.String\l
+}" 
+];
+PepperoniPizza [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{PepperoniPizza | - pepperoni : Pepperoni\l|+ toString(): java.lang.String\l
+}" 
+];
+Pizza [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{\<\<abstract\>\>\n
+Pizza | - name : String\l- dough : Dough\l- sauce : Sauce\l- cheese : Cheese\l|+ prepare(): void\l
++ bake(): void\l
++ cut(): void\l
++ box(): void\l
++ setName(arg0: java.lang.String): void\l
++ getName(): java.lang.String\l
++ toString(): java.lang.String\l
+}" 
+];
+VeggiePizza [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{VeggiePizza | - veggies : Veggies\l|+ toString(): java.lang.String\l
+}" 
+];
+Veggies [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{\<\<interface\>\>\n
+Veggies | |+ toString(): java.lang.String\{abstract\}\l
+}" 
+];
+ThinCrustDough [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{ThinCrustDough | |+ toString(): java.lang.String\l
+}" 
+];
+ThickCrustDough [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{ThickCrustDough | |+ toString(): java.lang.String\l
+}" 
+];
+Spinach [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{Spinach | |+ toString(): java.lang.String\l
+}" 
+];
+SlicedPepperoni [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{SlicedPepperoni | |+ toString(): java.lang.String\l
+}" 
+];
+Sauce [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{\<\<interface\>\>\n
+Sauce | |+ toString(): java.lang.String\{abstract\}\l
+}" 
+];
+ReggianoCheese [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{ReggianoCheese | |+ toString(): java.lang.String\l
+}" 
+];
+RedPepper [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{RedPepper | |+ toString(): java.lang.String\l
+}" 
+];
+PlumTomatoSauce [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{PlumTomatoSauce | |+ toString(): java.lang.String\l
+}" 
+];
+Pepperoni [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{\<\<interface\>\>\n
+Pepperoni | |+ toString(): java.lang.String\{abstract\}\l
+}" 
+];
+ParmesanCheese [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{ParmesanCheese | |+ toString(): java.lang.String\l
+}" 
+];
+Onion [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{Onion | |+ toString(): java.lang.String\l
+}" 
+];
+Mushroom [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{Mushroom | |+ toString(): java.lang.String\l
+}" 
+];
+DynamicPizzaStore -> PizzaMetaFactory [arrowhead="vee", style="solid", taillabel = "", color = ""];
 
-Decorator -> Transformer [arrowhead="vee", style="dashed", taillabel = "", color = ""];
+DynamicPizzaStore -> Pizza [arrowhead="vee", style="dashed", taillabel = "", color = ""];
 
-Decorator -> TextProcessor [arrowhead="onormal", style="solid", taillabel = "", color = ""];
+NYPizzaStore -> Pizza [arrowhead="vee", style="dashed", taillabel = "", color = ""];
 
-SwitchProcessor -> Transformer [arrowhead="vee", style="solid", taillabel = "", color = ""];
+ChicagoPizzaFactory -> Veggies [arrowhead="vee", style="dashed", taillabel = "", color = ""];
 
-SwitchProcessor -> TextProcessor [arrowhead="vee", style="dashed", taillabel = "", color = ""];
+ChicagoPizzaFactory -> AbstractPizzaFactory [arrowhead="onormal", style="solid", taillabel = "", color = ""];
 
-SwitchProcessor -> Decorator [arrowhead="onormal", style="solid", taillabel = "", color = ""];
+NYPizzaFactory -> Veggies [arrowhead="vee", style="dashed", taillabel = "", color = ""];
 
-TextProcessor -> Transformer [arrowhead="vee", style="solid", taillabel = "", color = ""];
+NYPizzaFactory -> AbstractPizzaFactory [arrowhead="onormal", style="solid", taillabel = "", color = ""];
+
+BlackOlives -> Veggies [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+Eggplant -> Veggies [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+FreshClams -> Clams [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+FrozenClams -> Clams [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+Garlic -> Veggies [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+MarinaraSauce -> Sauce [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+MozzarellaCheese -> Cheese [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+CheesePizza -> Pizza [arrowhead="onormal", style="solid", taillabel = "", color = ""];
+
+ClamPizza -> Clams [arrowhead="vee", style="solid", taillabel = "", color = ""];
+
+ClamPizza -> Pizza [arrowhead="onormal", style="solid", taillabel = "", color = ""];
+
+PepperoniPizza -> Pepperoni [arrowhead="vee", style="solid", taillabel = "", color = ""];
+
+PepperoniPizza -> Pizza [arrowhead="onormal", style="solid", taillabel = "", color = ""];
+
+Pizza -> Dough [arrowhead="vee", style="solid", taillabel = "", color = ""];
+
+Pizza -> Sauce [arrowhead="vee", style="solid", taillabel = "", color = ""];
+
+Pizza -> Cheese [arrowhead="vee", style="solid", taillabel = "", color = ""];
+
+VeggiePizza -> Veggies [arrowhead="vee", style="solid", taillabel = "", color = ""];
+
+VeggiePizza -> Pizza [arrowhead="onormal", style="solid", taillabel = "", color = ""];
+
+ThinCrustDough -> Dough [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+ThickCrustDough -> Dough [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+Spinach -> Veggies [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+SlicedPepperoni -> Pepperoni [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+ReggianoCheese -> Cheese [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+RedPepper -> Veggies [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+PlumTomatoSauce -> Sauce [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+ParmesanCheese -> Cheese [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+Onion -> Veggies [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
+
+Mushroom -> Veggies [arrowhead="onormal", style="dashed", taillabel = "", color = ""];
 
 }

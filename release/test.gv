@@ -1,0 +1,106 @@
+digraph ILoveThisProject{
+rankdir=BT;
+InputStreamReader [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{InputStreamReader | - sd : StreamDecoder\l|+ getEncoding(): java.lang.String\l
++ read(): int\l
++ read(arg0: char[], arg1: int, arg2: int): int\l
++ ready(): boolean\l
++ close(): void\l
+}" 
+];
+OutputStreamWriter [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{OutputStreamWriter | - se : StreamEncoder\l|+ getEncoding(): java.lang.String\l
+- flushBuffer(): void\l
++ write(arg0: int): void\l
++ write(arg0: char[], arg1: int, arg2: int): void\l
++ write(arg0: java.lang.String, arg1: int, arg2: int): void\l
++ flush(): void\l
++ close(): void\l
+}" 
+];
+MouseAdapter [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{\<\<abstract\>\>\n
+MouseAdapter | |+ mouseClicked(arg0: java.awt.event.MouseEvent): void\l
++ mousePressed(arg0: java.awt.event.MouseEvent): void\l
++ mouseReleased(arg0: java.awt.event.MouseEvent): void\l
++ mouseEntered(arg0: java.awt.event.MouseEvent): void\l
++ mouseExited(arg0: java.awt.event.MouseEvent): void\l
++ mouseWheelMoved(arg0: java.awt.event.MouseWheelEvent): void\l
++ mouseDragged(arg0: java.awt.event.MouseEvent): void\l
++ mouseMoved(arg0: java.awt.event.MouseEvent): void\l
+}" 
+];
+StreamDecoder [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{StreamDecoder | - cs : Charset\l- decoder : CharsetDecoder\l- bb : ByteBuffer\l- in : InputStream\l- ch : ReadableByteChannel\l|- ensureOpen(): void\l
++ forInputStreamReader(arg0: java.io.InputStream, arg1: java.lang.Object, arg2: java.lang.String): sun.nio.cs.StreamDecoder\l
++ forInputStreamReader(arg0: java.io.InputStream, arg1: java.lang.Object, arg2: java.nio.charset.Charset): sun.nio.cs.StreamDecoder\l
++ forInputStreamReader(arg0: java.io.InputStream, arg1: java.lang.Object, arg2: java.nio.charset.CharsetDecoder): sun.nio.cs.StreamDecoder\l
++ forDecoder(arg0: java.nio.channels.ReadableByteChannel, arg1: java.nio.charset.CharsetDecoder, arg2: int): sun.nio.cs.StreamDecoder\l
++ getEncoding(): java.lang.String\l
++ read(): int\l
+- read0(): int\l
++ read(arg0: char[], arg1: int, arg2: int): int\l
++ ready(): boolean\l
++ close(): void\l
+- isOpen(): boolean\l
+- getChannel(arg0: java.io.FileInputStream): java.nio.channels.FileChannel\l
+- readBytes(): int\l
+- implRead(arg0: char[], arg1: int, arg2: int): int\l
+- encodingName(): java.lang.String\l
+- inReady(): boolean\l
+- implReady(): boolean\l
+- implClose(): void\l
+}" 
+];
+StreamEncoder [
+ shape="record",
+ color="null",
+ style="filled",
+ fillcolor="white"
+ label="{StreamEncoder | - cs : Charset\l- encoder : CharsetEncoder\l- bb : ByteBuffer\l- out : OutputStream\l- ch : WritableByteChannel\l- lcb : CharBuffer\l|- ensureOpen(): void\l
++ forOutputStreamWriter(arg0: java.io.OutputStream, arg1: java.lang.Object, arg2: java.lang.String): sun.nio.cs.StreamEncoder\l
++ forOutputStreamWriter(arg0: java.io.OutputStream, arg1: java.lang.Object, arg2: java.nio.charset.Charset): sun.nio.cs.StreamEncoder\l
++ forOutputStreamWriter(arg0: java.io.OutputStream, arg1: java.lang.Object, arg2: java.nio.charset.CharsetEncoder): sun.nio.cs.StreamEncoder\l
++ forEncoder(arg0: java.nio.channels.WritableByteChannel, arg1: java.nio.charset.CharsetEncoder, arg2: int): sun.nio.cs.StreamEncoder\l
++ getEncoding(): java.lang.String\l
++ flushBuffer(): void\l
++ write(arg0: int): void\l
++ write(arg0: char[], arg1: int, arg2: int): void\l
++ write(arg0: java.lang.String, arg1: int, arg2: int): void\l
++ flush(): void\l
++ close(): void\l
+- isOpen(): boolean\l
+- writeBytes(): void\l
+- flushLeftoverChar(arg0: java.nio.CharBuffer, arg1: boolean): void\l
+- implWrite(arg0: char[], arg1: int, arg2: int): void\l
+- implFlushBuffer(): void\l
+- implFlush(): void\l
+- implClose(): void\l
+- encodingName(): java.lang.String\l
+}" 
+];
+InputStreamReader -> StreamDecoder [arrowhead="vee", style="solid", taillabel = "", color = ""];
+
+OutputStreamWriter -> StreamEncoder [arrowhead="vee", style="solid", taillabel = "", color = ""];
+
+StreamDecoder -> StreamDecoder [arrowhead="vee", style="dashed", taillabel = "", color = ""];
+
+StreamEncoder -> StreamEncoder [arrowhead="vee", style="dashed", taillabel = "", color = ""];
+
+}
